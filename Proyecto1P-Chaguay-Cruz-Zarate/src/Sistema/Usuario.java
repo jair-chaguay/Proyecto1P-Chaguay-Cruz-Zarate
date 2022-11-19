@@ -9,7 +9,7 @@ package Sistema;
  * @author HP
  */
 public abstract class Usuario {
-    protected String cedula,nombres,apellidos,coreo,contrasena;
+    protected String cedula,nombres,apellidos,correo,contrasena;
     protected int edad;
     protected tipoCategoria tipoCategoria;
 
