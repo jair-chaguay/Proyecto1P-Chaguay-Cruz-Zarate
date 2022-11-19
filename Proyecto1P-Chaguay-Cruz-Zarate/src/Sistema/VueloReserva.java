@@ -15,7 +15,7 @@ public class VueloReserva {
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
-    private ArrayList<Vuelo> listaVuelos;
+    private ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
     public Vuelo getCodigoVuelo() {
         return codigoVuelo;
