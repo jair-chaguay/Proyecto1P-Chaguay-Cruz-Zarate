@@ -4,11 +4,17 @@
  */
 package Sistema;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author HP
  */
 public class Sistema {
+   ArrayList<Usuario> listaUsuarios;
+   ArrayList<Reserva> listaReservas;
+   ArrayList<Itinerarios> listaItinerarios;
+   ArrayList<Avion> listaAviones;
    public static void main(String[] args){
        
    }
