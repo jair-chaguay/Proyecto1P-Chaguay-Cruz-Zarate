@@ -11,10 +11,10 @@ import java.util.ArrayList;
  * @author HP
  */
 public class Sistema {
-   ArrayList<Usuario> listaUsuarios;
-   ArrayList<Reserva> listaReservas;
-   ArrayList<Itinerarios> listaItinerarios;
-   ArrayList<Avion> listaAviones;
+   ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+   ArrayList<Reserva> listaReservas=new ArrayList<>();
+   ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+   ArrayList<Avion> listaAviones=new ArrayList<>();
    
    public static void main(String[] args){
        
