@@ -9,12 +9,8 @@ package Sistema;
  * @author HP
  */
 public abstract class Usuario {
-    protected String cedula;
-    protected String nombres;
-    protected String apellidos;
+    protected String cedula,nombres,apellidos,coreo,contrasena;
     protected int edad;
-    protected String correo;
-    protected String contrasena;
     protected tipoCategoria tipoCategoria;
 
     public String getCedula() {
