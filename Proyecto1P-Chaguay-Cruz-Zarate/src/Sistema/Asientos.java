@@ -9,5 +9,33 @@ package Sistema;
  * @author HP
  */
 public class Asientos {
+    private Avion avion;
+    private String numAsiento;
+    private disponibilidad disponible;
+
+    public Avion getAvion() {
+        return avion;
+    }
+
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
+
+    public String getNumAsiento() {
+        return numAsiento;
+    }
+
+    public void setNumAsiento(String numAsiento) {
+        this.numAsiento = numAsiento;
+    }
+
+    public disponibilidad getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(disponibilidad disponible) {
+        this.disponible = disponible;
+    }
+    
     
 }
