@@ -15,7 +15,20 @@ public class Sistema {
    ArrayList<Reserva> listaReservas;
    ArrayList<Itinerarios> listaItinerarios;
    ArrayList<Avion> listaAviones;
+   
    public static void main(String[] args){
+       
+   }
+   public void mostrarMenuCliente(){
+       
+   }
+   public void mostrarMenuOpe(){
+       
+   }
+   public void validarInformacion(){
+       
+   }
+   public void IniciarSesion(){
        
    }
 }
