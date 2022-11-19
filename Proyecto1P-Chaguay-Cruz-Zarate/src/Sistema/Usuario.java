@@ -68,6 +68,7 @@ public abstract class Usuario {
     public void setTipoCategoria(tipoCategoria tipoCategoria) {
         this.tipoCategoria = tipoCategoria;
     }
+    @Override
     public String toString(){
         return "Cedula: "+cedula+", nombres: "+nombres+",apellidos: "+apellidos+",edad: "+edad+", correo: "+correo+",contrasena: "+contrasena;
     }
