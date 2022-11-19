@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Reserva {
     private String codigo;
-    private ArrayList<VueloReserva> vuelosReserva;
+    private ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
     private Cliente cliente;
     private Date fecha;
     private double valorPagar;
