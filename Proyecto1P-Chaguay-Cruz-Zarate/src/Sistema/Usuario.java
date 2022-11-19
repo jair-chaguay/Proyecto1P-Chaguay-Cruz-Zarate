@@ -69,7 +69,7 @@ public abstract class Usuario {
         this.tipoCategoria = tipoCategoria;
     }
     public String toString(){
-        return "Cedula: "+cedula+", nombres: "+nombres+",apellidos: "+apellidos+",edad: "+edad+", correo: "+correo",contrasena: "+contrasena;
+        return "Cedula: "+cedula+", nombres: "+nombres+",apellidos: "+apellidos+",edad: "+edad+", correo: "+correo+",contrasena: "+contrasena;
     }
     
     public abstract void consultarReservas();
