@@ -12,6 +12,17 @@ public abstract class Usuario {
     protected String cedula,nombres,apellidos,correo,contrasena;
     protected int edad;
     protected tipoCategoria tipoCategoria;
+    
+    public Usuario(String cedula, String nombres, String apellidos,int edad, String correo, String contrasena, tipoCategoria tipoCategoria){
+        
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.edad = edad;
+        this.tipoCategoria = tipoCategoria;
+    }
 
     public String getCedula() {
         return cedula;
