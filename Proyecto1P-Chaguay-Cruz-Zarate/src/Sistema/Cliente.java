@@ -10,7 +10,14 @@ package Sistema;
  */
 public class Cliente extends Usuario {
     private int numTarjetaCredito;
+    
 
+    public Cliente( String cedula, String nombres, String apellidos, int edad, String correo, String contrasena, tipoCategoria tipoCategoria, int numTarjetaCredito) {
+        super(cedula, nombres, apellidos, edad, correo, contrasena, tipoCategoria);
+        this.numTarjetaCredito = numTarjetaCredito;
+    }
+
+    
     public int getNumTarjetaCredito() {
         return numTarjetaCredito;
     }
