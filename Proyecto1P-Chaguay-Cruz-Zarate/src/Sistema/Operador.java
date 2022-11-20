@@ -11,8 +11,8 @@ package Sistema;
 public class Operador extends Usuario{
     private double sueldo;
 
-    public Operador(String cedula, String nombres, String apellidos, int edad, String correo, String contrasena, tipoCategoria tipoCategoria, double sueldo) {
-        super(cedula, nombres, apellidos, edad, correo, contrasena, tipoCategoria);
+    public Operador(String cedula, String nombres, String apellidos, int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria, double sueldo) {
+        super(cedula, nombres, apellidos, edad, correo, usuario, contrasena, tipoCategoria);
         this.sueldo = sueldo;
     }
 
