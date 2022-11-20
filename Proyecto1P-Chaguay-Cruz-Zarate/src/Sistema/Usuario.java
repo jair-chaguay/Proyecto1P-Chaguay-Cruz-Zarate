@@ -4,6 +4,9 @@
  */
 package Sistema;
 
+import Elementos.*;
+import Enums.*;
+
 /**
  *
  * @author HP
