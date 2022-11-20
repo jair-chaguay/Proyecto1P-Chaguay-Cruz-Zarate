@@ -9,6 +9,6 @@ package Sistema;
  * @author DELL
  */
 public enum tipoRango {
-    GoldPass,
+    GoldenPass,
     PlatinumPass
 }
