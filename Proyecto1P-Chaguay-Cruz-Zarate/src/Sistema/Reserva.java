@@ -58,7 +58,13 @@ public class Reserva {
         this.valorPagar = valorPagar;
     }
     
-    private void crearCadena(){
+    private String crearCadena(){
         
+        String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String caleatoria="";
+        for(int i=0; i<6;i++){
+            int 
+        }
+        return caleatoria;
     }
 }
