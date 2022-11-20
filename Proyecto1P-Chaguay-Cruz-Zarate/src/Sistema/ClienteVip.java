@@ -12,8 +12,8 @@ public class ClienteVip extends Cliente{
     private tipoRango rango;
     private int millas=1000;
 
-    public ClienteVip(String cedula, String nombres, String apellidos, int edad, String correo, String contrasena,tipoCategoria tipoCategoria, int numTarjetaCredito, tipoRango rango, int millas) {
-        super(cedula, nombres, apellidos, edad, correo, contrasena, tipoCategoria, numTarjetaCredito);
+    public ClienteVip(String cedula, String nombres, String apellidos, int edad, String correo,String usuario, String contrasena,tipoCategoria tipoCategoria, int numTarjetaCredito, tipoRango rango, int millas) {
+        super(cedula, nombres, apellidos, edad, correo,usuario, contrasena, tipoCategoria, numTarjetaCredito);
         this.rango = rango;
         this.millas=millas;
     }
