@@ -9,16 +9,17 @@ package Sistema;
  * @author HP
  */
 public abstract class Usuario {
-    protected String cedula,nombres,apellidos,correo,contrasena;
+    protected String cedula,nombres,apellidos,correo,usuario, contrasena;
     protected int edad;
     protected tipoCategoria tipoCategoria;
     
-    public Usuario(String cedula, String nombres, String apellidos,int edad, String correo, String contrasena, tipoCategoria tipoCategoria){
+    public Usuario(String cedula, String nombres, String apellidos,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria){
         
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
+        this.usuario=usuario;
         this.contrasena = contrasena;
         this.edad = edad;
         this.tipoCategoria = tipoCategoria;
