@@ -9,7 +9,7 @@ package Sistema;
  * @author DELL
  */
 public enum tipoCategoria {
-    S,
-    V,
-    O
+    Estandar,
+    Vip,
+    Operador
 }
