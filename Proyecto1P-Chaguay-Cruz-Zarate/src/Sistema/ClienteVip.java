@@ -37,6 +37,12 @@ public class ClienteVip extends Cliente{
     public void setMillas(int millas) {
         this.millas = millas;
     }
+    
+    @Override
+    public String toString(){
+        toString();
+        return "Rango: "+rango+",millas: "+millas;
+    }
     @Override
     public void comprarTickets(){
         
