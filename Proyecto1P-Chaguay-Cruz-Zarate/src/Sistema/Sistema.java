@@ -26,8 +26,9 @@ public class Sistema {
        Scanner sc=new Scanner(System.in);
        System.out.print("USUARIO: ");
        String usuario=sc.nextLine();
-       System.out.print("CONTRASEddhsd: ");
+       System.out.print("CONTRASEÑA: ");
        String contrasena=sc.nextLine();
+       
    }
    public void mostrarMenuCliente(){
        
