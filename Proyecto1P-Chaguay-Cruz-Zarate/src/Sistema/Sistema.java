@@ -32,8 +32,8 @@ public class Sistema {
    public static void main(String[] args){
        ArrayList<Usuario> listaUsuarios=new ArrayList<>();
        ArrayList<Reserva> listaReservas=new ArrayList<>();
-   ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
-   ArrayList<Avion> listaAviones=new ArrayList<>();
+       ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+       ArrayList<Avion> listaAviones=new ArrayList<>();
        
        System.out.println("++++++++++++++++++++++++++++++++++++++++");
        System.out.println("BIENVENIDO AL SISTEMA");
