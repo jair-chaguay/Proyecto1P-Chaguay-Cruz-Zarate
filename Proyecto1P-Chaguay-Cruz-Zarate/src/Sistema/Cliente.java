@@ -4,7 +4,8 @@
  */
 package Sistema;
 
-import 
+import Enums.*;
+import Elementos.*;
 
 /**
  *
