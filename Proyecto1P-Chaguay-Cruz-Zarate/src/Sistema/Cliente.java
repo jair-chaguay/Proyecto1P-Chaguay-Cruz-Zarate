@@ -28,6 +28,13 @@ public class Cliente extends Usuario {
     public void setNumTarjetaCredito(int numTarjetaCredito) {
         this.numTarjetaCredito = numTarjetaCredito;
     }
+    
+    @Override
+    public String toString(){
+        toString();
+        return "Num T/C: "+numTarjetaCredito;
+    }
+        
    
     @Override
     public void consultarReservas(){
