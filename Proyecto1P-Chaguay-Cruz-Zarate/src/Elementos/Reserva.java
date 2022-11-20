@@ -64,13 +64,13 @@ public class Reserva {
     private String crearCadena(){
         
         String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        String caleatoria="";
+        String codigo="";
         Random r=new Random();
         for(int i=0; i<6;i++){
             int posicion= r.nextInt(opciones.length());
             char caracter=opciones.charAt(posicion);
-            caleatoria+=caracter;
+            codigo+=caracter;
         }
-        return caleatoria;
+        return codigo;
     }
 }
