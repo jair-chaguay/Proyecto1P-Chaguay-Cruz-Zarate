@@ -15,13 +15,7 @@ import java.util.Scanner;
  */
 public class Sistema {
    
-   ArrayList<Reserva> listaReservas=new ArrayList<>();
-   ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
-   ArrayList<Avion> listaAviones=new ArrayList<>();
    
-   
-   
-  
    public void mostrarMenuCliente(){
        
    }
@@ -37,8 +31,9 @@ public class Sistema {
    
    public static void main(String[] args){
        ArrayList<Usuario> listaUsuarios=new ArrayList<>();
-       ManejoArchivos.LeerArchivo("usuarios.txt");
-       System.out.println("ManejoArchivos.LeerArchivo(\"usuarios.txt\");");
+       ArrayList<Reserva> listaReservas=new ArrayList<>();
+   ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+   ArrayList<Avion> listaAviones=new ArrayList<>();
        
        System.out.println("++++++++++++++++++++++++++++++++++++++++");
        System.out.println("BIENVENIDO AL SISTEMA");
