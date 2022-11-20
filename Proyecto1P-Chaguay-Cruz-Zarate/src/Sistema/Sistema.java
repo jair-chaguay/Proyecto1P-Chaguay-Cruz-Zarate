@@ -5,6 +5,7 @@
 package Sistema;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,7 +18,14 @@ public class Sistema {
    ArrayList<Avion> listaAviones=new ArrayList<>();
    
    public static void main(String[] args){
-       
+       System.out.println("++++++++++++++++++++++++++++++++++++++++");
+       System.out.println("BIENVENIDO AL SISTEMA");
+       System.out.println("++++++++++++++++++++++++++++++++++++++++");
+       Scanner sc=new Scanner(System.in);
+       System.out.print("USUARIO: ");
+       String usuario=sc.nextLine();
+       System.out.print("CONTRASEÑA: ");
+       String contrasena=sc.nextLine();
    }
    public void mostrarMenuCliente(){
        
