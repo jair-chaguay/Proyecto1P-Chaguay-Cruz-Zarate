@@ -28,6 +28,12 @@ public class Operador extends Usuario{
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+    
+    @Override
+    public String toString(){
+        toString();
+        return "Sueldo: "+sueldo;
+    }
     @Override
     public void consultarReservas(){
         
