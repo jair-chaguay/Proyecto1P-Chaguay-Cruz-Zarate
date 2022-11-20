@@ -4,6 +4,8 @@
  */
 package Sistema;
 
+import Elementos.*;
+import Enums.*;
 import java.util.ArrayList;
 
 /**
