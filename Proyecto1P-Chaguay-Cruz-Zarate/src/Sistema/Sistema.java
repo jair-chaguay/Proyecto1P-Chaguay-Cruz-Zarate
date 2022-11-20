@@ -5,7 +5,7 @@
 package Sistema;
 
 import Elementos.*;
-import Enums.*;
+import Archivos.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,22 +14,14 @@ import java.util.Scanner;
  * @author HP
  */
 public class Sistema {
-   ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+   
    ArrayList<Reserva> listaReservas=new ArrayList<>();
    ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
    ArrayList<Avion> listaAviones=new ArrayList<>();
    
-   public static void main(String[] args){
-       System.out.println("++++++++++++++++++++++++++++++++++++++++");
-       System.out.println("BIENVENIDO AL SISTEMA");
-       System.out.println("++++++++++++++++++++++++++++++++++++++++");
-       Scanner sc=new Scanner(System.in);
-       System.out.print("USUARIO: ");
-       String usuario=sc.nextLine();
-       System.out.print("CONTRASEÑA: ");
-       String contrasena=sc.nextLine();
-       
-   }
+   
+   
+  
    public void mostrarMenuCliente(){
        
    }
@@ -42,4 +34,22 @@ public class Sistema {
    public void IniciarSesion(){
        
    }
+   
+   public static void main(String[] args){
+       ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+       ManejoArchivos.LeerArchivo("usuarios.txt");
+       System.out.println("ManejoArchivos.LeerArchivo(\"usuarios.txt\");");
+       
+       System.out.println("++++++++++++++++++++++++++++++++++++++++");
+       System.out.println("BIENVENIDO AL SISTEMA");
+       System.out.println("++++++++++++++++++++++++++++++++++++++++");
+       Scanner sc=new Scanner(System.in);
+       System.out.print("USUARIO: ");
+       String usuario=sc.nextLine();
+       System.out.print("CONTRASEÑA: ");
+       String contrasena=sc.nextLine();
+       
+       
+   }
+   
 }
