@@ -21,6 +21,14 @@ public class Reserva {
     private Date fecha;
     private double valorPagar;
 
+    public Reserva(String codigo, Cliente cliente, Date fecha, double valorPagar) {
+        this.codigo = codigo;
+        this.cliente = cliente;
+        this.fecha = fecha;
+        this.valorPagar = valorPagar;
+    }
+    
+
     public String getCodigo() {
         return codigo;
     }
@@ -64,13 +72,13 @@ public class Reserva {
     private String crearCadena(){
         
         String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        String codigo="";
+        String cadena="";
         Random r=new Random();
         for(int i=0; i<6;i++){
             int posicion= r.nextInt(opciones.length());
             char caracter=opciones.charAt(posicion);
-            codigo+=caracter;
+            cadena+=caracter;
         }
-        return codigo;
+        return cadena;
     }
 }
