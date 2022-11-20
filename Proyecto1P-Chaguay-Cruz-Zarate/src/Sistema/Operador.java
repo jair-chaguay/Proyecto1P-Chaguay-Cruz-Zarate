@@ -4,6 +4,8 @@
  */
 package Sistema;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author HP
@@ -30,6 +32,16 @@ public class Operador extends Usuario{
     }
     @Override
     public void elegirOpcion(){
+        
+    }
+    public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
+        for(Usuario u:listaUsuarios){
+            if(u instanceof Cliente c){
+                System.out.println(c.getNombres()+", "+c.getApellidos()+", CLIENTE "+c.getTipoCategoria()+", "+c.getCedula());
+            } if(u instanceof Operador o){
+                System.out.println(o.getNombres()+", "+o.getApellidos()+", "+o.getTipoCategoria()+", "+o.getSueldo());
+            }
+        }
         
     }
     
