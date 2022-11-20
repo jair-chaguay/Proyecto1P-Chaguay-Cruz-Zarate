@@ -8,6 +8,7 @@ import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -64,8 +65,11 @@ public class Reserva {
         
         String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         String caleatoria="";
+        Random r=new Random();
         for(int i=0; i<6;i++){
-            int 
+            int posicion= r.nextInt(opciones.length());
+            char caracter=opciones.charAt(posicion);
+            caleatoria+=caracter;
         }
         return caleatoria;
     }
