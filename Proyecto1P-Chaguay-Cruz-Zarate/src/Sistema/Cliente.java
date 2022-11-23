@@ -53,4 +53,9 @@ public class Cliente extends Usuario {
     public void crearReserva(){
         
     }
+    public void mostrarMenuCliente(){
+        System.out.println("1. Comprar tickets aereos");
+        System.out.println("2. Consultar reservas");
+        System.out.println("3. Salir");
+    }
 }
