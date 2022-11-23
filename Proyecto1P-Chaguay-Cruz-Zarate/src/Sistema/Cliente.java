@@ -43,10 +43,10 @@ public class Cliente extends Usuario {
     public void comprarTickets(){
         
     }
-    @Override
-    public void elegirOpcion(){
-        
-    }
+//    @Override
+//    public void elegirOpcion(){
+//        
+//    }
     public void pagar(int numTarjetaCredito){
         
     }
