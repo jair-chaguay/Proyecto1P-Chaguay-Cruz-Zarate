@@ -20,10 +20,14 @@ public class Sistema {
    static ArrayList<Avion> listaAviones;
            
    public void mostrarMenuCliente(){
-       
+        System.out.println("1. Comprar tickets aereos");
+        System.out.println("2. Consultar reservas");
+        System.out.println("3. Salir");
    }
    public void mostrarMenuOpe(){
-       
+       System.out.println("1. Consultar usuarios");
+       System.out.println("2. Consultar reservas");
+       System.out.println("3. Salir");
    }
    public void validarInformacion(){
        
@@ -46,9 +50,8 @@ public class Sistema {
         String usuario=sc.nextLine();
         System.out.print("CONTRASEÑA: ");
         String contrasena=sc.nextLine();
-        System.out.println("1. Comprar tickets aeres");
-        System.out.println("2. Consultar reservas");
-        System.out.println("3. Salir");
+        
+        mostrarMenuCliente();
         int opc=0;
         while(opc!=3){
             System.out.println("Ingrese opcion: ");
@@ -67,6 +70,26 @@ public class Sistema {
 
             }
         }
+        mostrarMenuOpe();
+        int opc2=0;
+        while(opc2!=3){
+            System.out.println("Ingrese opcion: ");
+            opc2=sc.nextInt();
+            sc.nextLine();
+            switch(opc2){
+                case 1:
+                   
+                   break;
+                case 2:
+                    
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+                    break;
+
+            }
+        }
+        
    }
    
 }
