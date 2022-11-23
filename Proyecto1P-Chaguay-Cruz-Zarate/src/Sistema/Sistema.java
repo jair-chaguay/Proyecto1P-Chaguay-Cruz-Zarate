@@ -63,10 +63,10 @@ public class Sistema {
                         sc.nextLine();
                         switch(opc){
                             case 1:
-
-                               break;
+                                cliente.comprarTickets();
+                                break;
                             case 2:
-
+                                cliente.consultarReservas();
                                 break;
                             default:
                                 System.out.println("Opcion invalida");
@@ -83,10 +83,10 @@ public class Sistema {
                         sc.nextLine();
                         switch(opc2){
                             case 1:
-
+                                operador.consultarUsuarios(listaUsuarios);
                                break;
                             case 2:
-
+                                operador.consultarReservas();
                                 break;
                             default:
                                 System.out.println("Opcion invalida");
