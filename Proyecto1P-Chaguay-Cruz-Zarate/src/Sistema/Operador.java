@@ -38,10 +38,10 @@ public class Operador extends Usuario{
     public void consultarReservas(){
         
     }
-    @Override
-    public void elegirOpcion(){
-        
-    }
+//    @Override
+//    public void elegirOpcion(){
+//        
+//    }
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
         for(Usuario u:listaUsuarios){
             if(u instanceof Cliente c){
