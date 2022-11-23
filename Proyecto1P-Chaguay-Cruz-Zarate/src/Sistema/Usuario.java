@@ -99,9 +99,9 @@ public abstract class Usuario {
     
     public abstract void consultarReservas();
     
-    public void elegirOpcion(){
-        
-    }
+//    public void elegirOpcion(){
+//        
+//    }
     
     
 }
