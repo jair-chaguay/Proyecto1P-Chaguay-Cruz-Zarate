@@ -29,6 +29,14 @@ public abstract class Usuario {
         this.tipoCategoria = tipoCategoria;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getCedula() {
         return cedula;
     }
@@ -94,5 +102,6 @@ public abstract class Usuario {
     public void elegirOpcion(){
         
     }
+    
     
 }
