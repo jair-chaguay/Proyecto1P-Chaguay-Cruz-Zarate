@@ -15,18 +15,26 @@ import java.util.ArrayList;
  * @author HP
  */
 public class VueloReserva {
-    private Vuelo codigoVuelo;
+    private Vuelo codigoVueloReserva;
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
     private ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
-    public Vuelo getCodigoVuelo() {
-        return codigoVuelo;
+    public VueloReserva(Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
+        this.codigoVueloReserva = codigoVueloReserva;
+        this.tipoVuelo = tipoVuelo;
+        this.tarifa = tarifa;
+        this.asiento = asiento;
     }
 
-    public void setCodigoVuelo(Vuelo codigoVuelo) {
-        this.codigoVuelo = codigoVuelo;
+    
+    public Vuelo getCodigoVueloReserva() {
+        return codigoVueloReserva;
+    }
+
+    public void setCodigoVueloReserva(Vuelo codigoVueloReserva) {
+        this.codigoVueloReserva = codigoVueloReserva;
     }
 
     public tipoVuelo getTipoVuelo() {
@@ -61,5 +69,8 @@ public class VueloReserva {
         this.listaVuelos = listaVuelos;
     }
     
-    
+    @Override
+    public String toString(){
+        return codigoVueloReserva+","+tipoVuelo+","+tarifa+","+asiento;
+    }
 }
