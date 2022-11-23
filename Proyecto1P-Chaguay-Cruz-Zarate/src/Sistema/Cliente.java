@@ -35,7 +35,7 @@ public class Cliente extends Usuario {
         return "Num T/C: "+numTarjetaCredito;
     }
         
-   
+    
     @Override
     public void consultarReservas(){
         
