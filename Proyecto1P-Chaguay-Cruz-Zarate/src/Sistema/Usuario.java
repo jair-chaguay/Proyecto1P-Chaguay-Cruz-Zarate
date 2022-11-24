@@ -17,6 +17,8 @@ public abstract class Usuario {
     protected int edad;
     protected tipoCategoria tipoCategoria;
     
+    
+    
     public Usuario(String cedula, String nombres, String apellidos,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria){
         
         this.cedula = cedula;
