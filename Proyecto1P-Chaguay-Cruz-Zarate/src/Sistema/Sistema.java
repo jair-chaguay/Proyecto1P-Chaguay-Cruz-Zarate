@@ -18,9 +18,10 @@ public class Sistema {
    static ArrayList<Reserva> listaReservas;
    static ArrayList<Itinerarios> listaItinerarios;
    static ArrayList<Avion> listaAviones;
-           
    
-
+//   ArrayList<String> usuarios= ManejoArchivos.LeerArchivo("usuarios.txt");
+    
+     
 //   public void validarInformacion(){
 //       
 //   }
@@ -43,6 +44,8 @@ public class Sistema {
         listaReservas=new ArrayList<>();
         listaItinerarios=new ArrayList<>();
         listaAviones=new ArrayList<>();
+        
+       
 
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("BIENVENIDO AL SISTEMA");
@@ -64,6 +67,7 @@ public class Sistema {
                         switch(opc){
                             case 1:
                                 cliente.comprarTickets();
+                                
                                 break;
                             case 2:
                                 cliente.consultarReservas();
