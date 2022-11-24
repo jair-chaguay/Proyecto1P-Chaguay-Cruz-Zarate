@@ -45,5 +45,6 @@ public class Avion {
     public void asignarAsiento(){
         
         
+        
     }
 }
