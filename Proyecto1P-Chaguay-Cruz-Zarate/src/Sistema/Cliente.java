@@ -14,6 +14,7 @@ import Elementos.*;
 public class Cliente extends Usuario {
     private int numTarjetaCredito;
     
+    
 
     public Cliente( String cedula, String nombres, String apellidos, int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria, int numTarjetaCredito) {
         super(cedula, nombres, apellidos, edad, correo,usuario, contrasena, tipoCategoria);
@@ -41,7 +42,18 @@ public class Cliente extends Usuario {
         
     }
     public void comprarTickets(){
+        System.out.println("----ORIGEN----");
+        System.out.println("1. Guayaquil");
+        System.out.println("2. Lima");
+        System.out.println("Elige punto de partida: ");
         
+        System.out.println("----DESTINO----");
+        System.out.println("1. Guayaquil");
+        System.out.println("2. Lima");
+        System.out.println("Elige punto de destino: ");
+        
+        System.out.println("Fecha de salida: " +"/"+" / ");
+        System.out.println("Fecha de retorno: " +"/ "+"/ ");
     }
 //    @Override
 //    public void elegirOpcion(){
