@@ -79,7 +79,22 @@ public class ManejoArchivos {
             }
         }
     }
-
+    public static ArrayList<String[]> leerValidando(String nombreArchivo,boolean saltarPrimeraLinea){
+        ArrayList<String> lineas=ManejoArchivos.LeerArchivo(nombreArchivo);
+        ArrayList<String[]> datosUsuarios=new ArrayList<>();
+        int i;
+        if(saltarPrimeraLinea){ 
+            for(i=1;i<lineas.size();i++){
+                datosUsuarios.add(lineas.get(i).split(";"));
+            }
+        }else{
+            for(i=0;i<lineas.size();i++){
+            datosUsuarios.add(lineas.get(i).split(";"));
+            }
+        }
+        
+        return datosUsuarios;
+    }
    
 
    
