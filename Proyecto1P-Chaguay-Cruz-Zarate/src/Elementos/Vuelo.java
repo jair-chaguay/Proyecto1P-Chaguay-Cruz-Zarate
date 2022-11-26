@@ -18,8 +18,10 @@ public class Vuelo {
     private Itinerarios itinerario;
     private Date fechaSalida;
     private Date fechaLlegada;
-    private int millas;
+    private int precioMillas;
     private String codigoVuelo;
+    
+    
 
     public Avion getAvion() {
         return avion;
@@ -61,12 +63,12 @@ public class Vuelo {
         this.fechaLlegada = fechaLlegada;
     }
 
-    public int getMillas() {
-        return millas;
+    public int getPrecioMillas() {
+        return precioMillas;
     }
 
-    public void setMillas(int millas) {
-        this.millas = millas;
+    public void setPrecioMillas(int precioMillas) {
+        this.precioMillas = precioMillas;
     }
 
     public String getCodigoVuelo() {

@@ -7,22 +7,28 @@ package Elementos;
 import Enums.disponibilidad;
 import Sistema.*;
 import Enums.*;
-
 /**
  *
  * @author HP
  */
 public class Asientos {
-    private Avion avion;
+    private String codigoAvion;
     private String numAsiento;
     private disponibilidad disponible;
 
-    public Avion getAvion() {
-        return avion;
+    public Asientos(String codigoAvion, String numAsiento, disponibilidad disponible) {
+        this.codigoAvion = codigoAvion;
+        this.numAsiento = numAsiento;
+        this.disponible = disponible;
     }
 
-    public void setAvion(Avion avion) {
-        this.avion = avion;
+    
+    public String getCodigoAvion() {
+        return codigoAvion;
+    }
+
+    public void setCodigoAvion(String codigoAvion) {
+        this.codigoAvion = codigoAvion;
     }
 
     public String getNumAsiento() {
@@ -40,6 +46,7 @@ public class Asientos {
     public void setDisponible(disponibilidad disponible) {
         this.disponible = disponible;
     }
+    
     
     
 }

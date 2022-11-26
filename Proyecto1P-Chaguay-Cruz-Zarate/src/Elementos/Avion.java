@@ -4,6 +4,7 @@
  */
 package Elementos;
 
+import static Archivos.ManejoArchivos.LeerValidando;
 import Elementos.Asientos;
 import Sistema.*;
 import Enums.*;
@@ -18,6 +19,12 @@ public class Avion {
     private int capacidad;
     private ArrayList<Asientos> listaAsientos;
 
+    public Avion(String codigoAvion,int capacidad,ArrayList<Asientos> listaAsientos){
+        this.codigoAvion=codigoAvion;
+        this.capacidad=capacidad;
+        this.listaAsientos=listaAsientos;
+    }
+    
     public String getCodigoAvion() {
         return codigoAvion;
     }
@@ -42,9 +49,24 @@ public class Avion {
         this.listaAsientos = listaAsientos;
     }
     
-    public void asignarAsiento(){
-        
-        
-        
+    
+    public static void cargarAsientos(ArrayList<Asientos> listaAsientos){
+        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
+        Asientos a;
+        for(String[] dato:datosAsientos){
+            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
+            listaAsientos.add(a);
+        }
+    }
+    public void asignarAsiento(ArrayList<Asientos> listaAsientos){
+        Avion.cargarAsientos(listaAsientos);
+        for(Asientos asiento: listaAsientos){
+            if(asiento.getDisponible().equals("S")){
+                
+            }else{
+                break;
+            }
+            
+        }
     }
 }
