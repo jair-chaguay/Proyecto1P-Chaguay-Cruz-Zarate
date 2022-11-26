@@ -25,24 +25,19 @@ public class Sistema {
    
 //   ArrayList<String> usuarios= ManejoArchivos.LeerArchivo("usuarios.txt");
     
-     
-//   public void validarInformacion(){
+//    public static void IniciarSesion(){
+//
+//    }
+//    public void validarInformacion(){
 //       
-//   }
-//   public void IniciarSesion(){
-//       
-//   }
-    public static void mostrarMenuOperario(){
-        System.out.println("1. Consultar usuarios");
-        System.out.println("2. Consultar reservas");
-        System.out.println("3. Salir");
+//    }
+    public static void mostrarMenuOperador(){
+        System.out.println("1. Consultar usuarios\n2. Consultar reservas\n3. Salir");
     }
     public static void mostrarMenuCliente(){
-        System.out.println("1. Comprar tickets aereos");
-        System.out.println("2. Consultar reservas");
-        System.out.println("3. Salir");
+        System.out.println("1. Comprar tickets aereos\n2. Consultar reservas\n3. Salir");
     }
-    public static void cargarUsarios(ArrayList<Usuario> listaUsuarios){
+    public static void cargarUsuarios(ArrayList<Usuario> listaUsuarios){
         ArrayList<String[]> datosUsuarios=LeerValidando("usuarios.txt",true);
         Usuario u;
         for(String[] dato:datosUsuarios){
@@ -62,7 +57,16 @@ public class Sistema {
             }
         }
     }
-   
+    
+    public static void cargarItinerarios(ArrayList<Itinerarios> listaItinerarios){
+        ArrayList<String[]> datosItinerarios=LeerValidando("itinerarios.txt",true);
+        Itinerarios i;
+        for(String[] dato:datosItinerarios){
+            i=new Itinerarios(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5]);
+            listaItinerarios.add(i);
+        }
+    }
+    
     public static void main(String[] args){
 //        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
 //            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
@@ -76,9 +80,8 @@ public class Sistema {
         String user=sc.nextLine();
         System.out.print("CONTRASEÑA: ");
         String password=sc.nextLine();
-        
-        
-        Sistema.cargarUsarios(listaUsuarios);
+       
+        Sistema.cargarUsuarios(listaUsuarios);
         
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
@@ -92,7 +95,6 @@ public class Sistema {
                         switch(opc){
                             case 1:
                                 cliente.comprarTickets();
-                                
                                 break;
                             case 2:
                                 cliente.consultarReservas();
@@ -104,7 +106,7 @@ public class Sistema {
                     }
                 }
                 if(usuario instanceof Operador operador){
-                    Sistema.mostrarMenuOperario();
+                    Sistema.mostrarMenuOperador();
                     int opc2=0;
                     while(opc2!=3){
                         System.out.println("Ingrese opcion: ");

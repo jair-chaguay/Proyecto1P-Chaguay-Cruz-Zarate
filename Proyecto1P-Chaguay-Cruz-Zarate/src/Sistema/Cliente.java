@@ -61,20 +61,18 @@ public class Cliente extends Usuario {
         
         System.out.println("Fecha de salida: " +"/"+" / ");
         System.out.println("Fecha de retorno: " +"/ "+"/ ");
-    }
-//    @Override
-//    public void elegirOpcion(){
-//        
-//    }
+        
+        System.out.println("***************PASO 1***************\n************************************");
+        System.out.println("------Vuelos disponibles IDA-----");
+        System.out.println("----------------1----------------");
+    }    
+    
+
     public void pagar(int numTarjetaCredito){
         
     }
     public void crearReserva(){
         
     }
-//    public void mostrarMenuCliente(){
-//        System.out.println("1. Comprar tickets aereos");
-//        System.out.println("2. Consultar reservas");
-//        System.out.println("3. Salir");
-//    }
+
 }

@@ -44,23 +44,21 @@ public class Operador extends Usuario{
     public void consultarReservas(){
         
     }
-//    @Override
-//    public void elegirOpcion(){
-//        
-//    }
+
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
         for(Usuario u:listaUsuarios){
             if(u instanceof Cliente c){
-                System.out.println(c.getNombres()+", CLIENTE "+c.getTipoCategoria()+", "+c.getCedula());
+                if(c instanceof ClienteVip cv){
+                    System.out.println(c.getNombres()+", CLIENTE VIP "+cv.getRango()+", "+c.getCedula());
+                }else{
+                    System.out.println(c.getNombres()+", CLIENTE ESTANDAR, "+c.getCedula());
+                }   
+               
             } if(u instanceof Operador o){
-                System.out.println(o.getNombres()+", "+o.getTipoCategoria()+", "+o.getSueldo());
+                System.out.println(o.getNombres()+", OPERADOR, "+o.getSueldo());
             }
         }
         
     }
-//    public void mostrarMenuOperario(){
-//        System.out.println("1. Consultar usuarios");
-//        System.out.println("2. Consultar reservas");
-//        System.out.println("3. Salir");
-//    }
+    
 }

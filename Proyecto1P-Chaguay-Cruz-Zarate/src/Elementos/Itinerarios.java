@@ -11,14 +11,23 @@ import Enums.*;
  * @author HP
  */
 public class Itinerarios {
-    private int cod;
+    private String cod;
     private String origenCiudad, destinoCiudad,duracion,horaSalida,horaLlegada;
+    
+    public Itinerarios(String cod,String origenCiudad,String destinoCiudad,String horaSalida,String horaLlegada,String duracion){
+        this.cod = cod;
+        this.origenCiudad = origenCiudad;
+        this.destinoCiudad = destinoCiudad;
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
+        this.duracion = duracion;
+    }
 
-    public int getCod() {
+    public String getCod() {
         return cod;
     }
 
-    public void setCod(int cod) {
+    public void setCod(String cod) {
         this.cod = cod;
     }
 

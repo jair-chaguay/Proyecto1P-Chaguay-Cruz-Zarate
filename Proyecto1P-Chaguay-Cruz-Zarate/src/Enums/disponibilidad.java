@@ -9,5 +9,5 @@ package Enums;
  * @author DELL
  */
 public enum disponibilidad {
-    Disponible, Ocupado
+    S, N
 }
