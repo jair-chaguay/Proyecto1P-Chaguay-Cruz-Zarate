@@ -6,6 +6,8 @@ package Sistema;
 
 import Elementos.*;
 import Archivos.*;
+import Enums.*;
+import static Archivos.ManejoArchivos.LeerValidando;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,10 +16,12 @@ import java.util.Scanner;
  * @author HP
  */
 public class Sistema {
-   static ArrayList<Usuario> listaUsuarios;
-   static ArrayList<Reserva> listaReservas;
-   static ArrayList<Itinerarios> listaItinerarios;
-   static ArrayList<Avion> listaAviones;
+   static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+   static ArrayList<Reserva> listaReservas=new ArrayList<>();
+   static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+   static ArrayList<Avion> listaAviones=new ArrayList<>();
+   
+   
    
 //   ArrayList<String> usuarios= ManejoArchivos.LeerArchivo("usuarios.txt");
     
@@ -28,28 +32,41 @@ public class Sistema {
 //   public void IniciarSesion(){
 //       
 //   }
-//    public void mostrarMenuOperario(){
-//        System.out.println("1. Consultar usuarios");
-//        System.out.println("2. Consultar reservas");
-//        System.out.println("3. Salir");
-//    }
-//    public void mostrarMenuCliente(){
-//        System.out.println("1. Comprar tickets aereos");
-//        System.out.println("2. Consultar reservas");
-//        System.out.println("3. Salir");
-//    }
+    public static void mostrarMenuOperario(){
+        System.out.println("1. Consultar usuarios");
+        System.out.println("2. Consultar reservas");
+        System.out.println("3. Salir");
+    }
+    public static void mostrarMenuCliente(){
+        System.out.println("1. Comprar tickets aereos");
+        System.out.println("2. Consultar reservas");
+        System.out.println("3. Salir");
+    }
+    public static void cargarUsarios(ArrayList<Usuario> listaUsuarios){
+        ArrayList<String[]> datosUsuarios=LeerValidando("usuarios.txt",true);
+        Usuario u;
+        for(String[] dato:datosUsuarios){
+            switch(dato[6]){
+                case "S":
+                    u=new Cliente(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
+                    listaUsuarios.add(u);
+                    break;
+                case "V":
+                    u=new ClienteVip(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
+                    listaUsuarios.add(u);
+                    break; 
+                case "O":
+                    u=new Operador(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
+                    listaUsuarios.add(u);
+                    break;    
+            }
+        }
+    }
    
     public static void main(String[] args){
 //        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
 //            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
 //        }
-        
-        listaUsuarios=new ArrayList<>();
-        listaReservas=new ArrayList<>();
-        listaItinerarios=new ArrayList<>();
-        listaAviones=new ArrayList<>();
-        
-       
 
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("BIENVENIDO AL SISTEMA");
@@ -59,10 +76,14 @@ public class Sistema {
         String user=sc.nextLine();
         System.out.print("CONTRASEÑA: ");
         String password=sc.nextLine();
+        
+        
+        Sistema.cargarUsarios(listaUsuarios);
+        
         for(Usuario usuario:listaUsuarios){
-            if(usuario.getUsuario().equals(user)){
+            if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
                 if(usuario instanceof Cliente cliente){
-                    cliente.mostrarMenuCliente();
+                    Sistema.mostrarMenuCliente();
                     int opc=0;
                     while(opc!=3){
                         System.out.println("Ingrese opcion: ");
@@ -83,7 +104,7 @@ public class Sistema {
                     }
                 }
                 if(usuario instanceof Operador operador){
-                    operador.mostrarMenuOperario();
+                    Sistema.mostrarMenuOperario();
                     int opc2=0;
                     while(opc2!=3){
                         System.out.println("Ingrese opcion: ");

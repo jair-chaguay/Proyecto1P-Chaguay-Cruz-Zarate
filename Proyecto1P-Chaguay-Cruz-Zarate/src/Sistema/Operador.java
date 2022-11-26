@@ -58,9 +58,9 @@ public class Operador extends Usuario{
         }
         
     }
-    public void mostrarMenuOperario(){
-        System.out.println("1. Consultar usuarios");
-        System.out.println("2. Consultar reservas");
-        System.out.println("3. Salir");
-    }
+//    public void mostrarMenuOperario(){
+//        System.out.println("1. Consultar usuarios");
+//        System.out.println("2. Consultar reservas");
+//        System.out.println("3. Salir");
+//    }
 }
