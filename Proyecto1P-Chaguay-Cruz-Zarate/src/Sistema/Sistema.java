@@ -40,6 +40,10 @@ public class Sistema {
 //    }
    
     public static void main(String[] args){
+//        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
+//            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
+//        }
+        
         listaUsuarios=new ArrayList<>();
         listaReservas=new ArrayList<>();
         listaItinerarios=new ArrayList<>();

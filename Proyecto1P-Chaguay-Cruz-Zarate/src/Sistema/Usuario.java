@@ -13,17 +13,16 @@ import Archivos.*;
  * @author HP
  */
 public abstract class Usuario {
-    protected String cedula,nombres,apellidos,correo,usuario, contrasena;
+    protected String cedula,nombres,correo,usuario, contrasena;
     protected int edad;
     protected tipoCategoria tipoCategoria;
     
     
     
-    public Usuario(String cedula, String nombres, String apellidos,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria){
+    public Usuario(String cedula, String nombres,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria){
         
         this.cedula = cedula;
         this.nombres = nombres;
-        this.apellidos = apellidos;
         this.correo = correo;
         this.usuario=usuario;
         this.contrasena = contrasena;
@@ -55,13 +54,6 @@ public abstract class Usuario {
         this.nombres = nombres;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
 
     public int getEdad() {
         return edad;
@@ -96,7 +88,7 @@ public abstract class Usuario {
     }
     @Override
     public String toString(){
-        return "Cedula: "+cedula+", nombres: "+nombres+",apellidos: "+apellidos+",edad: "+edad+", correo: "+correo+",contrasena: "+contrasena+",categoria: "+tipoCategoria;
+        return "Cedula: "+cedula+", nombres: "+nombres+",edad: "+edad+", correo: "+correo+",contrasena: "+contrasena+",categoria: "+tipoCategoria;
     }
     
     public abstract void consultarReservas();

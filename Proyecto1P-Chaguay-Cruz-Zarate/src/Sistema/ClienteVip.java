@@ -4,29 +4,36 @@
  */
 package Sistema;
 
+import static Archivos.ManejoArchivos.LeerValidando;
 import Elementos.*;
 import Enums.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author HP
  */
 public class ClienteVip extends Cliente{
-    private tipoRango rango;
+    private String rango;
     private int millas=1000;
 
-    public ClienteVip(String cedula, String nombres, String apellidos, int edad, String correo,String usuario, String contrasena,tipoCategoria tipoCategoria, int numTarjetaCredito, tipoRango rango, int millas) {
-        super(cedula, nombres, apellidos, edad, correo,usuario, contrasena, tipoCategoria, numTarjetaCredito);
-        this.rango = rango;
-        this.millas=millas;
+    public ClienteVip(String cedula, String nombres,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria) {
+        super(cedula, nombres,edad, correo,usuario, contrasena, tipoCategoria);
+        ArrayList<String[]> datosClientes=LeerValidando("clientes.txt",true);
+        for(String[] dato:datosClientes){
+            if(dato[0].equals(cedula)){
+                this.rango=dato[2];
+                this.millas=Integer.valueOf(dato[3]);
+            }
+        }    
     }
 
     
-    public tipoRango getRango() {
+    public String getRango() {
         return rango;
     }
 
-    public void setRango(tipoRango rango) {
+    public void setRango(String rango) {
         this.rango = rango;
     }
 

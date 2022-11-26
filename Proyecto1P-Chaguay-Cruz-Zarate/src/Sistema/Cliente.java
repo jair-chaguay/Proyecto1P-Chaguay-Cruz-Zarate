@@ -4,29 +4,36 @@
  */
 package Sistema;
 
+import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author HP
  */
 public class Cliente extends Usuario {
-    private int numTarjetaCredito;
+    private String numTarjetaCredito;
     
     
 
-    public Cliente( String cedula, String nombres, String apellidos, int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria, int numTarjetaCredito) {
-        super(cedula, nombres, apellidos, edad, correo,usuario, contrasena, tipoCategoria);
-        this.numTarjetaCredito = numTarjetaCredito;
+    public Cliente(String cedula, String nombres,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria) {
+        super(cedula, nombres, edad, correo,usuario, contrasena, tipoCategoria);
+        ArrayList<String[]> datosClientes=LeerValidando("clientes.txt",true);
+        for(String[] dato:datosClientes){
+            if(dato[0].equals(cedula)){
+                this.numTarjetaCredito=dato[1];
+            }
+        }
     }
 
     
-    public int getNumTarjetaCredito() {
+    public String getNumTarjetaCredito() {
         return numTarjetaCredito;
     }
 
-    public void setNumTarjetaCredito(int numTarjetaCredito) {
+    public void setNumTarjetaCredito(String numTarjetaCredito) {
         this.numTarjetaCredito = numTarjetaCredito;
     }
     
