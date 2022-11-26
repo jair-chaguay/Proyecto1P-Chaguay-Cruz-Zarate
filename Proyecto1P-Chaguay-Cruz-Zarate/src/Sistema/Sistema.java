@@ -37,7 +37,7 @@ public class Sistema {
     public static void mostrarMenuCliente(){
         System.out.println("1. Comprar tickets aereos\n2. Consultar reservas\n3. Salir");
     }
-    public static void cargarUsuarios(ArrayList<Usuario> listaUsuarios){
+    public static void cargarUsuarios(){
         ArrayList<String[]> datosUsuarios=LeerValidando("usuarios.txt",true);
         Usuario u;
         for(String[] dato:datosUsuarios){
@@ -58,7 +58,7 @@ public class Sistema {
         }
     }
     
-    public static void cargarItinerarios(ArrayList<Itinerarios> listaItinerarios){
+    public static void cargarItinerarios(){
         ArrayList<String[]> datosItinerarios=LeerValidando("itinerarios.txt",true);
         Itinerarios i;
         for(String[] dato:datosItinerarios){
@@ -81,10 +81,17 @@ public class Sistema {
         System.out.print("CONTRASEÑA: ");
         String password=sc.nextLine();
        
-        Sistema.cargarUsuarios(listaUsuarios);
+        Sistema.cargarUsuarios();
+        Sistema.cargarItinerarios();
+//        boolean nombre=true;
+//        while(nombre){
+//            
+//        }
+            
         
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
+//            if(listaUsuarios.Contains(user)){
                 if(usuario instanceof Cliente cliente){
                     Sistema.mostrarMenuCliente();
                     int opc=0;

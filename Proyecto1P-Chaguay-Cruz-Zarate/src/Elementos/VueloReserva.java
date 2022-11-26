@@ -20,7 +20,7 @@ public class VueloReserva {
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
-    private ArrayList<Vuelo> listaVuelos=new ArrayList<>();
+    private static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
     public VueloReserva(Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
         this.codigoVueloReserva = codigoVueloReserva;
@@ -74,11 +74,11 @@ public class VueloReserva {
     public String toString(){
         return codigoVueloReserva+","+tipoVuelo+","+tarifa+","+asiento;
     }
-    public static void cargarVuelos(ArrayList<Vuelo> listaVuelos){
+    public static void cargarVuelos(){
         ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
         Vuelo v;
         for(String[] dato:datosVuelo){
-            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6]);
+            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],Integer.valueOf(dato[5]),Integer.valueOf(dato[6]));
             listaVuelos.add(v);
         }
     }

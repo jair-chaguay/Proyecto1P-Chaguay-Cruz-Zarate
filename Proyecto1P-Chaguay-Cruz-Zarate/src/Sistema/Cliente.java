@@ -7,7 +7,9 @@ package Sistema;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import static Sistema.Sistema.listaItinerarios;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -43,28 +45,62 @@ public class Cliente extends Usuario {
         return "Num T/C: "+numTarjetaCredito;
     }
         
-    
+    Scanner sc=new Scanner(System.in);
     @Override
     public void consultarReservas(){
         
     }
     public void comprarTickets(){
-        System.out.println("----ORIGEN----");
-        System.out.println("1. Guayaquil");
-        System.out.println("2. Lima");
-        System.out.println("Elige punto de partida: ");
+        String ciudadOrigen="";
+        boolean comprar = true;
+
+        while(comprar){
+            int opcion = 0;
+            int cont = 0;
+            ArrayList<String> ciudOrigen = ciudadesOrigen();
+            System.out.println("----ORIGEN----");
+            for(String i: ciudOrigen){
+                cont++;
+                System.out.println(cont +". " + i);
+            }
+            System.out.print("Seleccione su punto de partida: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            if(opcion <= cont && !(opcion<=0)){
+                ciudadOrigen = ciudOrigen.get(cont-1);
+                comprar = false;
+            }
+            else{
+                System.out.println("Seleccion Invalida");
+            }
+
+        }
+        comprar = true;
+        String ciudadDestino;
         
-        System.out.println("----DESTINO----");
-        System.out.println("1. Guayaquil");
-        System.out.println("2. Lima");
-        System.out.println("Elige punto de destino: ");
-        
-        System.out.println("Fecha de salida: " +"/"+" / ");
-        System.out.println("Fecha de retorno: " +"/ "+"/ ");
-        
-        System.out.println("***************PASO 1***************\n************************************");
-        System.out.println("------Vuelos disponibles IDA-----");
-        System.out.println("----------------1----------------");
+        while(comprar){
+            int cont =0;
+            int opcion = 0;
+            ArrayList<String> ciudDestino = ciudadesDestino(ciudadOrigen);
+            System.out.println("----DESTINO----");
+            for(String i: ciudDestino){
+               cont++;
+                System.out.println(cont + ". " + i);
+            }
+            
+            System.out.print("Seleccione el punto de llegada: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            
+            if(opcion <= cont && !(opcion<=0) ){
+                ciudadDestino = ciudDestino.get(cont-1);
+                comprar = false;
+            }
+            else{
+                System.out.println("Seleccion Invalida");
+            }
+            
+        }
     }    
     
 
@@ -74,5 +110,27 @@ public class Cliente extends Usuario {
     public void crearReserva(){
         
     }
-
+    public ArrayList<String> ciudadesOrigen(){
+        ArrayList<String> origen = new ArrayList<>();
+        
+        for(Itinerarios i: listaItinerarios){
+            if(!origen.contains(i.getOrigenCiudad())){
+                origen.add(i.getOrigenCiudad());
+            }
+        }
+        
+        return origen;
+    }
+    
+    public ArrayList<String> ciudadesDestino(String origen){
+        ArrayList<String> destino = new ArrayList<>();
+        
+        for(Itinerarios i: listaItinerarios){
+            if((!(destino.contains(i.getDestinoCiudad()))) && i.getOrigenCiudad().equals(origen) ){
+                destino.add(i.getDestinoCiudad());
+            }
+        }
+        
+        return destino;
+    }
 }
