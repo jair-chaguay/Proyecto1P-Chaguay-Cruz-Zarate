@@ -99,6 +99,8 @@ public class Sistema {
                             case 2:
                                 cliente.consultarReservas();
                                 break;
+                            case 3:
+                                break;
                             default:
                                 System.out.println("Opcion invalida");
                                 break;
@@ -119,6 +121,8 @@ public class Sistema {
                             case 2:
                                 operador.consultarReservas();
                                 break;
+                            case 3:
+                                break;    
                             default:
                                 System.out.println("Opcion invalida");
                                 break;
