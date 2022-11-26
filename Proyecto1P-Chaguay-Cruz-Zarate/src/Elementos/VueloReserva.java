@@ -6,6 +6,7 @@ package Elementos;
  */
 
 
+import static Archivos.ManejoArchivos.LeerValidando;
 import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
@@ -72,5 +73,13 @@ public class VueloReserva {
     @Override
     public String toString(){
         return codigoVueloReserva+","+tipoVuelo+","+tarifa+","+asiento;
+    }
+    public static void cargarVuelos(ArrayList<Vuelo> listaVuelos){
+        ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
+        Vuelo v;
+        for(String[] dato:datosVuelo){
+            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6]);
+            listaVuelos.add(v);
+        }
     }
 }
