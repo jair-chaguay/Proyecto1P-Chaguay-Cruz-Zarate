@@ -9,7 +9,7 @@ package Enums;
  * @author DELL
  */
 public enum tipoCategoria {
-    E,
+    S,
     V,
     O
 }
