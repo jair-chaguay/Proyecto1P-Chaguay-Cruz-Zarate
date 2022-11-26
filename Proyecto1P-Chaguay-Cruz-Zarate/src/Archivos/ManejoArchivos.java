@@ -81,19 +81,19 @@ public class ManejoArchivos {
     }
     public static ArrayList<String[]> LeerValidando(String nombreArchivo,boolean saltarPrimeraLinea){
         ArrayList<String> lineas=ManejoArchivos.LeerArchivo(nombreArchivo);
-        ArrayList<String[]> datosUsuarios=new ArrayList<>();
+        ArrayList<String[]> datos=new ArrayList<>();
         int i;
         if(saltarPrimeraLinea){ 
             for(i=1;i<lineas.size();i++){
-                datosUsuarios.add(lineas.get(i).split(";"));
+                datos.add(lineas.get(i).split(","));
             }
         }else{
             for(i=0;i<lineas.size();i++){
-            datosUsuarios.add(lineas.get(i).split(";"));
+            datos.add(lineas.get(i).split(","));
             }
         }
         
-        return datosUsuarios;
+        return datos;
     }
    
 
