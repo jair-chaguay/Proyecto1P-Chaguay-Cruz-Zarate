@@ -59,15 +59,16 @@ public class Cliente extends Usuario {
             int cont = 0;
             ArrayList<String> ciudOrigen = ciudadesOrigen();
             System.out.println("----ORIGEN----");
-            for(String i: ciudOrigen){
-                cont++;
-                System.out.println(cont +". " + i);
+            for(int i=0; i<ciudOrigen.size(); i++){
+                System.out.println((i+1) + ". " + ciudOrigen.get(i));
             }
             System.out.print("Seleccione su punto de partida: ");
             opcion = sc.nextInt();
             sc.nextLine();
-            if(opcion <= cont && !(opcion<=0)){
-                ciudadOrigen = ciudOrigen.get(cont-1);
+            if(opcion <= ciudOrigen.size() && !(opcion<=0)){
+                
+                ciudadOrigen = ciudOrigen.get(opcion-1);
+
                 comprar = false;
             }
             else{
@@ -118,7 +119,6 @@ public class Cliente extends Usuario {
                 origen.add(i.getOrigenCiudad());
             }
         }
-        
         return origen;
     }
     
@@ -130,7 +130,6 @@ public class Cliente extends Usuario {
                 destino.add(i.getDestinoCiudad());
             }
         }
-        
         return destino;
     }
 }
