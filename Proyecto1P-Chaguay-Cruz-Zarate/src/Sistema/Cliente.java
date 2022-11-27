@@ -135,7 +135,19 @@ public class Cliente extends Usuario {
                 Cliente.mostrarTarifas();
                 System.out.print("\nElije la tarifa para tu vuelo de ida: ");
                 String tarifaIda = sc.nextLine();
-                tipoTarifa ti=Cliente.validadTarifa(tarifaIda);
+                tipoTarifa t;
+                switch (tarifaIda) {
+                    case "A":
+                        t = tipoTarifa.valueOf("A");
+                        break;
+                    case "B":
+                        t = tipoTarifa.valueOf("B");
+                        break;
+                    case "C":
+                        t = tipoTarifa.valueOf("C");
+                        break;
+                }
+                t = tipoTarifa.valueOf(tarifaIda);
 
                 System.out.println("------Vuelos disponibles RETORNO-----");
 //                ArrayList<Vuelo> x=Cliente.obtenerVuelosRetorno(fechaRetorno, listaRetorno);
@@ -152,7 +164,19 @@ public class Cliente extends Usuario {
                 Cliente.mostrarTarifas();
                 System.out.print("\nElije la tarifa para tu vuelo de retorno: ");
                 String tarifaRetorno = sc.nextLine();
-                tipoTarifa tr=Cliente.validadTarifa(tarifaRetorno);
+                tipoTarifa t2;
+                switch (tarifaRetorno) {
+                    case "A":
+                        t2 = tipoTarifa.valueOf("A");
+                        break;
+                    case "B":
+                        t2 = tipoTarifa.valueOf("B");
+                        break;
+                    case "C":
+                        t2 = tipoTarifa.valueOf("C");
+                        break;
+                }
+                t2 = tipoTarifa.valueOf(tarifaRetorno);
 
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
@@ -298,27 +322,7 @@ public class Cliente extends Usuario {
         System.out.println("\nTARIFAS");
         System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
     }
-    public static tipoTarifa validadTarifa(String tarifa){
-        tipoTarifa t;
-        if(!tarifa.equalsIgnoreCase("A") || !tarifa.equalsIgnoreCase("B") || !tarifa.equalsIgnoreCase("C")){
-            System.out.println("Eleccion invalida, vuelve a escoger");
-            Cliente.mostrarTarifas();
-        }else{
-            switch (tarifa) {
-                case "A":
-                    t = tipoTarifa.valueOf("A");
-                    break;
-                case "B":
-                    t = tipoTarifa.valueOf("B");
-                    break;
-                case "C":
-                    t = tipoTarifa.valueOf("C");
-                    break;
-            }
-        }
-        return t = tipoTarifa.valueOf(tarifa);
-    }
-            
+
     public static void mostrarformasPago() {
         System.out.println("\nFormas de Pago:");
         System.out.println("1. Tarjeta de Credito\n2. Millas\n");
