@@ -88,19 +88,19 @@ public class VueloReserva {
         }
         
     }
-    public void crearCodigoVR(){
-        String opciones="1234567890";
-        String cadena="";
-        Random r=new Random();
-        for(int i=0; i<6;i++){
-            int posicion= r.nextInt(opciones.length());
-            char caracter=opciones.charAt(posicion);
-            cadena+=caracter;
-        }
-        int valor=Integer.parseInt(cadena);
-        codigo=valor;
-        
-        
-    }
+//    public void crearCodigoVR(){
+//        String opciones="1234567890";
+//        String cadena="";
+//        Random r=new Random();
+//        for(int i=0; i<6;i++){
+//            int posicion= r.nextInt(opciones.length());
+//            char caracter=opciones.charAt(posicion);
+//            cadena+=caracter;
+//        }
+//        int valor=Integer.parseInt(cadena);
+//        codigo=valor;
+//        
+//        
+//    }
     
 }
