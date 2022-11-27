@@ -223,7 +223,7 @@ public class Cliente extends Usuario {
                     System.out.println("Forma de pago: Tarjeta de Credito");
                     System.out.println("Ingrese el numero de T/C: ");
                     String tarjeta = sc.nextLine();
-                    System.out.println("Estas seguro de pagr el vuelo?(s/n)");
+                    System.out.println("Estas seguro de pagar el vuelo?(s/n)");
                     String respuesta = sc.nextLine();
                     if (respuesta.equals("s")) {
                         Pagar(tarjeta, total, ReservaIda);
