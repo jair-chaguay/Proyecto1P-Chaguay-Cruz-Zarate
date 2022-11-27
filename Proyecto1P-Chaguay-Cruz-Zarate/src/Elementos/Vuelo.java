@@ -114,31 +114,31 @@ public class Vuelo {
         
         return x = x + "\nAVION: " + getCodigoAvion() + "\nPRECIO " + getPrecio() + "\nCOSTO MILLAS: " + getPrecioMillas();
     }
-    public static void cargarAsientos(){
-        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
-        Asientos a;
-        for(String[] dato:datosAsientos){
-            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
-            listaAsientos.add(a);
-        }
-    }
-    public  void asignarAsiento(String codigoAvion){
-        String a="";
-        ArrayList<Asientos> asientosDisponibles=new ArrayList<>();
-        Random r=new Random();
-        
-        for(Asientos asiento:listaAsientos){
-            if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
-                asientosDisponibles.add(asiento);   
-            }      
-        }
-        for(Asientos AD:asientosDisponibles){
-                int posicion= r.nextInt(asientosDisponibles.size());
-                AD=asientosDisponibles.get(posicion);
-                a=AD.getNumAsiento();
-   
-        }
-        asientoAleatorio=a;
-            
-    }
+//    public static void cargarAsientos(){
+//        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
+//        Asientos a;
+//        for(String[] dato:datosAsientos){
+//            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
+//            listaAsientos.add(a);
+//        }
+//    }
+//    public  void asignarAsiento(String codigoAvion){
+//        String a="";
+//        ArrayList<Asientos> asientosDisponibles=new ArrayList<>();
+//        Random r=new Random();
+//        
+//        for(Asientos asiento:listaAsientos){
+//            if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
+//                asientosDisponibles.add(asiento);   
+//            }      
+//        }
+//        for(Asientos AD:asientosDisponibles){
+//                int posicion= r.nextInt(asientosDisponibles.size());
+//                AD=asientosDisponibles.get(posicion);
+//                a=AD.getNumAsiento();
+//   
+//        }
+//        asientoAleatorio=a;
+//            
+//    }
 }
