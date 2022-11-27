@@ -50,6 +50,9 @@ public class Cliente extends Usuario {
     @Override
     public void consultarReservas(){
         
+        
+        
+        
     }
     public void comprarTickets(){
         String ciudadOrigen="";
