@@ -7,6 +7,7 @@ package Sistema;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import Archivos.*;
 import static Elementos.Avion.listaAsientos;
 import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
@@ -183,8 +184,15 @@ public class Cliente extends Usuario {
                 System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + vueloIda.getAsientoAleatorio());
                 System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + vueloRetorno.getAsientoAleatorio());
                 //CREACION DE VUELO RESERVA
+                //CREACION DE TXT DE VUELO RESERVA
+                
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
+                
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt","codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt",ReservaIda.toString());
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt",ReservaRetorno.toString());
+                
 
                 System.out.println("\n******PASO 3*****\n*****************");
                 System.out.println("-----------DATOS PASAJERO----------");
@@ -231,10 +239,6 @@ public class Cliente extends Usuario {
                     
                     }
                 }
-
-                    
-                   
-
                     mostrarformasPago();
                     System.out.println("Elige tu forma de pago: ");
                     int opcion = sc.nextInt();
@@ -250,11 +254,7 @@ public class Cliente extends Usuario {
             }
         }
 
-    
-
-    public void crearReserva() {
-
-    }
+   
     //METODO PARA GENERAR CODIGO DE PAGO Y VUELORESERVA
 
     public int crearCodigo() {
@@ -352,6 +352,7 @@ public class Cliente extends Usuario {
     }
 
     public void Pagar(int numTarjetaCredito) {
+        
 
     }
 //    public static ArrayList<Vuelo> obtenerVuelosRetorno(String fechaRetorno,ArrayList<Vuelo> listaRetorno){
