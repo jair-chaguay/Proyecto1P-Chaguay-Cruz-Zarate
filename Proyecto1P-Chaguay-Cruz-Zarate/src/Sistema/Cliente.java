@@ -77,11 +77,12 @@ public class Cliente extends Usuario {
             }
             else{
                 System.out.println("Seleccion Invalida");
+                
             }
 
         }
         comprar = true;
-        String ciudadDestino;
+        String ciudadDestino="";
         
         while(comprar){
             int cont =0;
@@ -111,10 +112,41 @@ public class Cliente extends Usuario {
             System.out.println("Fechas");
             System.out.print("Fecha de Salida: ");
             String fechaSalida = sc.nextLine();
-            System.out.println("Fecha de Retorno: ");
+            System.out.print("Fecha de Retorno: ");
             String fechaRetorno = sc.nextLine();
             
+            ArrayList<Vuelo> listaIda = vuelosFiltrados(ciudadOrigen, ciudadDestino, fechaSalida);
+            ArrayList<Vuelo> listaRetorno = vuelosFiltrados(ciudadDestino, ciudadOrigen, fechaRetorno);
             
+            System.out.println("******PASO 1*****\n*****************");
+            if(!listaIda.isEmpty()){
+                System.out.println("------Vuelos disponibles IDA-----");
+                for(int i=0; i<listaIda.size(); i++){
+                    System.out.println("---------"+(i+1)+"-----------");
+                    System.out.println(listaIda.get(i));
+                    
+                }
+                System.out.print("\nElija el vuelo de ida: ");
+                int vueloIda=sc.nextInt();
+                sc.nextLine();
+                comprar = false;
+                Cliente.mostrarTarifas();
+                System.out.print("\nElije la tarifa para tu vuelo: ");
+                String tarifaIda=sc.nextLine();
+                
+                System.out.println("------Vuelos disponibles RETORNO-----");
+                
+                
+                Cliente.mostrarTarifas();
+                System.out.print("\nElije la tarifa para tu vuelo: ");
+                String tarifaRetorno=sc.nextLine();
+                
+            }
+            else{
+                System.out.println("No hay vuelos disponibles :C");
+            }
+            System.out.println("******PASO 2*****\n*****************");
+            System.out.println("-----------ASIENTOS----------");
             
         }
     }    
@@ -148,11 +180,11 @@ public class Cliente extends Usuario {
         return destino;
     }
     
-    public ArrayList<Vuelo> vuelosFiltrados(String origen, String destino, String fechaSalida, String fechaRetorno){
+    public ArrayList<Vuelo> vuelosFiltrados(String origen, String destino, String fecha){
         ArrayList<Vuelo> lista = new ArrayList<>();
         
         for(int i = 0; i<listaItinerarios.size(); i++){
-            boolean b = listaItinerarios.get(i).getOrigenCiudad().equals(origen) && listaItinerarios.get(i).getDestinoCiudad().equals(destino) && listaVuelos.get(i).getFechaSalida().equals(fechaSalida) && listaVuelos.get(i).getFechaLlegada().equals(fechaRetorno);
+            boolean b = listaItinerarios.get(i).getOrigenCiudad().equals(origen) && listaItinerarios.get(i).getDestinoCiudad().equals(destino) && (listaVuelos.get(i).getFechaSalida().equals(fecha));
             if(b){
                lista.add(listaVuelos.get(i));
             }
@@ -160,5 +192,9 @@ public class Cliente extends Usuario {
         
 
         return lista;
+    }
+    public static void mostrarTarifas(){
+        System.out.println("\nTARIFAS");
+        System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
     }
 }

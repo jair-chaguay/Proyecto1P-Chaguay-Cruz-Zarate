@@ -69,9 +69,9 @@ public class Reserva {
         this.valorPagar = valorPagar;
     }
     
-    private String crearCadena(){
+    private void crearCodigoReserva(){
         
-        String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String cadena="";
         Random r=new Random();
         for(int i=0; i<6;i++){
@@ -79,7 +79,8 @@ public class Reserva {
             char caracter=opciones.charAt(posicion);
             cadena+=caracter;
         }
-        return cadena;
+        String valor=cadena;
+        codigo=valor;
     }
     
     
