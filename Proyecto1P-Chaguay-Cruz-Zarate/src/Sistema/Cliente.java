@@ -185,14 +185,13 @@ public class Cliente extends Usuario {
                 System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + vueloRetorno.getAsientoAleatorio());
                 //CREACION DE VUELO RESERVA
                 //CREACION DE TXT DE VUELO RESERVA
-                
+
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
-                
-                ManejoArchivos.EscribirArchivo("vuelosReserva.txt","codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
-                ManejoArchivos.EscribirArchivo("vuelosReserva.txt",ReservaIda.toString());
-                ManejoArchivos.EscribirArchivo("vuelosReserva.txt",ReservaRetorno.toString());
-                
+
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
+                ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
 
                 System.out.println("\n******PASO 3*****\n*****************");
                 System.out.println("-----------DATOS PASAJERO----------");
@@ -211,7 +210,7 @@ public class Cliente extends Usuario {
                 System.out.println("Descripcion:");
                 double valorpago = vueloIda.getPrecio() + vueloRetorno.getPrecio();
                 System.out.println("Subtotal: " + valorpago);
-                for(String[] dato:datosClientes){
+                for (String[] dato : datosClientes) {
                     if (dato[2].equals("GOLDEN PASS")) {
                         System.out.println("Descuento:20%  (cliente vip GOLDEN PASS)");
                         double valorDescuento = valorpago - valorpago * 20 / 100;
@@ -227,7 +226,7 @@ public class Cliente extends Usuario {
                         System.out.println("Total: " + valorDescuento);
                         valorpago = valorDescuento;
                         System.out.println("Iva: " + valorpago * 12 / 100);
-                        
+
                         System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
                         break;
                     }
@@ -236,27 +235,25 @@ public class Cliente extends Usuario {
                         System.out.println("Iva: " + valorpago * 12 / 100);
                         System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
                         break;
-                    
+
                     }
                 }
-                    mostrarformasPago();
-                    System.out.println("Elige tu forma de pago: ");
-                    int opcion = sc.nextInt();
-                    if (opcion == 1) {
+                mostrarformasPago();
+                System.out.println("Elige tu forma de pago: ");
+                int opcion = sc.nextInt();
+                if (opcion == 1) {
 
-                    }
+                }
 
-                    comprar = false;
-                }else {
+                comprar = false;
+            } else {
                 System.out.println("No hay vuelos disponibles :C");
             }
 
-            }
         }
+    }
 
-   
     //METODO PARA GENERAR CODIGO DE PAGO Y VUELORESERVA
-
     public int crearCodigo() {
         String opciones = "1234567890";
         String cadena = "";
@@ -351,10 +348,19 @@ public class Cliente extends Usuario {
 
     }
 
-    public void Pagar(int numTarjetaCredito) {
-        
+    public void Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo) {
+        if (numTarjetaCredito.equals(getNumTarjetaCredito())) {
+            double valorTC = valor + valor * 10 / 100;
+            //CREACION DE OBJETO RESERVA
+            Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
+            ManejoArchivos.EscribirArchivo("reservas.txt", "codigoReserva,codigoVuelo,cliente,fecha,valorPagar");
+            ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
+            //CREACION DE OBJETO PAGO
+            Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.TC, valorTC);
+            ManejoArchivos.EscribirArchivo("pagos.txt", "idPago,codigoReserva,totalPagarfina,modoPago");
+            ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
-    }
+        }
 //    public static ArrayList<Vuelo> obtenerVuelosRetorno(String fechaRetorno,ArrayList<Vuelo> listaRetorno){
 //        ArrayList<Vuelo> lista2=new ArrayList<>();
 //        for(int i = 0; i<listaRetorno.size(); i++){
@@ -371,4 +377,5 @@ public class Cliente extends Usuario {
 //        return lista2;
 //    }
 
+    }
 }
