@@ -69,19 +69,19 @@ public class Reserva {
         this.valorPagar = valorPagar;
     }
     
-    private void crearCodigoReserva(){
-        
-        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String cadena="";
-        Random r=new Random();
-        for(int i=0; i<6;i++){
-            int posicion= r.nextInt(opciones.length());
-            char caracter=opciones.charAt(posicion);
-            cadena+=caracter;
-        }
-        String valor=cadena;
-        codigo=valor;
-    }
+//    public void crearCodigoReserva(){
+//        
+//        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//        String cadena="";
+//        Random r=new Random();
+//        for(int i=0; i<6;i++){
+//            int posicion= r.nextInt(opciones.length());
+//            char caracter=opciones.charAt(posicion);
+//            cadena+=caracter;
+//        }
+//        String valor=cadena;
+//        codigo=valor;
+//    }
     
     
 }
