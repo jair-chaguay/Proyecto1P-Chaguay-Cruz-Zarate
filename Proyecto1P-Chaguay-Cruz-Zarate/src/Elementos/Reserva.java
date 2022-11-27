@@ -18,7 +18,7 @@ public class Reserva {
     private String codigo;
     private ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
     private Cliente cliente;
-    private Date fecha;
+    private Date fecha; 
     private double valorPagar;
 
     public Reserva(String codigo, Cliente cliente, Date fecha, double valorPagar) {
