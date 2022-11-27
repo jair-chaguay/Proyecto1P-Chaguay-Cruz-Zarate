@@ -100,27 +100,51 @@ public class Sistema {
                 System.out.println("INGRESO EXITOSO");
 //            if(listaUsuarios.Contains(user)){
                 if(usuario instanceof Cliente cliente){
-                    Sistema.mostrarMenuCliente();
-                    int opc=0;
-                    while(opc!=3){
-                        System.out.println("Ingrese opcion: ");
-                        opc=sc.nextInt();
-                        sc.nextLine();
-                        switch(opc){
-                            case 1:
-                                cliente.comprarTickets();
-                                break;
-                            case 2:
-                                cliente.consultarReservas();
-                                break;
-                            case 3:
-                                break;
-                            default:
-                                System.out.println("Opcion invalida");
-                                break;
+                    if(cliente instanceof ClienteVip clientevip){
+                        Sistema.mostrarMenuCliente();
+                        int opc=0;
+                        while(opc!=3){
+                            System.out.println("Ingrese opcion: ");
+                            opc=sc.nextInt();
+                            sc.nextLine();
+                            switch(opc){
+                                case 1:
+                                    clientevip.comprarTickets();
+                                    break;
+                                case 2:
+                                    clientevip.consultarReservas();
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    System.out.println("Opcion invalida");
+                                    break;
+                            }
                         }
-                    }
+                    }else{
+                        Sistema.mostrarMenuCliente();
+                        int opc=0;
+                        while(opc!=3){
+                            System.out.println("Ingrese opcion: ");
+                            opc=sc.nextInt();
+                            sc.nextLine();
+                            switch(opc){
+                                case 1:
+                                    cliente.comprarTickets();
+                                    break;
+                                case 2:
+                                    cliente.consultarReservas();
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    System.out.println("Opcion invalida");
+                                    break;
+                            }
+                        }
+                    }    
                 }
+                
                 if(usuario instanceof Operador operador){
                     Sistema.mostrarMenuOperador();
                     int opc2=0;
