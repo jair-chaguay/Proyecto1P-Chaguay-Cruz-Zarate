@@ -15,19 +15,23 @@ import java.util.Random;
  * @author HP
  */
 public class Pago {
-    private Date fechaPago;
     private int idPago;
-    private Reserva reserva;
+    private String codigo;
     private formaPago formaPago;
     private double valorPagar;
-
-    public Date getFechaPago() {
-        return fechaPago;
+    
+    public Pago(int idPago, String codigo,formaPago formaPago,double valorPagar){
+    this.idPago=idPago;
+    this.codigo=codigo;
+    this.formaPago=formaPago;
+    this.valorPagar=valorPagar;
     }
-
-    public void setFechaPago(Date fechaPago) {
-        this.fechaPago = fechaPago;
+    @Override
+    public String toString(){
+        return idPago+","+codigo+","+formaPago+","+valorPagar;
+        
     }
+    
 
     public int getIdPago() {
         return idPago;
@@ -37,12 +41,12 @@ public class Pago {
         this.idPago = idPago;
     }
 
-    public Reserva getReserva() {
-        return reserva;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setCodigo(String codigo) {
+        this.codigo= codigo;
     }
 
     public formaPago getFormaPago() {
@@ -60,6 +64,7 @@ public class Pago {
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
     }
+    
     
 //    public void crearIdPago(){
 //        String opciones="1234567890";
