@@ -6,8 +6,9 @@ package Sistema;
 
 import Elementos.*;
 import Archivos.*;
-import Enums.*;
 import static Archivos.ManejoArchivos.LeerValidando;
+import static Elementos.VueloReserva.listaVuelos;
+import Enums.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ import java.util.Scanner;
 public class Sistema {
    static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
    static ArrayList<Reserva> listaReservas=new ArrayList<>();
-   static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+   public static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
    static ArrayList<Avion> listaAviones=new ArrayList<>();
    
    
@@ -66,6 +67,14 @@ public class Sistema {
             listaItinerarios.add(i);
         }
     }
+    public static void cargarVuelos(){
+        ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
+        Vuelo v;
+        for(String[] dato:datosVuelo){
+            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],Double.valueOf(dato[5]),Integer.valueOf(dato[6]));
+            listaVuelos.add(v);
+        }
+    }
     
     public static void main(String[] args){
 //        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
@@ -83,6 +92,7 @@ public class Sistema {
        
         Sistema.cargarUsuarios();
         Sistema.cargarItinerarios();
+        Sistema.cargarVuelos();
 //        boolean nombre=true;
 //        while(nombre){
 //            

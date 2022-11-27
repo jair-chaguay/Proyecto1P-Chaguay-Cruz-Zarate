@@ -6,6 +6,7 @@ package Elementos;
 
 import Sistema.*;
 import Enums.*;
+import static Sistema.Sistema.listaItinerarios;
 import java.util.Date;
 
 /**
@@ -87,5 +88,17 @@ public class Vuelo {
         this.codigoVuelo = codigoVuelo;
     }
     
+    @Override
+    public String toString(){
+        
+        String x = "CODIGO: " + getCodigoVuelo() + "\nHORA SALIDA: ";
+        for(Itinerarios i: listaItinerarios){
+            if(i.getCod().equals(getCodigoItinerario())){
+                x = x + i.getHoraSalida() + "\nHORA LLEGADA: " + i.getHoraLlegada() + "\nDURACION: " + i.getDuracion();
+            }
+        }
+        
+        return x = x + "\nAVION: " + getCodigoAvion() + "\nPRECIO " + getPrecio() + "\nCOSTO MILLAS: " + getPrecioMillas();
+    }
     
 }

@@ -62,13 +62,7 @@ public class VueloReserva {
         this.asiento = asiento;
     }
 
-    public ArrayList<Vuelo> getListaVuelos() {
-        return listaVuelos;
-    }
-
-    public void setListaVuelos(ArrayList<Vuelo> listaVuelos) {
-        this.listaVuelos = listaVuelos;
-    }
+    
     
     @Override
     public String toString(){
