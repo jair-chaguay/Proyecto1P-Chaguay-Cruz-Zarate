@@ -90,7 +90,7 @@ public class Reserva {
 //        codigo=valor;
 //    }
     
-    public static void AsignarAsientos(){
+    public String AsignarAsientos(){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
         Asientos a;
         int aleatorio=0;
@@ -104,9 +104,10 @@ public class Reserva {
         double ale=(int)(Math.random()*listaAsientos.size());
         int asAle=(int)ale;
         if(listaAsientos.get(asAle).equals("S")){
-            System.out.println(listaAsientos.get(asAle).getNumAsiento());
+            String c=listaAsientos.get(asAle).getNumAsiento();
+            return c;
         }else{
-            System.out.println("No hay un asiento disponible");
+            return "No hay un asiento disponible";
         }                
         
     }
