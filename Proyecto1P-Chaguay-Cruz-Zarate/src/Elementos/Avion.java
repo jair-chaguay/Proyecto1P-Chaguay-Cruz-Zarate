@@ -20,7 +20,7 @@ public class Avion {
     private int capacidad;
     public static ArrayList<Asientos> listaAsientos=new ArrayList<>();
     
-    
+    //CONSTRUCTOR QUE CREARA OBJETOS AVION
     public Avion(String codigoAvion,int capacidad){
         this.codigoAvion=codigoAvion;
         this.capacidad=capacidad;

@@ -23,6 +23,8 @@ public class Reserva {
     private String fecha; 
     private double valorPagar;
     private final Vuelo vuelo;
+    
+    //CONSTRUCTOR PARA CREAR OBJETOS RESERVA
     public Reserva(String codigo, Vuelo vuelo, String cliente, String fecha, double valorPagar) {
         this.codigo = codigo;
         this.vuelo=vuelo;
@@ -76,20 +78,7 @@ public class Reserva {
         this.valorPagar = valorPagar;
     }
     
-//    public void crearCodigoReserva(){
-//        
-//        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//        String cadena="";
-//        Random r=new Random();
-//        for(int i=0; i<6;i++){
-//            int posicion= r.nextInt(opciones.length());
-//            char caracter=opciones.charAt(posicion);
-//            cadena+=caracter;
-//        }
-//        String valor=cadena;
-//        codigo=valor;
-//    }
-    
+    //METODO PARA ASIGNAR ASIENTOS ALEATORIOS
     public static String AsignarAsientos(){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
         Asientos a;

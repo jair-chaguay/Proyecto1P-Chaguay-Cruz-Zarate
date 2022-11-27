@@ -24,7 +24,8 @@ public class Cliente extends Usuario {
 
     private String numTarjetaCredito;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
-
+    Scanner sc = new Scanner(System.in);
+    //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
 
@@ -42,24 +43,27 @@ public class Cliente extends Usuario {
     public void setNumTarjetaCredito(String numTarjetaCredito) {
         this.numTarjetaCredito = numTarjetaCredito;
     }
-
+    
+    //TOSTRING PARA MOSTRAR LOS CLIENTES
     @Override
     public String toString() {
         toString();
         return "Num T/C: " + numTarjetaCredito;
     }
 
-    Scanner sc = new Scanner(System.in);
-
+    
+    
+    
     @Override
     public void consultarReservas() {
 
     }
-
+    
+    //MEOTOD PARA COMPRAR TICKETS
     public void comprarTickets() {
         String ciudadOrigen = "";
         boolean comprar = true;
-
+        //MOSTRAR LAS CIUDADES DE DONDE PARTIRAN LOS USUARIOS
         while (comprar) {
             int opcion = 0;
             int cont = 0;
@@ -82,6 +86,7 @@ public class Cliente extends Usuario {
             }
 
         }
+        //MOSTRAR LAS CIUDADES A DONDE PODRAN LOS USUARIOS
         comprar = true;
         String ciudadDestino = "";
 

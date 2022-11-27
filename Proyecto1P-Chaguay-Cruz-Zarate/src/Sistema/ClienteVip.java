@@ -51,15 +51,8 @@ public class ClienteVip extends Cliente{
         toString();
         return "Rango: "+rango+",millas: "+millas;
     }
-//    @Override
-//    public void comprarTickets(){
-//        
-//    }
-//    @Override
-//    public void consultarReservas(){
-//        
-//    }
-   
+
+    //METODO PARA PAGAR CON MILLAS
     public void pagar(int millas){
         
     }

@@ -24,6 +24,7 @@ public class VueloReserva {
     private String asiento;
     public static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
+    //CONSTRUCTOR PARA CREAR OBJETOS DE VUELORESERVA
     public VueloReserva(int codigo,Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
         this.codigo=codigo;
         this.codigoVueloReserva = codigoVueloReserva;
@@ -79,28 +80,8 @@ public class VueloReserva {
     public String toString(){
         return codigoVueloReserva+","+tipoVuelo+","+tarifa+","+asiento;
     }
-    public static void cargarVuelos(){
-        ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
-        Vuelo v;
-        for(String[] dato:datosVuelo){
-            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],Integer.valueOf(dato[5]),Integer.valueOf(dato[6]));
-            listaVuelos.add(v);
-        }
-        
-    }
-//    public void crearCodigoVR(){
-//        String opciones="1234567890";
-//        String cadena="";
-//        Random r=new Random();
-//        for(int i=0; i<6;i++){
-//            int posicion= r.nextInt(opciones.length());
-//            char caracter=opciones.charAt(posicion);
-//            cadena+=caracter;
-//        }
-//        int valor=Integer.parseInt(cadena);
-//        codigo=valor;
-//        
-//        
-//    }
+    
+    
+
     
 }

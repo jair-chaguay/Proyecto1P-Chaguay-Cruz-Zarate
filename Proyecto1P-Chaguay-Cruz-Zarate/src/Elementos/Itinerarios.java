@@ -14,6 +14,7 @@ public class Itinerarios {
     private String cod;
     private String origenCiudad, destinoCiudad,duracion,horaSalida,horaLlegada;
     
+    //CONSTRUCTOR PARA CREAR OBEJTOS DE TIPO ITINERARIO
     public Itinerarios(String cod,String origenCiudad,String destinoCiudad,String horaSalida,String horaLlegada,String duracion){
         this.cod = cod;
         this.origenCiudad = origenCiudad;

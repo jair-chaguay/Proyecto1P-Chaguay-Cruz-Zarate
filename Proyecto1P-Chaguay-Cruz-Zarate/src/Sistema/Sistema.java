@@ -23,16 +23,21 @@ public class Sistema {
    
    
    
-
+    //MOSTRAR MENU PARA EL OPERADOR
     public static void mostrarMenuOperador(){
         System.out.println("1. Consultar usuarios\n2. Consultar reservas\n3. Salir");
     }
+    
+    //MOSTRAR MENU PARA EL CLIENTE
     public static void mostrarMenuCliente(){
         System.out.println("1. Comprar tickets aereos\n2. Consultar reservas\n3. Salir");
     }
+    
+    //LEER EL ARCHIVO USUARIOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA USUARIOS
     public static void cargarUsuarios(){
         ArrayList<String[]> datosUsuarios=LeerValidando("usuarios.txt",true);
         Usuario u;
+        //COMPROBARA SI SON CLIENTES, CLIENTESVIP O OPERADORES)
         for(String[] dato:datosUsuarios){
             switch(dato[6]){
                 case "S":
@@ -51,6 +56,7 @@ public class Sistema {
         }
     }
     
+    //LEER EL ARCHIVO ITINERARIOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA ITINERARIOS
     public static void cargarItinerarios(){
         ArrayList<String[]> datosItinerarios=LeerValidando("itinerarios.txt",true);
         Itinerarios i;
@@ -59,6 +65,8 @@ public class Sistema {
             listaItinerarios.add(i);
         }
     }
+    
+    //LEER EL ARCHIVO VUELOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA VUELOS
     public static void cargarVuelos(){
         ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
         Vuelo v;
@@ -67,6 +75,8 @@ public class Sistema {
             listaVuelos.add(v);
         }
     }
+    
+    //LEER EL ARCHIVO AVIONES Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA AVIONES
     public static void cargarAviones(){
         ArrayList<String[]> datosAviones=LeerValidando("aviones.txt",true);
         Avion a;
@@ -76,6 +86,7 @@ public class Sistema {
         }
     }
     
+    //MAIN
     public static void main(String[] args){
 
         //INICIO DE SESION
@@ -87,18 +98,21 @@ public class Sistema {
         String user=sc.nextLine();
         System.out.print("CONTRASEÑA: ");
         String password=sc.nextLine();
-       
+        
+        //CARGANDO LISTAS
         Sistema.cargarUsuarios();
         Sistema.cargarItinerarios();
         Sistema.cargarVuelos();
         Sistema.cargarAviones();
-//        
+      
             
         //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
                 System.out.println("INGRESO EXITOSO");
+                //COMPROBRANDO SI EL USUARIO ES CLIENTE 
                 if(usuario instanceof Cliente cliente){
+                    //COMPRANDO SI EL CLIENTE ES CLIENTE VIP
                     if(cliente instanceof ClienteVip clientevip){
                         Sistema.mostrarMenuCliente();
                         int opc=0;
@@ -143,7 +157,7 @@ public class Sistema {
                         }
                     }    
                 }
-                
+                //COMPROBANDO SI EL USUARIO ES OPERADOR
                 if(usuario instanceof Operador operador){
                     Sistema.mostrarMenuOperador();
                     int opc2=0;

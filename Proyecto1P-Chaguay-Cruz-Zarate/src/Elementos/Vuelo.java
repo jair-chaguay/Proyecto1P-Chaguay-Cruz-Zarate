@@ -27,6 +27,7 @@ public class Vuelo {
     private int precioMillas;
     private  String asientoAleatorio;
 
+    //CONSTRUCTOR PARA CREAR OBJETOS VUELO
     public Vuelo(String codigoVuelo, String codigoAvion, String fechaSalida, String fechaLlegada, String codigoItinerario, double precio, int precioMillas) {
         this.codigoVuelo = codigoVuelo;
         this.codigoAvion = codigoAvion;
@@ -101,7 +102,7 @@ public class Vuelo {
         this.asientoAleatorio = asientoAleatorio;
     }
     
-    
+    //METODO TOSTRING PARA MOSTRAR LOS VUELOS
     @Override
     public String toString(){
         
