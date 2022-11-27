@@ -16,20 +16,24 @@ import static Archivos.ManejoArchivos.LeerValidando;
  * @author HP
  */
 public class Reserva {
-    private String codigo;
+   private String codigo;
     private ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
-    private Cliente cliente;
-    private Date fecha; 
+    private String cliente;
+    private String fecha; 
     private double valorPagar;
-    private ArrayList<Asientos> listAsientos;
-    private ArrayList<Asientos> alea;
-    public Reserva(String codigo, Cliente cliente, Date fecha, double valorPagar) {
+    private final Vuelo vuelo;
+    public Reserva(String codigo, Vuelo vuelo, String cliente, String fecha, double valorPagar) {
         this.codigo = codigo;
+        this.vuelo=vuelo;
         this.cliente = cliente;
         this.fecha = fecha;
         this.valorPagar = valorPagar;
     }
-    
+    @Override
+    public String toString(){
+        return codigo+","+vuelo+","+cliente+","+fecha+","+valorPagar;
+        
+    }
 
     public String getCodigo() {
         return codigo;
@@ -47,19 +51,19 @@ public class Reserva {
         this.vuelosReserva = vuelosReserva;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -85,26 +89,26 @@ public class Reserva {
 //        codigo=valor;
 //    }
     
-    public void AsignarAsientos(){
-        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
-        Asientos a;
-        int aleatorio=0;
-
-        for(String[] dato:datosAsientos){
-            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
-            listAsientos.add(a);
-        }
-        
-        Random f= new Random();  
-        double ale=(int)(Math.random()*listAsientos.size());
-        int asAle=(int)ale;
-        if(listAsientos.get(asAle).equals("S")){
-            System.out.println(listAsientos.get(asAle).getNumAsiento());
-        }else{
-            System.out.println("No hay un asiento disponible");
-        }                
-        
-    }
+//    public void AsignarAsientos(){
+//        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
+//        Asientos a;
+//        int aleatorio=0;
+//
+//        for(String[] dato:datosAsientos){
+//            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
+//            listAsientos.add(a);
+//        }
+//        
+//        Random f= new Random();  
+//        double ale=(int)(Math.random()*listAsientos.size());
+//        int asAle=(int)ale;
+//        if(listAsientos.get(asAle).equals("S")){
+//            System.out.println(listAsientos.get(asAle).getNumAsiento());
+//        }else{
+//            System.out.println("No hay un asiento disponible");
+//        }                
+//        
+//    }
     
     
     
