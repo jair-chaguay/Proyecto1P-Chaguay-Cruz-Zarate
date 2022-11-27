@@ -61,7 +61,7 @@ public class ClienteVip extends Cliente{
 //    public void elegirOpcion(){
 //        
 //    }
-    @Override
+   
     public void pagar(int millas){
         
     }
