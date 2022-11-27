@@ -7,6 +7,7 @@ package Sistema;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -102,6 +103,17 @@ public class Cliente extends Usuario {
             }
             
         }
+        comprar = true;
+        while(comprar){
+            System.out.println("Fechas");
+            System.out.print("Fecha de Salida: ");
+            String fechaSalida = sc.nextLine();
+            System.out.println("Fecha de Retorno: ");
+            String fechaRetorno = sc.nextLine();
+            
+            
+            
+        }
     }    
     
 
@@ -131,5 +143,19 @@ public class Cliente extends Usuario {
             }
         }
         return destino;
+    }
+    
+    public ArrayList<Vuelo> vuelosFiltrados(String origen, String destino, String fechaSalida, String fechaRetorno){
+        ArrayList<Vuelo> lista = new ArrayList<>();
+        
+        for(int i = 0; i<listaItinerarios.size(); i++){
+            boolean b = listaItinerarios.get(i).getOrigenCiudad().equals(origen) && listaItinerarios.get(i).getDestinoCiudad().equals(destino) && listaVuelos.get(i).getFechaSalida().equals(fechaSalida) && listaVuelos.get(i).getFechaLlegada().equals(fechaRetorno);
+            if(b){
+               lista.add(listaVuelos.get(i));
+            }
+        }
+        
+
+        return lista;
     }
 }
