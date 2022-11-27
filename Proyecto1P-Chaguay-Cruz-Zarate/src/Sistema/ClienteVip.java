@@ -5,7 +5,6 @@
 package Sistema;
 
 import static Archivos.ManejoArchivos.LeerValidando;
-import Elementos.*;
 import Enums.*;
 import java.util.ArrayList;
 
@@ -16,10 +15,11 @@ import java.util.ArrayList;
 public class ClienteVip extends Cliente{
     private String rango;
     private int millas=1000;
+    ArrayList<String[]> datosClientes=LeerValidando("clientes.txt",true);
 
     public ClienteVip(String cedula, String nombres,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres,edad, correo,usuario, contrasena, tipoCategoria);
-        ArrayList<String[]> datosClientes=LeerValidando("clientes.txt",true);
+        
         for(String[] dato:datosClientes){
             if(dato[0].equals(cedula)){
                 this.rango=dato[2];
@@ -58,11 +58,7 @@ public class ClienteVip extends Cliente{
     public void consultarReservas(){
         
     }
-//    @Override
-//    public void elegirOpcion(){
-//        
-//    }
-    @Override
+   
     public void pagar(int millas){
         
     }

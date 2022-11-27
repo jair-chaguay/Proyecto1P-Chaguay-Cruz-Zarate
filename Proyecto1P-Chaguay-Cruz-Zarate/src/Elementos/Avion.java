@@ -9,6 +9,7 @@ import Elementos.Asientos;
 import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -17,12 +18,13 @@ import java.util.ArrayList;
 public class Avion {
     private String codigoAvion;
     private int capacidad;
-    private ArrayList<Asientos> listaAsientos;
-
-    public Avion(String codigoAvion,int capacidad,ArrayList<Asientos> listaAsientos){
+    public static ArrayList<Asientos> listaAsientos=new ArrayList<>();
+    
+    
+    public Avion(String codigoAvion,int capacidad){
         this.codigoAvion=codigoAvion;
         this.capacidad=capacidad;
-        this.listaAsientos=listaAsientos;
+        
     }
     
     public String getCodigoAvion() {
@@ -41,32 +43,10 @@ public class Avion {
         this.capacidad = capacidad;
     }
 
-    public ArrayList<Asientos> getListaAsientos() {
-        return listaAsientos;
-    }
-
-    public void setListaAsientos(ArrayList<Asientos> listaAsientos) {
-        this.listaAsientos = listaAsientos;
-    }
     
     
-    public static void cargarAsientos(ArrayList<Asientos> listaAsientos){
-        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
-        Asientos a;
-        for(String[] dato:datosAsientos){
-            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
-            listaAsientos.add(a);
-        }
-    }
-    public void asignarAsiento(ArrayList<Asientos> listaAsientos){
-        Avion.cargarAsientos(listaAsientos);
-        for(Asientos asiento: listaAsientos){
-            if(asiento.getDisponible().equals("S")){
-                
-            }else{
-                break;
-            }
-            
-        }
-    }
+ 
+    
+    
 }
+

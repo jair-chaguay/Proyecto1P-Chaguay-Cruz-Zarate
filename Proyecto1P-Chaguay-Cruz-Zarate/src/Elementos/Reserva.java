@@ -19,7 +19,7 @@ public class Reserva {
     private String codigo;
     private ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
     private Cliente cliente;
-    private Date fecha;
+    private Date fecha; 
     private double valorPagar;
     private ArrayList<Asientos> listAsientos;
     private ArrayList<Asientos> alea;
@@ -71,18 +71,19 @@ public class Reserva {
         this.valorPagar = valorPagar;
     }
     
-    private String crearCadena(){
-        
-        String opciones="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        String cadena="";
-        Random r=new Random();
-        for(int i=0; i<6;i++){
-            int posicion= r.nextInt(opciones.length());
-            char caracter=opciones.charAt(posicion);
-            cadena+=caracter;
-        }
-        return cadena;
-    }
+//    public void crearCodigoReserva(){
+//        
+//        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//        String cadena="";
+//        Random r=new Random();
+//        for(int i=0; i<6;i++){
+//            int posicion= r.nextInt(opciones.length());
+//            char caracter=opciones.charAt(posicion);
+//            cadena+=caracter;
+//        }
+//        String valor=cadena;
+//        codigo=valor;
+//    }
     
     public void AsignarAsientos(){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);

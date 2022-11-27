@@ -10,19 +10,22 @@ import static Archivos.ManejoArchivos.LeerValidando;
 import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author HP
  */
 public class VueloReserva {
+    private int codigo;
     private Vuelo codigoVueloReserva;
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
     public static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
-    public VueloReserva(Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
+    public VueloReserva(int codigo,Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
+        this.codigo=codigo;
         this.codigoVueloReserva = codigoVueloReserva;
         this.tipoVuelo = tipoVuelo;
         this.tarifa = tarifa;
@@ -62,13 +65,15 @@ public class VueloReserva {
         this.asiento = asiento;
     }
 
-    public ArrayList<Vuelo> getListaVuelos() {
-        return listaVuelos;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setListaVuelos(ArrayList<Vuelo> listaVuelos) {
-        this.listaVuelos = listaVuelos;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
+    
+    
     
     @Override
     public String toString(){
@@ -81,5 +86,21 @@ public class VueloReserva {
             v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],Integer.valueOf(dato[5]),Integer.valueOf(dato[6]));
             listaVuelos.add(v);
         }
+        
     }
+//    public void crearCodigoVR(){
+//        String opciones="1234567890";
+//        String cadena="";
+//        Random r=new Random();
+//        for(int i=0; i<6;i++){
+//            int posicion= r.nextInt(opciones.length());
+//            char caracter=opciones.charAt(posicion);
+//            cadena+=caracter;
+//        }
+//        int valor=Integer.parseInt(cadena);
+//        codigo=valor;
+//        
+//        
+//    }
+    
 }

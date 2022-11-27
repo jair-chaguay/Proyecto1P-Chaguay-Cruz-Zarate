@@ -5,9 +5,9 @@
 package Sistema;
 
 import Elementos.*;
-import Archivos.*;
-import Enums.*;
 import static Archivos.ManejoArchivos.LeerValidando;
+import static Elementos.VueloReserva.listaVuelos;
+import Enums.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Sistema {
    static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
    static ArrayList<Reserva> listaReservas=new ArrayList<>();
-   static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
+   public static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
    static ArrayList<Avion> listaAviones=new ArrayList<>();
    
    
@@ -66,12 +66,26 @@ public class Sistema {
             listaItinerarios.add(i);
         }
     }
+    public static void cargarVuelos(){
+        ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
+        Vuelo v;
+        for(String[] dato:datosVuelo){
+            v=new Vuelo(dato[0],dato[1],dato[2],dato[3],dato[4],Double.valueOf(dato[5]),Integer.valueOf(dato[6]));
+            listaVuelos.add(v);
+        }
+    }
+    public static void cargarAviones(){
+        ArrayList<String[]> datosAviones=LeerValidando("aviones.txt",true);
+        Avion a;
+        for(String[] dato:datosAviones){
+            a=new Avion(dato[0],Integer.valueOf(dato[1]));
+            listaAviones.add(a);
+        }
+    }
     
     public static void main(String[] args){
-//        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
-//            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
-//        }
 
+        //INICIO DE SESION
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("BIENVENIDO AL SISTEMA");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
@@ -83,14 +97,14 @@ public class Sistema {
        
         Sistema.cargarUsuarios();
         Sistema.cargarItinerarios();
-//        boolean nombre=true;
-//        while(nombre){
-//            
-//        }
+        Sistema.cargarVuelos();
+        Sistema.cargarAviones();
+//        
             
-        
+        //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
+                System.out.println("INGRESO EXITOSO");
 //            if(listaUsuarios.Contains(user)){
                 if(usuario instanceof Cliente cliente){
                     Sistema.mostrarMenuCliente();

@@ -4,9 +4,14 @@
  */
 package Elementos;
 
+import static Archivos.ManejoArchivos.LeerValidando;
+import static Elementos.Avion.listaAsientos;
 import Sistema.*;
 import Enums.*;
+import static Sistema.Sistema.listaItinerarios;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -20,6 +25,7 @@ public class Vuelo {
     private String codigoItinerario;
     private double precio;
     private int precioMillas;
+    private  String asientoAleatorio;
 
     public Vuelo(String codigoVuelo, String codigoAvion, String fechaSalida, String fechaLlegada, String codigoItinerario, double precio, int precioMillas) {
         this.codigoVuelo = codigoVuelo;
@@ -86,6 +92,53 @@ public class Vuelo {
     public void setCodigoVuelo(String codigoVuelo) {
         this.codigoVuelo = codigoVuelo;
     }
+
+    public  String getAsientoAleatorio() {
+        return asientoAleatorio;
+    }
+
+    public void setAsientoAleatorio(String asientoAleatorio) {
+        this.asientoAleatorio = asientoAleatorio;
+    }
     
     
+    @Override
+    public String toString(){
+        
+        String x = "CODIGO: " + getCodigoVuelo() + "\nHORA SALIDA: ";
+        for(Itinerarios i: listaItinerarios){
+            if(i.getCod().equals(getCodigoItinerario())){
+                x = x + i.getHoraSalida() + "\nHORA LLEGADA: " + i.getHoraLlegada() + "\nDURACION: " + i.getDuracion();
+            }
+        }
+        
+        return x = x + "\nAVION: " + getCodigoAvion() + "\nPRECIO " + getPrecio() + "\nCOSTO MILLAS: " + getPrecioMillas();
+    }
+    public static void cargarAsientos(){
+        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
+        Asientos a;
+        for(String[] dato:datosAsientos){
+            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
+            listaAsientos.add(a);
+        }
+    }
+    public  void asignarAsiento(String codigoAvion){
+        String a="";
+        ArrayList<Asientos> asientosDisponibles=new ArrayList<>();
+        Random r=new Random();
+        
+        for(Asientos asiento:listaAsientos){
+            if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
+                asientosDisponibles.add(asiento);   
+            }      
+        }
+        for(Asientos AD:asientosDisponibles){
+                int posicion= r.nextInt(asientosDisponibles.size());
+                AD=asientosDisponibles.get(posicion);
+                a=AD.getNumAsiento();
+   
+        }
+        asientoAleatorio=a;
+            
+    }
 }
