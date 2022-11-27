@@ -115,9 +115,7 @@ public class Cliente extends Usuario {
             
             ArrayList<Vuelo> listaIda = vuelosFiltrados(ciudadOrigen, ciudadDestino, fechaSalida);
             ArrayList<Vuelo> listaRetorno = vuelosFiltrados(ciudadDestino, ciudadOrigen, fechaRetorno);
-            for(Vuelo l:listaRetorno){
-                System.out.println("         "+l);
-            }
+            
             System.out.println("\n******PASO 1*****\n*****************");
             if(!listaIda.isEmpty()){
                 System.out.println("------Vuelos disponibles IDA-----");
@@ -179,8 +177,10 @@ public class Cliente extends Usuario {
                 
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
-                Avion.asignarAsiento(vueloIda.getCodigoAvion());
-                Avion.asignarAsiento(vueloRetorno.getCodigoAvion());
+                String asientoIda=Avion.asignarAsiento(vueloIda.getCodigoAvion());
+                String asientoRetorno=Avion.asignarAsiento(vueloRetorno.getCodigoAvion());
+                System.out.println("Para tu vuelo de ida "+vueloIda.getCodigoVuelo()+" se te ha asignado el asiento: "+ asientoIda);
+                System.out.println("Para tu vuelo de retorno "+vueloRetorno.getCodigoVuelo()+" se te ha asignado el asiento: "+ asientoRetorno);
                 comprar = false;
             }
             else{

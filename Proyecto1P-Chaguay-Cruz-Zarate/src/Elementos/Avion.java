@@ -54,18 +54,20 @@ public class Avion {
     }
     public static String asignarAsiento(String codigoAvion){
         Avion.cargarAsientos(listaAsientos);
-        Asientos a;
+        ArrayList<Asientos> asientosDisponibles=new ArrayList<>();
+        Random r=new Random();
         String nA="";
         for(Asientos asiento: listaAsientos){
             if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
-                Random r=new Random();
-                for(int i=0; i<listaAsientos.size();i++){
-                    int posicion= r.nextInt(listaAsientos.size());
-                    a=listaAsientos.get(posicion);
-                    nA+=a.getNumAsiento();
-                }
-            }    
+                asientosDisponibles.add(asiento);   
+            }      
+        }
+        for(Asientos AD:asientosDisponibles){
+                int posicion= r.nextInt(asientosDisponibles.size());
+                AD=listaAsientos.get(posicion);
+                nA+=AD.getNumAsiento();
+        }
+        return nA;
             
-        }return nA;
     }
 }
