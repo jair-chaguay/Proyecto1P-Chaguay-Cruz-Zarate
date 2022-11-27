@@ -108,7 +108,8 @@ public class Cliente extends Usuario {
         }
         comprar = true;
         while(comprar){
-            System.out.println("Fechas");
+            System.out.println("---------------------");
+            System.out.println("INGRESE LA FECHA CON FORMATO dd/mm/yyyy");
             System.out.print("Fecha de Salida: ");
             String fechaSalida = sc.nextLine();
             System.out.print("Fecha de Retorno: ");
@@ -128,7 +129,7 @@ public class Cliente extends Usuario {
                 System.out.print("\nElija el vuelo de ida: ");
                 int ind=sc.nextInt();
                 sc.nextLine();
-                Vuelo vueloIda=listaIda.get(ind);
+                Vuelo vueloIda=listaIda.get(ind-1);
                 
                 Cliente.mostrarTarifas();
                 System.out.print("\nElije la tarifa para tu vuelo de ida: ");
@@ -189,10 +190,12 @@ public class Cliente extends Usuario {
                 String sn=sc.nextLine();
                 if(sn.equalsIgnoreCase("s")){
                     System.out.println("Has completado el paso 3");
+                    
                 }else{
                     System.out.println("Complete los datos que le faltan para ir al paso 4");
                     Paso3();
                 }
+                System.out.println("\n******PASO 4*****\n*****************");
                 comprar = false;
             }
             else{
@@ -267,7 +270,24 @@ public class Cliente extends Usuario {
                     String numDoc=sc.nextLine();
                 }
                 
+          
                 
+                
+       
+                
+                
+                
+                
+                
+                
+                
+    }
+    public void Pagar(int numTarjetaCredito){
+        System.out.println("--------------PAGO---------");
+        System.out.println("Descripcion:");
+        
+        
+        
     }
 //    public static ArrayList<Vuelo> obtenerVuelosRetorno(String fechaRetorno,ArrayList<Vuelo> listaRetorno){
 //        ArrayList<Vuelo> lista2=new ArrayList<>();
