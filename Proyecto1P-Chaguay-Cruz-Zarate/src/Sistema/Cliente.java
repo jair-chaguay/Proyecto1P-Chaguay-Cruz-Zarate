@@ -142,6 +142,8 @@ public class Cliente extends Usuario {
             else{
                 System.out.println("No hay vuelos disponibles :C");
             }
+            System.out.println("******PASO 2*****\n*****************");
+            System.out.println("-----------ASIENTOS----------");
             
         }
     }    
