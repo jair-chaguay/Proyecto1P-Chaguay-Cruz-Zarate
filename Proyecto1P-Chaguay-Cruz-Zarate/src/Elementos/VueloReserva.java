@@ -20,7 +20,7 @@ public class VueloReserva {
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
-    private static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
+    public static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
     public VueloReserva(Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
         this.codigoVueloReserva = codigoVueloReserva;
