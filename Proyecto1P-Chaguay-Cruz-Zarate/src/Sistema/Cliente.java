@@ -12,6 +12,7 @@ import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -146,6 +147,7 @@ public class Cliente extends Usuario {
                         t=tipoTarifa.valueOf("C");
                         break;
                 }
+                t=tipoTarifa.valueOf(tarifaIda);
                 
                 
                 
@@ -159,7 +161,7 @@ public class Cliente extends Usuario {
                 System.out.print("\nElija el vuelo de retorno: ");
                 int ind2=sc.nextInt();
                 sc.nextLine();
-                Vuelo vueloRetorno=listaIda.get(ind2);
+                Vuelo vueloRetorno=listaIda.get(ind2-1);
                 
                 Cliente.mostrarTarifas();
                 System.out.print("\nElije la tarifa para tu vuelo de retorno: ");
@@ -176,13 +178,18 @@ public class Cliente extends Usuario {
                         t2=tipoTarifa.valueOf("C");
                         break;
                 }
+                t2=tipoTarifa.valueOf(tarifaRetorno);
                 
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
                 
                 System.out.println("Para tu vuelo de ida "+vueloIda.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloIda.getAsientoAleatorio());
                 System.out.println("Para tu vuelo de retorno "+vueloRetorno.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloRetorno.getAsientoAleatorio());
+                //CREACION DE VUELO RESERVA
+                VueloReserva ReservaIda=new VueloReserva(crearCodigo(),vueloIda,tipoVuelo.IDA,t,vueloIda.getAsientoAleatorio());
+                VueloReserva ReservaRetorno=new VueloReserva(crearCodigo(),vueloRetorno,tipoVuelo.VUELTA,t2,vueloRetorno.getAsientoAleatorio());
                 
+            
                 System.out.println("\n******PASO 3*****\n*****************");
                 System.out.println("-----------DATOS PASAJERO----------");
                 Paso3();
@@ -196,6 +203,7 @@ public class Cliente extends Usuario {
                     Paso3();
                 }
                 System.out.println("\n******PASO 4*****\n*****************");
+                
                 comprar = false;
             }
             else{
@@ -205,12 +213,38 @@ public class Cliente extends Usuario {
         }
     }    
     
-
-    public void pagar(int numTarjetaCredito){
+    public void crearReserva(){
+    
         
     }
-    public void crearReserva(){
+    //METODO PARA GENERAR CODIGO DE PAGO Y VUELORESERVA
+    
+    public int crearCodigo() {
+        String opciones = "1234567890";
+        String cadena = "";
+        Random r = new Random();
+        for (int i = 0; i < 6; i++) {
+            int posicion = r.nextInt(opciones.length());
+            char caracter = opciones.charAt(posicion);
+            cadena += caracter;
+        }
+        int valor = Integer.parseInt(cadena);
+        return valor;
+
+    }
+    //METODO PARA GENERAR CODIGO RESERVA
+    public String crearCodigoReserva(){
         
+        String opciones="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String cadena="";
+        Random r=new Random();
+        for(int i=0; i<6;i++){
+            int posicion= r.nextInt(opciones.length());
+            char caracter=opciones.charAt(posicion);
+            cadena+=caracter;
+        }
+        String valor=cadena;
+        return valor;
     }
     public ArrayList<String> ciudadesOrigen(){
         ArrayList<String> origen = new ArrayList<>();
@@ -282,6 +316,7 @@ public class Cliente extends Usuario {
                 
                 
     }
+   
     public void Pagar(int numTarjetaCredito){
         System.out.println("--------------PAGO---------");
         System.out.println("Descripcion:");
