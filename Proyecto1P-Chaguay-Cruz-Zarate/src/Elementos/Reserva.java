@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Random;
 import Elementos.Asientos;
 import static Archivos.ManejoArchivos.LeerValidando;
+import static Elementos.Avion.listaAsientos;
 /**
  *
  * @author HP
@@ -89,26 +90,26 @@ public class Reserva {
 //        codigo=valor;
 //    }
     
-//    public void AsignarAsientos(){
-//        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
-//        Asientos a;
-//        int aleatorio=0;
-//
-//        for(String[] dato:datosAsientos){
-//            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
-//            listAsientos.add(a);
-//        }
-//        
-//        Random f= new Random();  
-//        double ale=(int)(Math.random()*listAsientos.size());
-//        int asAle=(int)ale;
-//        if(listAsientos.get(asAle).equals("S")){
-//            System.out.println(listAsientos.get(asAle).getNumAsiento());
-//        }else{
-//            System.out.println("No hay un asiento disponible");
-//        }                
-//        
-//    }
+    public void AsignarAsientos(){
+        ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
+        Asientos a;
+        int aleatorio=0;
+
+        for(String[] dato:datosAsientos){
+            a=new Asientos(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
+            listaAsientos.add(a);
+        }
+        
+        Random f= new Random();  
+        double ale=(int)(Math.random()*listaAsientos.size());
+        int asAle=(int)ale;
+        if(listaAsientos.get(asAle).equals("S")){
+            System.out.println(listaAsientos.get(asAle).getNumAsiento());
+        }else{
+            System.out.println("No hay un asiento disponible");
+        }                
+        
+    }
     
     
     
