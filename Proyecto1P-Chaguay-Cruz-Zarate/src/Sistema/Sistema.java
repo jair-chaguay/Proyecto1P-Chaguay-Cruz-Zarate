@@ -84,9 +84,7 @@ public class Sistema {
     }
     
     public static void main(String[] args){
-//        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
-//            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
-//        }
+
         //INICIO DE SESION
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("BIENVENIDO AL SISTEMA");
@@ -106,6 +104,7 @@ public class Sistema {
         //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
+                System.out.println("INGRESO EXITOSO");
 //            if(listaUsuarios.Contains(user)){
                 if(usuario instanceof Cliente cliente){
                     Sistema.mostrarMenuCliente();
