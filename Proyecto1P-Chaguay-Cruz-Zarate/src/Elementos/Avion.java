@@ -9,6 +9,7 @@ import Elementos.Asientos;
 import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -51,15 +52,20 @@ public class Avion {
             listaAsientos.add(a);
         }
     }
-    public static void asignarAsiento(String codigoAvion){
+    public static String asignarAsiento(String codigoAvion){
         Avion.cargarAsientos(listaAsientos);
+        Asientos a;
+        String nA="";
         for(Asientos asiento: listaAsientos){
-            if(asiento.getDisponible().equals("S") && (asiento.getCodigoAvion().equals(codigoAvion))){
-                
-            }else{
-                break;
-            }
+            if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
+                Random r=new Random();
+                for(int i=0; i<listaAsientos.size();i++){
+                    int posicion= r.nextInt(listaAsientos.size());
+                    a=listaAsientos.get(posicion);
+                    nA+=a.getNumAsiento();
+                }
+            }    
             
-        }
+        }return nA;
     }
 }
