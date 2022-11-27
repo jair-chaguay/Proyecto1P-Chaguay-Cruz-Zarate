@@ -197,7 +197,7 @@ public class Cliente extends Usuario {
                 System.out.println("\n******PASO 3*****\n*****************");
                 System.out.println("-----------DATOS PASAJERO----------");
                 Paso3();
-                System.out.print("\nDesea guardar los datos del pasajero y continuar al pago(s/n)?");
+                System.out.print("\nDesea guardar los datos del pasajero y continuar al pago(s/n)? ");
                 String sn = sc.nextLine();
                 if (sn.equalsIgnoreCase("s")) {
                     System.out.println("Has completado el paso 3");
@@ -325,7 +325,7 @@ public class Cliente extends Usuario {
 
     public static void mostrarformasPago() {
         System.out.println("\nFormas de Pago:");
-        System.out.println("1.Tarjeta de Credito\n2. Millas\n");
+        System.out.println("1. Tarjeta de Credito\n2. Millas\n");
     }
 
     public void Paso3() {
