@@ -98,7 +98,6 @@ public class Sistema {
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
                 System.out.println("INGRESO EXITOSO");
-//            if(listaUsuarios.Contains(user)){
                 if(usuario instanceof Cliente cliente){
                     if(cliente instanceof ClienteVip clientevip){
                         Sistema.mostrarMenuCliente();
