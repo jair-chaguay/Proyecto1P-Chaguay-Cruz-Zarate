@@ -190,6 +190,7 @@ public class Cliente extends Usuario {
                 if(sn.equalsIgnoreCase("s")){
                     System.out.println("Has completado el paso 3");
                 }else{
+                    System.out.println("Complete los datos que le faltan para ir al paso 4");
                     Paso3();
                 }
                 comprar = false;
