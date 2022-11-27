@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class Avion {
     private String codigoAvion;
     private int capacidad;
-    private ArrayList<Asientos> listaAsientos;
+    private static ArrayList<Asientos> listaAsientos;
 
-    public Avion(String codigoAvion,int capacidad,ArrayList<Asientos> listaAsientos){
+    public Avion(String codigoAvion,int capacidad){
         this.codigoAvion=codigoAvion;
         this.capacidad=capacidad;
-        this.listaAsientos=listaAsientos;
+        
     }
     
     public String getCodigoAvion() {
@@ -41,14 +41,7 @@ public class Avion {
         this.capacidad = capacidad;
     }
 
-    public ArrayList<Asientos> getListaAsientos() {
-        return listaAsientos;
-    }
-
-    public void setListaAsientos(ArrayList<Asientos> listaAsientos) {
-        this.listaAsientos = listaAsientos;
-    }
-    
+ 
     
     public static void cargarAsientos(ArrayList<Asientos> listaAsientos){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
@@ -58,10 +51,10 @@ public class Avion {
             listaAsientos.add(a);
         }
     }
-    public void asignarAsiento(ArrayList<Asientos> listaAsientos){
+    public static void asignarAsiento(String codigoAvion){
         Avion.cargarAsientos(listaAsientos);
         for(Asientos asiento: listaAsientos){
-            if(asiento.getDisponible().equals("S")){
+            if(asiento.getDisponible().equals("S") && (asiento.getCodigoAvion().equals(codigoAvion))){
                 
             }else{
                 break;

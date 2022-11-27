@@ -9,7 +9,5 @@ package Enums;
  * @author DELL
  */
 public enum tipoTarifa {
-    Economy,
-    Peconomy,
-    Pbusiness
+    A,B,C
 }
