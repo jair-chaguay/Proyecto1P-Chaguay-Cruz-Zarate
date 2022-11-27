@@ -103,7 +103,7 @@ public class Reserva {
         Random f= new Random();  
         double ale=(int)(Math.random()*listaAsientos.size());
         int asAle=(int)ale;
-        if(listaAsientos.get(asAle).equals("S")){
+        if(listaAsientos.get(asAle).getDisponible().equals("S")){
             String c=listaAsientos.get(asAle).getNumAsiento();
             return c;
         }else{
