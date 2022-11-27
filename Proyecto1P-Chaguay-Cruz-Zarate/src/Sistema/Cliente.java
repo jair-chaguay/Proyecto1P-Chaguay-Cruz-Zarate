@@ -362,21 +362,7 @@ public class Cliente extends Usuario {
             ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
         }
-//    public static ArrayList<Vuelo> obtenerVuelosRetorno(String fechaRetorno,ArrayList<Vuelo> listaRetorno){
-//        ArrayList<Vuelo> lista2=new ArrayList<>();
-//        for(int i = 0; i<listaRetorno.size(); i++){
-//            String[] arrayFechaSalida=listaRetorno.get(i).getFechaSalida().split("/");
-//            String[] arrayFechaRetorno=fechaRetorno.split("/");
-//            boolean b1=Integer.valueOf(arrayFechaSalida[0])<Integer.valueOf(arrayFechaRetorno[0]);
-//            boolean b2=Integer.valueOf(arrayFechaSalida[1])<Integer.valueOf(arrayFechaRetorno[1]);
-//            if(b1 || b2){
-//                lista2.add(listaRetorno.get(i));
-//            }
-//        }for(Vuelo l:lista2){
-//            System.out.println(l);
-//        }
-//        return lista2;
-//    }
+
 
     }
 }

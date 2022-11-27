@@ -23,14 +23,7 @@ public class Sistema {
    
    
    
-//   ArrayList<String> usuarios= ManejoArchivos.LeerArchivo("usuarios.txt");
-    
-//    public static void IniciarSesion(){
-//
-//    }
-//    public void validarInformacion(){
-//       
-//    }
+
     public static void mostrarMenuOperador(){
         System.out.println("1. Consultar usuarios\n2. Consultar reservas\n3. Salir");
     }
