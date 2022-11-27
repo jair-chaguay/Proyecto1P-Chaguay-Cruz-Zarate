@@ -25,6 +25,7 @@ public class Cliente extends Usuario {
     private String numTarjetaCredito;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
+
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
@@ -43,7 +44,7 @@ public class Cliente extends Usuario {
     public void setNumTarjetaCredito(String numTarjetaCredito) {
         this.numTarjetaCredito = numTarjetaCredito;
     }
-    
+
     //TOSTRING PARA MOSTRAR LOS CLIENTES
     @Override
     public String toString() {
@@ -51,14 +52,11 @@ public class Cliente extends Usuario {
         return "Num T/C: " + numTarjetaCredito;
     }
 
-    
-    
-    
     @Override
     public void consultarReservas() {
 
     }
-    
+
     //MEOTOD PARA COMPRAR TICKETS
     public void comprarTickets() {
         String ciudadOrigen = "";
@@ -186,9 +184,9 @@ public class Cliente extends Usuario {
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
 
-                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: "+ Reserva.AsignarAsientos());
-                
-                System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: "+Reserva.AsignarAsientos() );
+                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
+
+                System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
                 //CREACION DE VUELO RESERVA
                 //CREACION DE TXT DE VUELO RESERVA
 
@@ -216,40 +214,112 @@ public class Cliente extends Usuario {
                 System.out.println("Descripcion:");
                 double valorpago = vueloIda.getPrecio() + vueloRetorno.getPrecio();
                 System.out.println("Subtotal: " + valorpago);
-                for (String[] dato : datosClientes) {
-                    if (dato[2].equals("GOLDEN PASS")) {
-                        System.out.println("Descuento:20%  (cliente vip GOLDEN PASS)");
-                        double valorDescuento = valorpago - valorpago * 20 / 100;
-                        System.out.println("Total: " + valorDescuento);
-                        valorpago = valorDescuento;
-                        System.out.println("Iva: " + valorpago * 12 / 100);
-                        System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
-                        break;
-                    }
-                    if (dato[2].equals("PLATINUM PASS")) {
-                        System.out.println("Descuento:30%  (cliente vip PLATINUM PASS)");
-                        double valorDescuento = valorpago - valorpago * 30 / 100;
-                        System.out.println("Total: " + valorDescuento);
-                        valorpago = valorDescuento;
-                        System.out.println("Iva: " + valorpago * 12 / 100);
+                if (tipoCategoria.equals("S")) {
+                    System.out.println("Descuento:0% (cliente ESTANDAR)");
+                    System.out.println("Iva: " + valorpago * 12 / 100);
+                    double total = valorpago + valorpago * 12 / 100;
+                    System.out.println("TOTAL A PAGAR: " + total);
 
-                        System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
-                        break;
+                    System.out.println("Forma de pago: Tarjeta de Credito");
+                    System.out.println("Ingrese el numero de T/C: ");
+                    String tarjeta = sc.nextLine();
+                    System.out.println("Estas seguro de pagr el vuelo?(s/n)");
+                    String respuesta = sc.nextLine();
+                    if (respuesta.equals("s")) {
+                        Pagar(tarjeta, total, ReservaIda);
+                        Pagar(tarjeta, total, ReservaRetorno);
+                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + ReservaIda.getCodigoVueloReserva());
+                    } else {
+                        System.out.println("No has finalizado tu compra.");
                     }
-                    if (dato[2].equals("null")) {
-                        System.out.println("Descuento:0% (cliente ESTANDAR)");
-                        System.out.println("Iva: " + valorpago * 12 / 100);
-                        System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
-                        break;
+
+                } else if (tipoCategoria.equals("V")) {
+                    for (String[] dato : datosClientes) {
+                        if (cedula.equals(dato[0]) && dato[2].equals("GOLDEN PASS")) {
+                            System.out.println("Descuento:20%  (cliente vip GOLDEN PASS)");
+                            double valorDescuento = valorpago - valorpago * 20 / 100;
+                            System.out.println("Total: " + valorDescuento);
+                            valorpago = valorDescuento;
+                            System.out.println("Iva: " + valorpago * 12 / 100);
+                            double total = valorpago + valorpago * 12 / 100;
+                            System.out.println("TOTAL A PAGAR: " + total);
+                            mostrarformasPago();
+                            System.out.println("Elige tu forma de pago: ");
+                            int opcion = sc.nextInt();
+                            if (opcion == 1) {
+                                System.out.println("Ingrese el numero de T/C: ");
+                                System.out.println("Estas seguro de pagar el vuelo?(s/n)");
+                                String opc=sc.nextLine();
+                                if(opc.equals("s")){
+                                
+                                String tarjeta = sc.nextLine();
+                                Pagar(tarjeta, total, ReservaIda);
+                                Pagar(tarjeta, total, ReservaRetorno);
+                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + ReservaIda.getCodigoVueloReserva());
+                                }else{
+                                    System.out.println("Tu pago no se ha completado.");}
+                            }
+
+                        } else if (cedula.equals(dato[0]) && dato[2].equals("PLATINUM PASS")) {
+                            System.out.println("Descuento:30%  (cliente vip PLATINUM PASS)");
+                            double valorDescuento = valorpago - valorpago * 30 / 100;
+                            System.out.println("Total: " + valorDescuento);
+                            valorpago = valorDescuento;
+                            System.out.println("Iva: " + valorpago * 12 / 100);
+                            double total = valorpago + valorpago * 12 / 100;
+                            System.out.println("TOTAL A PAGAR: " + total);
+                            mostrarformasPago();
+                            System.out.println("Elige tu forma de pago: ");
+                            int opcion = sc.nextInt();
+                            if (opcion == 1) {
+                                System.out.println("Ingrese el numero de T/C: ");
+                                System.out.println("Estas seguro de pagar el vuelo?(s/n)");
+                                String opc=sc.nextLine();
+                                if(opc.equals("s")){
+                                
+                                String tarjeta = sc.nextLine();
+                                Pagar(tarjeta, total, ReservaIda);
+                                Pagar(tarjeta, total, ReservaRetorno);
+                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + ReservaIda.getCodigoVueloReserva());
+                                }else{
+                                    System.out.println("Tu pago no se ha completado.");}
+                            }
+
+                        }
 
                     }
+
                 }
-                mostrarformasPago();
-                System.out.println("Elige tu forma de pago: ");
-                int opcion = sc.nextInt();
-                if (opcion == 1) {
-
-                }
+//                OUTER:
+//                for (String[] dato : datosClientes) {
+//                    switch (dato[1]) {
+//                        case "GOLDEN PASS":
+//                            {
+//                                System.out.println("Descuento:20%  (cliente vip GOLDEN PASS)");
+//                                double valorDescuento = valorpago - valorpago * 20 / 100;
+//                                System.out.println("Total: " + valorDescuento);
+//                                valorpago = valorDescuento;
+//                                System.out.println("Iva: " + valorpago * 12 / 100);
+//                                System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
+//                                break;
+//                            }
+//                        case "PLATINUM PASS":
+//                            {
+//                                System.out.println("Descuento:30%  (cliente vip PLATINUM PASS)");
+//                                double valorDescuento = valorpago - valorpago * 30 / 100;
+//                                System.out.println("Total: " + valorDescuento);
+//                                valorpago = valorDescuento;
+//                                System.out.println("Iva: " + valorpago * 12 / 100);
+//                                System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
+//                                break;
+//                            }
+//                        case "null":
+//                            System.out.println("Descuento:0% (cliente ESTANDAR)");
+//                            System.out.println("Iva: " + valorpago * 12 / 100);
+//                            System.out.println("TOTAL A PAGAR: " + (valorpago + valorpago * 12 / 100));
+//                            break ;
+//                    }
+//                }
 
                 comprar = false;
             } else {
@@ -367,7 +437,6 @@ public class Cliente extends Usuario {
             ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
         }
-
 
     }
 }
