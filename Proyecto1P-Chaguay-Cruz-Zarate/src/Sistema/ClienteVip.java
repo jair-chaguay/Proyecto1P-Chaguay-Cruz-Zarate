@@ -58,10 +58,6 @@ public class ClienteVip extends Cliente{
     public void consultarReservas(){
         
     }
-//    @Override
-//    public void elegirOpcion(){
-//        
-//    }
    
     public void pagar(int millas){
         
