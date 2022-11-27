@@ -46,14 +46,16 @@ public class Operador extends Usuario {
         ArrayList<VueloReserva> vuelosReserva = null;
         for (int i = 0; i < vuelosReserva.size(); i++) {
             String vuelo = vuelosReserva.get(i).getCodigoVueloReserva().getCodigoVuelo();
+            System.out.println("--------------------------------------");
             System.out.println("VUELO: " + vuelo);
             int cantidad = -1;
             for (int j = 0; j < vuelosReserva.size(); j++) {
                 if (vuelo.equals(vuelosReserva.get(j).getCodigoVueloReserva().getCodigoVuelo())) {
                     cantidad++;
-                  
+
                 }
                 System.out.println("CANTIDAD RESERVADOS: " + cantidad);
+                System.out.println("--------------------------------------");
 
             }
 
