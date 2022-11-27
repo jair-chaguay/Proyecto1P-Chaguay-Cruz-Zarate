@@ -15,7 +15,8 @@ public class Asientos {
     private String codigoAvion;
     private String numAsiento;
     private disponibilidad disponible;
-
+    
+    //CONSTRUCTOR PARA CREAR OBJETOS ASIENTOS
     public Asientos(String codigoAvion, String numAsiento, disponibilidad disponible) {
         this.codigoAvion = codigoAvion;
         this.numAsiento = numAsiento;
