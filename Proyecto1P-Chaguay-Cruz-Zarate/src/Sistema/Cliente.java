@@ -181,7 +181,8 @@ public class Cliente extends Usuario {
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
 
-                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " +Reserva.AsignarAsientos() );
+                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: ");
+                
                 System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " );
                 //CREACION DE VUELO RESERVA
                 //CREACION DE TXT DE VUELO RESERVA
