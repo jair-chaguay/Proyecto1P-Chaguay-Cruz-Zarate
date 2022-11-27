@@ -5,7 +5,6 @@
 package Sistema;
 
 import static Archivos.ManejoArchivos.LeerValidando;
-import Elementos.*;
 import Enums.*;
 import java.util.ArrayList;
 
