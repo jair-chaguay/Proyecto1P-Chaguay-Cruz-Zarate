@@ -330,7 +330,7 @@ public class Cliente extends Usuario {
 
     public void Paso3() {
         System.out.println("\nCompleta los datos de pasajero:\nNombres: " + nombres + "\nCorreo: " + correo);
-        System.out.println("Fecha de nacimiento: ");
+        System.out.print("Fecha de nacimiento: ");
         String fn = sc.nextLine();
         System.out.print("Genero (1. Masculino - 2. Femenino): ");
         int genero = sc.nextInt();
