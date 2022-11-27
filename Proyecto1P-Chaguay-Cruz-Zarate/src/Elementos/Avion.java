@@ -18,8 +18,9 @@ import java.util.Random;
 public class Avion {
     private String codigoAvion;
     private int capacidad;
-    private static ArrayList<Asientos> listaAsientos;
-
+    private static ArrayList<Asientos> listaAsientos=new ArrayList<>();
+    private static String asientoAleatorio;
+    
     public Avion(String codigoAvion,int capacidad){
         this.codigoAvion=codigoAvion;
         this.capacidad=capacidad;
@@ -44,7 +45,7 @@ public class Avion {
 
  
     
-    public static void cargarAsientos(ArrayList<Asientos> listaAsientos){
+    public static void cargarAsientos(){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
         Asientos a;
         for(String[] dato:datosAsientos){
@@ -53,11 +54,11 @@ public class Avion {
         }
     }
     public static String asignarAsiento(String codigoAvion){
-        Avion.cargarAsientos(listaAsientos);
+        
         ArrayList<Asientos> asientosDisponibles=new ArrayList<>();
         Random r=new Random();
-        String nA="";
-        for(Asientos asiento: listaAsientos){
+        
+        for(Asientos asiento:listaAsientos){
             if(asiento.getDisponible().equals(disponibilidad.valueOf("S")) && (asiento.getCodigoAvion().equals(codigoAvion))){
                 asientosDisponibles.add(asiento);   
             }      
@@ -65,9 +66,10 @@ public class Avion {
         for(Asientos AD:asientosDisponibles){
                 int posicion= r.nextInt(asientosDisponibles.size());
                 AD=listaAsientos.get(posicion);
-                nA+=AD.getNumAsiento();
+                asientoAleatorio=AD.getNumAsiento();
+   
         }
-        return nA;
+        return asientoAleatorio;
             
     }
 }
