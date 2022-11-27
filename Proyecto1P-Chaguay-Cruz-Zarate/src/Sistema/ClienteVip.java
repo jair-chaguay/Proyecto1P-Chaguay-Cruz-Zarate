@@ -15,13 +15,13 @@ import java.util.ArrayList;
 public class ClienteVip extends Cliente{
     private String rango;
     private int millas=1000;
-    ArrayList<String[]> datosClientes=LeerValidando("clientes.txt",true);
+    ArrayList<String[]> datosClientes2=LeerValidando("clientes.txt",true);
     
     //CONSTRUCTOR PARA CREAR OBJETOS CLIENTEVIP
     public ClienteVip(String cedula, String nombres,int edad, String correo,String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres,edad, correo,usuario, contrasena, tipoCategoria);
         
-        for(String[] dato:datosClientes){
+        for(String[] dato:datosClientes2){
             if(dato[0].equals(cedula)){
                 this.rango=dato[2];
                 this.millas=Integer.valueOf(dato[3]);
