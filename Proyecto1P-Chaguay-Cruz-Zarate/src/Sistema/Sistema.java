@@ -5,7 +5,6 @@
 package Sistema;
 
 import Elementos.*;
-import Archivos.*;
 import static Archivos.ManejoArchivos.LeerValidando;
 import static Elementos.VueloReserva.listaVuelos;
 import Enums.*;
@@ -88,7 +87,7 @@ public class Sistema {
 //        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
 //            ManejoArchivos.EscribirArchivo("prueba.txt", linea);
 //        }
-
+        //INICIO DE SESION
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("BIENVENIDO AL SISTEMA");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
@@ -104,7 +103,7 @@ public class Sistema {
         Sistema.cargarAviones();
 //        
             
-        
+        //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
             if(usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
 //            if(listaUsuarios.Contains(user)){
