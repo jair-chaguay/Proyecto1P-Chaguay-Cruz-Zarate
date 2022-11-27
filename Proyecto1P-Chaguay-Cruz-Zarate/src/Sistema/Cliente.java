@@ -7,6 +7,7 @@ package Sistema;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import static Elementos.Avion.listaAsientos;
 import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
 
@@ -174,13 +175,14 @@ public class Cliente extends Usuario {
                         t2=tipoTarifa.valueOf("C");
                         break;
                 }
-                
+                for(Asientos l:listaAsientos){
+                    System.out.println("Asientos");
+                }
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
-                String asientoIda=Avion.asignarAsiento(vueloIda.getCodigoAvion());
-                String asientoRetorno=Avion.asignarAsiento(vueloRetorno.getCodigoAvion());
-                System.out.println("Para tu vuelo de ida "+vueloIda.getCodigoVuelo()+" se te ha asignado el asiento: "+ asientoIda);
-                System.out.println("Para tu vuelo de retorno "+vueloRetorno.getCodigoVuelo()+" se te ha asignado el asiento: "+ asientoRetorno);
+                
+                System.out.println("Para tu vuelo de ida "+vueloIda.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloIda.getAsientoAleatorio());
+                System.out.println("Para tu vuelo de retorno "+vueloRetorno.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloRetorno.getAsientoAleatorio());
                 comprar = false;
             }
             else{
