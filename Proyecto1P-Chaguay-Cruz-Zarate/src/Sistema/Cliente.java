@@ -440,11 +440,13 @@ public class Cliente extends Usuario {
 
     }
 
-    public String Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, Reserva r) {
+    public String Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo) {
+        double valorTC = valor + valor * 10 / 100;
+        Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
+
         if (numTarjetaCredito.equals(getNumTarjetaCredito())) {
-            double valorTC = valor + valor * 10 / 100;
+            
             //CREACION DE OBJETO RESERVA
-            r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
             ManejoArchivos.EscribirArchivo("reservas.txt", "codigoReserva,codigoVuelo,cliente,fecha,valorPagar");
             ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
             //CREACION DE OBJETO PAGO
