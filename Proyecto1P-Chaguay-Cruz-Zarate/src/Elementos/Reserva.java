@@ -90,7 +90,7 @@ public class Reserva {
 //        codigo=valor;
 //    }
     
-    public String AsignarAsientos(){
+    public static String AsignarAsientos(){
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
         Asientos a;
         int aleatorio=0;
