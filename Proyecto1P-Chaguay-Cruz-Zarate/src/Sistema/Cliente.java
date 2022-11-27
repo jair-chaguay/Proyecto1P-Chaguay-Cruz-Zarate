@@ -7,8 +7,10 @@ package Sistema;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
+import static Elementos.Avion.listaAsientos;
 import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,9 +51,6 @@ public class Cliente extends Usuario {
     Scanner sc=new Scanner(System.in);
     @Override
     public void consultarReservas(){
-        
-        
-        
         
     }
     public void comprarTickets(){
@@ -118,7 +117,7 @@ public class Cliente extends Usuario {
             ArrayList<Vuelo> listaIda = vuelosFiltrados(ciudadOrigen, ciudadDestino, fechaSalida);
             ArrayList<Vuelo> listaRetorno = vuelosFiltrados(ciudadDestino, ciudadOrigen, fechaRetorno);
             
-            System.out.println("******PASO 1*****\n*****************");
+            System.out.println("\n******PASO 1*****\n*****************");
             if(!listaIda.isEmpty()){
                 System.out.println("------Vuelos disponibles IDA-----");
                 for(int i=0; i<listaIda.size(); i++){
@@ -127,26 +126,78 @@ public class Cliente extends Usuario {
                     
                 }
                 System.out.print("\nElija el vuelo de ida: ");
-                int vueloIda=sc.nextInt();
+                int ind=sc.nextInt();
                 sc.nextLine();
-                comprar = false;
+                Vuelo vueloIda=listaIda.get(ind);
+                
                 Cliente.mostrarTarifas();
-                System.out.print("\nElije la tarifa para tu vuelo: ");
+                System.out.print("\nElije la tarifa para tu vuelo de ida: ");
                 String tarifaIda=sc.nextLine();
+                tipoTarifa t;
+                switch(tarifaIda){
+                    case "A":
+                        t=tipoTarifa.valueOf("A");
+                        break;
+                    case "B":
+                        t=tipoTarifa.valueOf("B");
+                        break;
+                    case "C":
+                        t=tipoTarifa.valueOf("C");
+                        break;
+                }
+                
+                
                 
                 System.out.println("------Vuelos disponibles RETORNO-----");
-                
+//                ArrayList<Vuelo> x=Cliente.obtenerVuelosRetorno(fechaRetorno, listaRetorno);
+                for(int i=0; i<listaRetorno.size(); i++){
+                    System.out.println("---------"+(i+1)+"-----------");
+                    System.out.println(listaRetorno.get(i));
+                    
+                }
+                System.out.print("\nElija el vuelo de retorno: ");
+                int ind2=sc.nextInt();
+                sc.nextLine();
+                Vuelo vueloRetorno=listaIda.get(ind2);
                 
                 Cliente.mostrarTarifas();
-                System.out.print("\nElije la tarifa para tu vuelo: ");
+                System.out.print("\nElije la tarifa para tu vuelo de retorno: ");
                 String tarifaRetorno=sc.nextLine();
+                tipoTarifa t2;
+                switch(tarifaRetorno){
+                    case "A":
+                        t2=tipoTarifa.valueOf("A");
+                        break;
+                    case "B":
+                        t2=tipoTarifa.valueOf("B");
+                        break;
+                    case "C":
+                        t2=tipoTarifa.valueOf("C");
+                        break;
+                }
                 
+                System.out.println("\n******PASO 2*****\n*****************");
+                System.out.println("-----------ASIENTOS----------");
+                
+                System.out.println("Para tu vuelo de ida "+vueloIda.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloIda.getAsientoAleatorio());
+                System.out.println("Para tu vuelo de retorno "+vueloRetorno.getCodigoVuelo()+" se te ha asignado el asiento: "+ vueloRetorno.getAsientoAleatorio());
+                
+                System.out.println("\n******PASO 3*****\n*****************");
+                System.out.println("-----------DATOS PASAJERO----------");
+                Paso3();
+                System.out.print("\nDesea guardar los datos del pasajero y continuar al pago(s/n)?");
+                String sn=sc.nextLine();
+                if(sn.equalsIgnoreCase("s")){
+                    System.out.println("Has completado el paso 3");
+                }else{
+                    System.out.println("Complete los datos que le faltan para ir al paso 4");
+                    Paso3();
+                }
+                comprar = false;
             }
             else{
                 System.out.println("No hay vuelos disponibles :C");
             }
-            System.out.println("******PASO 2*****\n*****************");
-            System.out.println("-----------ASIENTOS----------");
             
         }
     }    
@@ -189,12 +240,49 @@ public class Cliente extends Usuario {
                lista.add(listaVuelos.get(i));
             }
         }
-        
-
         return lista;
     }
     public static void mostrarTarifas(){
         System.out.println("\nTARIFAS");
         System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
     }
+    
+    
+    public  void Paso3(){
+        System.out.println("\nCompleta los datos de pasajero:\nNombres: "+nombres+"\nCorreo: "+correo);
+                System.out.println("Fecha de nacimiento: ");
+                String fn=sc.nextLine();
+                System.out.print("Genero (1. Masculino - 2. Femenino): ");
+                int genero=sc.nextInt();
+                sc.nextLine();
+                System.out.print("Nacionalidad: ");
+                String nacionalidad=sc.nextLine();
+                System.out.print("Tipo de documento (1. Cedula - 2. Pasaporte): ");
+                int doc=sc.nextInt();
+                sc.nextLine();
+                if(doc==1){
+                    System.out.println("Numero del documento: "+ cedula);
+                }else{
+                    System.out.print("Numero del documento: ");
+                    String numDoc=sc.nextLine();
+                }
+                
+                
+    }
+//    public static ArrayList<Vuelo> obtenerVuelosRetorno(String fechaRetorno,ArrayList<Vuelo> listaRetorno){
+//        ArrayList<Vuelo> lista2=new ArrayList<>();
+//        for(int i = 0; i<listaRetorno.size(); i++){
+//            String[] arrayFechaSalida=listaRetorno.get(i).getFechaSalida().split("/");
+//            String[] arrayFechaRetorno=fechaRetorno.split("/");
+//            boolean b1=Integer.valueOf(arrayFechaSalida[0])<Integer.valueOf(arrayFechaRetorno[0]);
+//            boolean b2=Integer.valueOf(arrayFechaSalida[1])<Integer.valueOf(arrayFechaRetorno[1]);
+//            if(b1 || b2){
+//                lista2.add(listaRetorno.get(i));
+//            }
+//        }for(Vuelo l:lista2){
+//            System.out.println(l);
+//        }
+//        return lista2;
+//    }
+    
 }

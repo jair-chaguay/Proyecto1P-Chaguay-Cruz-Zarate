@@ -75,6 +75,14 @@ public class Sistema {
             listaVuelos.add(v);
         }
     }
+    public static void cargarAviones(){
+        ArrayList<String[]> datosAviones=LeerValidando("aviones.txt",true);
+        Avion a;
+        for(String[] dato:datosAviones){
+            a=new Avion(dato[0],Integer.valueOf(dato[1]));
+            listaAviones.add(a);
+        }
+    }
     
     public static void main(String[] args){
 //        for(String linea: ManejoArchivos.LeerArchivo("usuarios.txt")){
@@ -93,10 +101,8 @@ public class Sistema {
         Sistema.cargarUsuarios();
         Sistema.cargarItinerarios();
         Sistema.cargarVuelos();
-//        boolean nombre=true;
-//        while(nombre){
-//            
-//        }
+        Sistema.cargarAviones();
+//        
             
         
         for(Usuario usuario:listaUsuarios){
