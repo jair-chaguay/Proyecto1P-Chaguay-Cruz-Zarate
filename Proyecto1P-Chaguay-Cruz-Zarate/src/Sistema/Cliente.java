@@ -158,12 +158,16 @@ public class Cliente extends Usuario {
                 switch (tarifaIda) {
                     case "A":
                         t = tipoTarifa.valueOf("A");
+                        double valorpago=vueloIda.getPrecio()+0;
+                        
                         break;
                     case "B":
                         t = tipoTarifa.valueOf("B");
+                        valorpago=vueloIda.getPrecio()+60;
                         break;
                     case "C":
                         t = tipoTarifa.valueOf("C");
+                        valorpago=vueloIda.getPrecio()+90;
                         break;
                 }
                 t = tipoTarifa.valueOf(tarifaIda);
@@ -187,12 +191,16 @@ public class Cliente extends Usuario {
                 switch (tarifaRetorno) {
                     case "A":
                         t2 = tipoTarifa.valueOf("A");
+                        double valorpago=vueloIda.getPrecio()+0;
+                        
                         break;
                     case "B":
                         t2 = tipoTarifa.valueOf("B");
+                        valorpago=vueloIda.getPrecio()+60;
                         break;
                     case "C":
                         t2 = tipoTarifa.valueOf("C");
+                        valorpago=vueloIda.getPrecio()+90;
                         break;
                 }
                 t2 = tipoTarifa.valueOf(tarifaRetorno);
@@ -246,7 +254,7 @@ public class Cliente extends Usuario {
                         String pago1=Pagar(tarjeta, total, ReservaIda);
                         
                         String pago2=Pagar(tarjeta, total, ReservaRetorno);
-                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " +pago1+pago2);
+                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " +pago1);
                     } else {
                         System.out.println("No has finalizado tu compra.");
                     }
@@ -275,7 +283,7 @@ public class Cliente extends Usuario {
                                 
                                 String pago1=Pagar(tarjeta, total, ReservaIda);
                                 String pago2=Pagar(tarjeta, total, ReservaRetorno);
-                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1+pago2);
+                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
                                 }else{
                                     System.out.println("Tu pago no se ha completado.");}
                             }
@@ -301,7 +309,7 @@ public class Cliente extends Usuario {
                           
                                 String pago1=Pagar(tarjeta, total, ReservaIda);
                                 String pago2=Pagar(tarjeta, total, ReservaRetorno);
-                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1+pago2);
+                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
                                 }else{
                                     System.out.println("Tu pago no se ha completado.");}
                             }
