@@ -207,7 +207,9 @@ public class Cliente extends Usuario {
 
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
-
+                System.out.println(vueloIda);
+                System.out.println(" ");
+                System.out.println(vueloRetorno);
                 System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
 
                 System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
@@ -279,7 +281,7 @@ public class Cliente extends Usuario {
                                  
                                 System.out.println("Estas seguro de pagar el vuelo?(s/n)");
                                 String opc=sc.nextLine();
-                                if(opc.equals("s")){
+                                if(opc.equalsIgnoreCase("s")){
                                 
                                 String pago1=Pagar(tarjeta, total, ReservaIda);
                                 String pago2=Pagar(tarjeta, total, ReservaRetorno);
@@ -297,15 +299,15 @@ public class Cliente extends Usuario {
                             double total = valorpago + valorpago * 12 / 100;
                             System.out.println("TOTAL A PAGAR: " + total);
                             mostrarformasPago();
-                            System.out.println("Elige tu forma de pago: ");
+                            System.out.print("Elige tu forma de pago: ");
                             int opcion = sc.nextInt();
                             if (opcion == 1) {
-                                System.out.println("Ingrese el numero de T/C: ");
+                                System.out.print("Ingrese el numero de T/C: ");
                                 String tarjeta = sc.nextLine();
                                 sc.nextLine();
-                                System.out.println("Estas seguro de pagar el vuelo?(s/n)");
+                                System.out.print("Estas seguro de pagar el vuelo?(s/n)");
                                 String opc=sc.nextLine();
-                                if(opc.equals("s")){
+                                if(opc.equalsIgnoreCase("s")){
                           
                                 String pago1=Pagar(tarjeta, total, ReservaIda);
                                 String pago2=Pagar(tarjeta, total, ReservaRetorno);
