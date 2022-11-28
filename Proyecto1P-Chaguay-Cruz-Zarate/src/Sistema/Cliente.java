@@ -25,7 +25,7 @@ public class Cliente extends Usuario {
     private String numTarjetaCredito;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
-
+    
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
@@ -72,9 +72,10 @@ public class Cliente extends Usuario {
 
         }        
     }
-
+    
     //MEOTOD PARA COMPRAR TICKETS
     public void comprarTickets() {
+        ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
         String ciudadOrigen = "";
         boolean comprar = true;
         //MOSTRAR LAS CIUDADES DE DONDE PARTIRAN LOS USUARIOS
@@ -219,7 +220,7 @@ public class Cliente extends Usuario {
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
 
-                ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
+                
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
 
@@ -252,7 +253,7 @@ public class Cliente extends Usuario {
                     sc.nextLine();
                     System.out.println("Estas seguro de pagar el vuelo?(s/n)");
                     String respuesta = sc.nextLine();
-                    if (respuesta.equals("s")) {
+                    if (respuesta.equalsIgnoreCase("s")) {
                         String pago1=Pagar(tarjeta, total, ReservaIda);
                         
                         String pago2=Pagar(tarjeta, total, ReservaRetorno);
