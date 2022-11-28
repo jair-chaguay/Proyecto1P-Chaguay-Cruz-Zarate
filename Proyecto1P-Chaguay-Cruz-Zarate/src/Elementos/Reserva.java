@@ -34,7 +34,7 @@ public class Reserva {
     }
     @Override
     public String toString(){
-        return codigo+","+vuelo+","+cliente+","+fecha+","+valorPagar;
+        return codigo+","+vuelo.getCodigoVuelo()+","+cliente+","+fecha+","+valorPagar;
         
     }
 

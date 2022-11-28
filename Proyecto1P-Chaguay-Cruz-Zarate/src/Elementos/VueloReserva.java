@@ -78,7 +78,7 @@ public class VueloReserva {
     
     @Override
     public String toString(){
-        return codigoVueloReserva+","+tipoVuelo+","+tarifa+","+asiento;
+        return codigo+","+ codigoVueloReserva.getCodigoVuelo()+","+tipoVuelo+","+tarifa+","+asiento;
     }
     
     
