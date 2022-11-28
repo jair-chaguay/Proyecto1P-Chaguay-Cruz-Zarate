@@ -180,7 +180,7 @@ public class Sistema {
                         }
                     }
                 }
-            }else{
+            }else if(!usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)){
                 System.out.println("Usuario o contraseña incorrectos");
             }    
         }
