@@ -1,6 +1,0 @@
-codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento
-780142,LA1437,IDA,A,null
-867778,LA1382,VUELTA,B,null
-codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento
-434703,LA1437,IDA,A,null
-294383,LA1382,VUELTA,C,null
