@@ -54,27 +54,6 @@ public class ClienteVip extends Cliente {
         return "Rango: " + rango + ",millas: " + millas;
     }
 
-    //METODO PARA PAGAR CON MILLAS
-    public String Pagar(int millas, int valorMillas, VueloReserva vuelo) {
-        int valor = vuelo.getCodigoVueloReserva().getPrecioMillas();
-        if (millas >= valor) {
-            Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), millas);
-            //CREACION DE OBJETO RESERVA
-            ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
-            //CREACION DE OBJETO PAGO
-            Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.M, valor);
-            
-
-            ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
-            return r.getCodigo();
-        } else {
-            System.out.println("No tiene millas suficientes para su pago");
-            System.out.print("Desea intentar con tarjeta de credito?(s/n)");
-            String opc = sc.nextLine();
-            return opc;
-
-        }
-        
-    }
+    
 
 }
