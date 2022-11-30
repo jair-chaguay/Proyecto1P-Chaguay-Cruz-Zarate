@@ -1,4 +1,0 @@
-codigoReserva,codigoVuelo,cliente,fecha,valorPagar
-QLYPNQ,LA1437,Carolina Sabando,1/11/2022,1112.3111999999999
-codigoReserva,codigoVuelo,cliente,fecha,valorPagar
-FRRHCO,LA1382,Carolina Sabando,1/11/2022,1112.3111999999999
