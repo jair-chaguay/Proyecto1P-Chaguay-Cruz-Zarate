@@ -25,7 +25,7 @@ public class Cliente extends Usuario {
     private String numTarjetaCredito;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
-    
+
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
@@ -70,12 +70,12 @@ public class Cliente extends Usuario {
 
             }
 
-        }        
+        }
     }
-    
+
     //MEOTOD PARA COMPRAR TICKETS
     public void comprarTickets() {
-        ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
+
         String ciudadOrigen = "";
         boolean comprar = true;
         //MOSTRAR LAS CIUDADES DE DONDE PARTIRAN LOS USUARIOS
@@ -157,19 +157,18 @@ public class Cliente extends Usuario {
                 String tarifaIda = sc.nextLine();
                 tipoTarifa t;
                 switch (tarifaIda) {
-                    case "A":
+                    case "A" -> {
                         t = tipoTarifa.valueOf("A");
-                        double valorpago=vueloIda.getPrecio()+0;
-                        
-                        break;
-                    case "B":
+                        double valorpago = vueloIda.getPrecio() + 0;
+                    }
+                    case "B" -> {
                         t = tipoTarifa.valueOf("B");
-                        valorpago=vueloIda.getPrecio()+60;
-                        break;
-                    case "C":
+                        double valorpago = vueloIda.getPrecio() + 60;
+                    }
+                    case "C" -> {
                         t = tipoTarifa.valueOf("C");
-                        valorpago=vueloIda.getPrecio()+90;
-                        break;
+                        double valorpago = vueloIda.getPrecio() + 90;
+                    }
                 }
                 t = tipoTarifa.valueOf(tarifaIda);
 
@@ -190,19 +189,18 @@ public class Cliente extends Usuario {
                 String tarifaRetorno = sc.nextLine();
                 tipoTarifa t2;
                 switch (tarifaRetorno) {
-                    case "A":
+                    case "A" -> {
                         t2 = tipoTarifa.valueOf("A");
-                        double valorpago=vueloIda.getPrecio()+0;
-                        
-                        break;
-                    case "B":
+                        double valorpago = vueloIda.getPrecio() + 0;
+                    }
+                    case "B" -> {
                         t2 = tipoTarifa.valueOf("B");
-                        valorpago=vueloIda.getPrecio()+60;
-                        break;
-                    case "C":
+                        double valorpago = vueloIda.getPrecio() + 60;
+                    }
+                    case "C" -> {
                         t2 = tipoTarifa.valueOf("C");
-                        valorpago=vueloIda.getPrecio()+90;
-                        break;
+                        double valorpago = vueloIda.getPrecio() + 90;
+                    }
                 }
                 t2 = tipoTarifa.valueOf(tarifaRetorno);
 
@@ -220,7 +218,6 @@ public class Cliente extends Usuario {
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
 
-                
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
 
@@ -248,16 +245,16 @@ public class Cliente extends Usuario {
                     System.out.println("TOTAL A PAGAR: " + total);
 
                     System.out.println("Forma de pago: Tarjeta de Credito");
-                    System.out.println("Ingrese el numero de T/C: ");
+                    System.out.print("Ingrese el numero de T/C: ");
                     String tarjeta = sc.nextLine();
                     sc.nextLine();
-                    System.out.println("Estas seguro de pagar el vuelo?(s/n)");
+                    System.out.print("Estas seguro de pagar el vuelo?(s/n)");
                     String respuesta = sc.nextLine();
                     if (respuesta.equalsIgnoreCase("s")) {
-                        String pago1=Pagar(tarjeta, total, ReservaIda);
-                        
-                        String pago2=Pagar(tarjeta, total, ReservaRetorno);
-                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " +pago1);
+                        String pago1 = Pagar(tarjeta, total, ReservaIda);
+
+                        String pago2 = Pagar(tarjeta, total, ReservaRetorno);
+                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
                     } else {
                         System.out.println("No has finalizado tu compra.");
                     }
@@ -276,19 +273,33 @@ public class Cliente extends Usuario {
                             System.out.println("Elige tu forma de pago: ");
                             int opcion = sc.nextInt();
                             if (opcion == 1) {
-                                System.out.println("Ingrese el numero de T/C: ");
+                                System.out.print("Ingrese el numero de T/C: ");
                                 String tarjeta = sc.nextLine();
                                 sc.nextLine();
-                                 
+
                                 System.out.println("Estas seguro de pagar el vuelo?(s/n)");
-                                String opc=sc.nextLine();
-                                if(opc.equalsIgnoreCase("s")){
-                                
-                                String pago1=Pagar(tarjeta, total, ReservaIda);
-                                String pago2=Pagar(tarjeta, total, ReservaRetorno);
+                                String opc = sc.nextLine();
+                                if (opc.equalsIgnoreCase("s")) {
+
+                                    String pago1 = Pagar(tarjeta, total, ReservaIda);
+                                    String pago2 = Pagar(tarjeta, total, ReservaRetorno);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
+                                } else {
+                                    System.out.println("Tu pago no se ha completado.");
+                                }
+                            } else if (opcion == 2) {
+
+                                String millas = dato[3];
+                                int valorMillas = vueloIda.getPrecioMillas() + vueloRetorno.getPrecioMillas();
+                                String pago1 = Pagar(millas, valorMillas, ReservaIda);
+                                String pago2 = Pagar(millas, valorMillas, ReservaRetorno);
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
-                                }else{
-                                    System.out.println("Tu pago no se ha completado.");}
+                                if (pago1.equalsIgnoreCase("s") || pago2.equalsIgnoreCase("s")) {
+                                    String newpago1 = Pagar(dato[1], total, ReservaIda);
+                                    String newpago2 = Pagar(dato[1], total, ReservaRetorno);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago1);
+
+                                }
                             }
 
                         } else if (cedula.equals(dato[0]) && dato[2].equals("PLATINUM PASS")) {
@@ -307,14 +318,29 @@ public class Cliente extends Usuario {
                                 String tarjeta = sc.nextLine();
                                 sc.nextLine();
                                 System.out.print("Estas seguro de pagar el vuelo?(s/n)");
-                                String opc=sc.nextLine();
-                                if(opc.equalsIgnoreCase("s")){
-                          
-                                String pago1=Pagar(tarjeta, total, ReservaIda);
-                                String pago2=Pagar(tarjeta, total, ReservaRetorno);
+                                String opc = sc.nextLine();
+                                if (opc.equalsIgnoreCase("s")) {
+
+                                    String pago1 = Pagar(tarjeta, total, ReservaIda);
+                                    String pago2 = Pagar(tarjeta, total, ReservaRetorno);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
+                                } else {
+                                    System.out.println("Tu pago no se ha completado.");
+                                }
+
+                            } else if (opcion == 2) {
+                                String millas = dato[3];
+                                int valorMillas = vueloIda.getPrecioMillas() + vueloRetorno.getPrecioMillas();
+                                String pago1 = Pagar(millas, valorMillas, ReservaIda);
+                                String pago2 = Pagar(millas, valorMillas, ReservaRetorno);
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
-                                }else{
-                                    System.out.println("Tu pago no se ha completado.");}
+                                if (pago1.equalsIgnoreCase("s") || pago2.equalsIgnoreCase("s")) {
+                                    String newpago1 = Pagar(dato[1], total, ReservaIda);
+                                    String newpago2 = Pagar(dato[1], total, ReservaRetorno);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago1);
+
+                                }
+
                             }
 
                         }
@@ -322,7 +348,6 @@ public class Cliente extends Usuario {
                     }
 
                 }
-             
 
                 comprar = false;
             } else {
@@ -428,17 +453,16 @@ public class Cliente extends Usuario {
     }
 
     public String Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo) {
-        double valorTC = valor + valor * 10 / 100;
+        double valorTC = valor + (valor * 10 / 100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
 
         if (numTarjetaCredito.equals(getNumTarjetaCredito())) {
-            
+
             //CREACION DE OBJETO RESERVA
-            ManejoArchivos.EscribirArchivo("reservas.txt", "codigoReserva,codigoVuelo,cliente,fecha,valorPagar");
             ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
             //CREACION DE OBJETO PAGO
             Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.TC, valorTC);
-            ManejoArchivos.EscribirArchivo("pagos.txt", "idPago,codigoReserva,totalPagarfina,modoPago");
+
             ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
         }

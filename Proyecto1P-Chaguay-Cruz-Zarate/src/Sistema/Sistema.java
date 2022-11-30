@@ -4,6 +4,7 @@
  */
 package Sistema;
 
+import Archivos.ManejoArchivos;
 import Elementos.*;
 import static Archivos.ManejoArchivos.LeerValidando;
 import static Elementos.VueloReserva.listaVuelos;
@@ -20,6 +21,7 @@ public class Sistema {
    static ArrayList<Reserva> listaReservas=new ArrayList<>();
    public static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
    static ArrayList<Avion> listaAviones=new ArrayList<>();
+    
    
    
    
@@ -104,7 +106,10 @@ public class Sistema {
         Sistema.cargarItinerarios();
         Sistema.cargarVuelos();
         Sistema.cargarAviones();
-      
+        //CREACION DE CABEERAS TXT
+        ManejoArchivos.EscribirArchivo("reservas.txt", "codigoReserva,codigoVuelo,cliente,fecha,valorPagar");
+        ManejoArchivos.EscribirArchivo("pagos.txt", "idPago,codigoReserva,totalPagarfina,modoPago");
+        ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
             
         //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
