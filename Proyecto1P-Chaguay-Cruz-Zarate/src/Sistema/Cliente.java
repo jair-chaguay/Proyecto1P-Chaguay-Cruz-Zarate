@@ -451,7 +451,7 @@ public class Cliente extends Usuario {
     }
 
     public String Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
-        double valorTC = valor + (valor * 10 / 100);
+        double valorTC = valor + (valor*10/100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
         Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
 
