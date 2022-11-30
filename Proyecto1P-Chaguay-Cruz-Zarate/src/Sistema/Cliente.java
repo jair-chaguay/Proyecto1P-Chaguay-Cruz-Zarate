@@ -290,7 +290,9 @@ public class Cliente extends Usuario {
                             } else if (opcion == 2) {
 
                                 String millas = dato[3];
+                                System.out.println(millas);
                                 int valorMillas = vueloIda.getPrecioMillas() + vueloRetorno.getPrecioMillas();
+                                System.out.println(valorMillas);
                                 String pago1 = Pagar(millas, valorMillas, ReservaIda);
                                 String pago2 = Pagar(millas, valorMillas, ReservaRetorno);
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago1);
