@@ -1,4 +1,1 @@
-idPago,codigoReserva,totalPagarfina,modoPago
-487144,QLYPNQ,TC,1112.3111999999999
-idPago,codigoReserva,totalPagarfina,modoPago
-656403,FRRHCO,TC,1112.3111999999999
+
