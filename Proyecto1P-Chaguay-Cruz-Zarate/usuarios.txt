@@ -1,6 +1,6 @@
 cedula,nombres,edad,mail,user,password,rol
 0972327367,Carolina Sabando,23,csabando@gmail.com,csabando,dkioeiw2,S
-0923879161,Armando Mancilla,45,armandoM@gmail.com,amancilla,qwrty,S
+0923879161,Armando Mancilla,45,armandoM@gmail.com,amancilla,qwrty,V
 0927363768,Ana Rosero,38,arosero@gmail.com,arose,ihsywy,V
 1207392968,Gerardo Campos,56,gcampos@gmail.com,gcampos,28374jshs,O
 0926534836,Ramiro Vasquez,30,rvasquz@gmail.com,rvasquez,RV1234,V
