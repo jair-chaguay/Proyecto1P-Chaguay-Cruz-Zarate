@@ -4,3 +4,4 @@ codigoItinerario,origen,destino,hora salida,hora llegada,duracion
 3422,GUAYAQUIL,LIMA,7:14,15:35,8:21
 4322,LIMA,GUAYAQUIL,12:00,14:05,2:05
 7433,LIMA,GUAYAQUIL,5:10,10:04,4:54
+8352,GUAYAQUIL,LIMA,3:40,5:00,1:20
