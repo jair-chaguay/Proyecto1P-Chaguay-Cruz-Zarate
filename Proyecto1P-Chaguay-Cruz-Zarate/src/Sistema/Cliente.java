@@ -456,8 +456,8 @@ public class Cliente extends Usuario {
     public String Pagar(int millas, VueloReserva vuelo, VueloReserva vuelo2) {
         int valor = vuelo.getCodigoVueloReserva().getPrecioMillas() + vuelo2.getCodigoVueloReserva().getPrecioMillas();
         if (millas >= valor) {
-            Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), millas);
-            Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), millas);
+            Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valor);
+            Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valor);
             listaReservas.add(r);
             listaReservas.add(r2);
             //CREACION DE OBJETO RESERVA
