@@ -190,14 +190,17 @@ public class Cliente extends Usuario {
                 System.out.println(vueloIda);
                 System.out.println(" ");
                 System.out.println(vueloRetorno);
-                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
+                String asiento1=Reserva.AsignarAsientos();
+                String asiento2=Reserva.AsignarAsientos();
+                        
+                System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + asiento1);
 
-                System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + Reserva.AsignarAsientos());
+                System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + asiento2);
                 //CREACION DE VUELO RESERVA
                 //CREACION DE TXT DE VUELO RESERVA
 
-                VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
-                VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
+                VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, asiento1);
+                VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, asiento2);
 //                vuelosReserva.add(ReservaIda);
 //                vuelosReserva.add(ReservaRetorno);
 
