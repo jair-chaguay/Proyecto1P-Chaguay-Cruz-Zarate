@@ -100,6 +100,10 @@ public class Reserva {
         }                
         
     }
+
+    public Vuelo getVuelo() {
+        return vuelo;
+    }
     
     
     
