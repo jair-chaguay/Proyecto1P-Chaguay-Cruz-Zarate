@@ -14,7 +14,8 @@ import java.util.ArrayList;
  * @author HP
  */
 public class Operador extends Usuario {
-     ArrayList<VueloReserva> vuelosReserva;
+
+    ArrayList<VueloReserva> vuelosReserva;
 
     private int sueldo;
 
@@ -44,23 +45,26 @@ public class Operador extends Usuario {
 
     @Override
     public void consultarReservas() {
-        for(VueloReserva elemento: vuelosReserva){
-            String primer=elemento.getCodigoVueloReserva().getCodigoVuelo();
-            System.out.println("--------------------------");
-            System.out.println("VUELO: "+primer);
-            int cantidad=0;
-            for(int i=0;i<vuelosReserva.size();i++){
-                if(primer.equals(vuelosReserva.get(i).getCodigoVueloReserva().getCodigoVuelo())){
-                    cantidad++;
-                    System.out.println("CANTIDAD DE RESERVAS: "+cantidad);
-                    System.out.println("--------------------------");
-                    
+        if (vuelosReserva.isEmpty() == false) {
+            for (VueloReserva elemento : vuelosReserva) {
+
+                String primer = elemento.getCodigoVueloReserva().getCodigoVuelo();
+                System.out.println("--------------------------");
+                System.out.println("VUELO: " + primer);
+                int cantidad = 0;
+                for (int i = 0; i < vuelosReserva.size(); i++) {
+                    if (primer.equals(vuelosReserva.get(i).getCodigoVueloReserva().getCodigoVuelo())) {
+                        cantidad++;
+                        System.out.println("CANTIDAD DE RESERVAS: " + cantidad);
+                        System.out.println("--------------------------");
+
+                    }
                 }
+
             }
-            
-            
+        } else {
+            System.out.println("NO HAY RESERVAS QUE CONSULTAR");
         }
-        
 
     }
 
