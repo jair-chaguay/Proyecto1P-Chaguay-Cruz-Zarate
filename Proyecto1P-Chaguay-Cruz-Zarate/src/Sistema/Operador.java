@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Operador extends Usuario {
 
-    ArrayList<VueloReserva> vuelosReserva;
+    static ArrayList<VueloReserva> vuelosReserva;
 
     private int sueldo;
 

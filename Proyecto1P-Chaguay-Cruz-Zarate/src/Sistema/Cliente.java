@@ -26,7 +26,7 @@ public class Cliente extends Usuario {
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
     static ArrayList<Reserva> listaReservas=new ArrayList<>();
-    ArrayList<VueloReserva> vuelosReserva;
+    static ArrayList<VueloReserva> vuelosReserva;
 
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
