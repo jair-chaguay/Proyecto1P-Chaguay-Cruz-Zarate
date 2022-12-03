@@ -44,12 +44,22 @@ public class Operador extends Usuario {
 
     @Override
     public void consultarReservas() {
-        //for(VueloReserva elemento:vuelosReservas){
-           // if(elemento.getVuelo().getCodigoVuelo()){
-                
-          //  }
+        for(VueloReserva elemento: vuelosReserva){
+            String primer=elemento.getCodigoVueloReserva().getCodigoVuelo();
+            System.out.println("--------------------------");
+            System.out.println("VUELO: "+primer);
+            int cantidad=0;
+            for(int i=0;i<vuelosReserva.size();i++){
+                if(primer.equals(vuelosReserva.get(i).getCodigoVueloReserva().getCodigoVuelo())){
+                    cantidad++;
+                    System.out.println("CANTIDAD DE RESERVAS: "+cantidad);
+                    System.out.println("--------------------------");
+                    
+                }
+            }
             
-      //  }
+            
+        }
         
 
     }
