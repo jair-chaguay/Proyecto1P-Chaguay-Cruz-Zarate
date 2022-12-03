@@ -497,7 +497,8 @@ public class Cliente extends Usuario {
                 System.out.println("PUERTA DE EMBARQUE: "+numero);
                     
                 
-            }
+            }else{
+                System.out.println("Usted no tiene una reserva.");}
             
             
         }
