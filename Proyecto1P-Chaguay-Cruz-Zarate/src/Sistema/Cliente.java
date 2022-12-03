@@ -494,16 +494,13 @@ public class Cliente extends Usuario {
                         System.out.println("AVION: " + dato.getVuelo().getCodigoAvion());
                         System.out.println("PUERTA DE EMBARQUE: " + numero);
                         System.out.println("---------------------");
-
-                    } else {
-                        System.out.println("Usted no tiene una reserva.");
                     }
-
                 }
-
+            } else {
+                System.out.println("Usted no tiene una reserva.");
             }
 
         }
-    }
 
+    }
 }
