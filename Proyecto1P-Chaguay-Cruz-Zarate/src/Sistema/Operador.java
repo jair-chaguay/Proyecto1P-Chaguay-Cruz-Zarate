@@ -46,32 +46,32 @@ public class Operador extends Usuario {
 
     @Override
     public void consultarReservas() {
-//        ArrayList<String[]> datosReservas = ManejoArchivos.LeerValidando("reservas.txt", true);
-//        if (datosReservas != null) {
-//            for (String[] elemento : datosReservas) {
-//                String vuelo = elemento[1];
-//                int cantidad = 0;
-//                System.out.println("-------------------------");
-//                System.out.println("VUELO: " + vuelo);
-//
-//                for (int i = 0; i < datosReservas.size(); i++) {
-//
-//                    if (vuelo.equals(datosReservas.get(i)[1])) {
-//
-//                        cantidad++;
-//                        System.out.println("CANTIDAD DE RESERVAS: "+ cantidad);
-//
-//                    }else{
-//                        cantidad+=0;
-//                    }
-//
-//                }
-//
-//            }
-//
-//        }else{
-//            System.out.println("NO HAY RESERVAS QUE CONSULTAR");}
-//    }
+        ArrayList<String[]> datosReservas = ManejoArchivos.LeerValidando("reservas.txt", true);
+        if (datosReservas != null) {
+            for (String[] elemento : datosReservas) {
+                String vuelo = elemento[1];
+                int cantidad = 0;
+                System.out.println("-------------------------");
+                System.out.println("VUELO: " + vuelo);
+
+                for (int i = 0; i < datosReservas.size(); i++) {
+
+                    if (vuelo.equals(datosReservas.get(i)[1])) {
+
+                        cantidad++;
+                        System.out.println("CANTIDAD DE RESERVAS: "+ cantidad);
+
+                    }else{
+                        cantidad+=0;
+                    }
+
+                }
+
+            }
+
+        }else{
+            System.out.println("NO HAY RESERVAS QUE CONSULTAR");}
+    }
 
 //        if (vuelosReserva.isEmpty() == false) {
 //            for (VueloReserva elemento : vuelosReserva) {
@@ -93,8 +93,7 @@ public class Operador extends Usuario {
 //        } else {
 //            System.out.println("NO HAY RESERVAS QUE CONSULTAR");
 //        }
-    }
-    
+   
 
 public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario u : listaUsuarios) {
