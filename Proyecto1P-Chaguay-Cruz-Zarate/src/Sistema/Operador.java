@@ -16,8 +16,6 @@ import java.util.ArrayList;
  */
 public class Operador extends Usuario {
 
-    
-
     private int sueldo;
 
     public Operador(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
@@ -57,20 +55,20 @@ public class Operador extends Usuario {
                 for (int i = 0; i < datosReservas.size(); i++) {
 
                     if (vuelo.equals(datosReservas.get(i)[1])) {
-
                         cantidad++;
-                        System.out.println("CANTIDAD DE RESERVAS: "+ cantidad);
 
-                    }else{
-                        cantidad+=0;
+                    } else {
+                        cantidad += 0;
                     }
 
                 }
+                System.out.println("CANTIDAD DE RESERVAS: " + cantidad);
 
             }
 
-        }else{
-            System.out.println("NO HAY RESERVAS QUE CONSULTAR");}
+        } else {
+            System.out.println("NO HAY RESERVAS QUE CONSULTAR");
+        }
     }
 
 //        if (vuelosReserva.isEmpty() == false) {
@@ -93,9 +91,7 @@ public class Operador extends Usuario {
 //        } else {
 //            System.out.println("NO HAY RESERVAS QUE CONSULTAR");
 //        }
-   
-
-public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
+    public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario u : listaUsuarios) {
             if (u instanceof Cliente c) {
                 if (c instanceof ClienteVip cv) {
