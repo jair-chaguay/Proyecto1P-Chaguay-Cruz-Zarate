@@ -25,6 +25,7 @@ public class Cliente extends Usuario {
     private String numTarjetaCredito;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
+    static ArrayList<Reserva> listaReservas=new ArrayList<>();
 
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
@@ -52,26 +53,7 @@ public class Cliente extends Usuario {
         return "Num T/C: " + numTarjetaCredito;
     }
 
-    @Override
-    public void consultarReservas() {
-        ArrayList<VueloReserva> vuelosReserva = null;
-        for (int i = 0; i < vuelosReserva.size(); i++) {
-            String vuelo = vuelosReserva.get(i).getCodigoVueloReserva().getCodigoVuelo();
-            System.out.println("--------------------------------------");
-            System.out.println("VUELO: " + vuelo);
-            int cantidad = -1;
-            for (int j = 0; j < vuelosReserva.size(); j++) {
-                if (vuelo.equals(vuelosReserva.get(j).getCodigoVueloReserva().getCodigoVuelo())) {
-                    cantidad++;
-
-                }
-                System.out.println("CANTIDAD RESERVADOS: " + cantidad);
-                System.out.println("--------------------------------------");
-
-            }
-
-        }
-    }
+   
 
     //MEOTOD PARA COMPRAR TICKETS
     public void comprarTickets() {
@@ -251,10 +233,10 @@ public class Cliente extends Usuario {
                     System.out.print("Estas seguro de pagar el vuelo?(s/n)");
                     String respuesta = sc.nextLine();
                     if (respuesta.equalsIgnoreCase("s")) {
-                        String pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
+                        Reserva pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
 
                         
-                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
+                        System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago.getCodigo());
                     } else {
                         System.out.println("No has finalizado tu compra.");
                     }
@@ -281,9 +263,9 @@ public class Cliente extends Usuario {
                                 String opc = sc.nextLine();
                                 if (opc.equalsIgnoreCase("s")) {
 
-                                    String pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
+                                    Reserva pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
                                     
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago.getCodigo());
                                 } else {
                                     System.out.println("Tu pago no se ha completado.");
                                 }
@@ -294,9 +276,9 @@ public class Cliente extends Usuario {
                                 
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
                                 if (pago.equalsIgnoreCase("s")) {
-                                    String newpago = Pagar(dato[1], total, ReservaIda,ReservaRetorno);
+                                    Reserva newpago = Pagar(dato[1], total, ReservaIda,ReservaRetorno);
                                    
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago.getCodigo());
 
                                 }
                             }
@@ -320,9 +302,9 @@ public class Cliente extends Usuario {
                                 String opc = sc.nextLine();
                                 if (opc.equalsIgnoreCase("s")) {
 
-                                    String pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
+                                   Reserva pago = Pagar(tarjeta, total, ReservaIda,ReservaRetorno);
                                  
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago.getCodigo());
                                 } else {
                                     System.out.println("Tu pago no se ha completado.");
                                 }
@@ -333,9 +315,9 @@ public class Cliente extends Usuario {
                                 String pago = Pagar(millas,ReservaIda,ReservaRetorno);
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
                                 if (pago.equalsIgnoreCase("s")) {
-                                    String newpago = Pagar(dato[1], total, ReservaIda,ReservaRetorno);
+                                    Reserva newpago = Pagar(dato[1], total, ReservaIda,ReservaRetorno);
                                     
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago);
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago.getCodigo());
 
                                 }
 
@@ -449,11 +431,15 @@ public class Cliente extends Usuario {
         }
 
     }
+    
+    // METDO PARA PAGAR CON TARJETA DE CREDITO
 
-    public String Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
+    public Reserva Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
         double valorTC = valor + (valor*10/100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
         Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
+        listaReservas.add(r);
+        listaReservas.add(r2);
 
         if (numTarjetaCredito.equals(getNumTarjetaCredito())) {
 
@@ -465,7 +451,7 @@ public class Cliente extends Usuario {
             ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
         }
-        return r.getCodigo();
+        return r;
     }
     
     
@@ -474,6 +460,9 @@ public class Cliente extends Usuario {
         int valor = vuelo.getCodigoVueloReserva().getPrecioMillas()+vuelo2.getCodigoVueloReserva().getPrecioMillas();
         if (millas >= valor) {
             Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), millas);
+            Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), millas);
+            listaReservas.add(r);
+            listaReservas.add(r2);
             //CREACION DE OBJETO RESERVA
             ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
             //CREACION DE OBJETO PAGO
@@ -491,4 +480,40 @@ public class Cliente extends Usuario {
         }
         
     }
+
+    
+    @Override
+    public void consultarReservas(){
+        int numero = (int)(Math.random()*10+1);
+        
+        for(Reserva dato:listaReservas){
+            if(dato.getCliente().equals(nombres)){
+                System.out.println("NOMBRES: "+ dato.getCliente());
+                System.out.println("CEDULA: "+cedula);
+                System.out.println("VUELO:"+dato.getVuelo().getCodigoVuelo());
+                System.out.println("HORA SALIDA: "+dato.getVuelo().getFechaSalida());
+                System.out.println("HORA LLEGADA: "+dato.getVuelo().getFechaLlegada());
+                System.out.println("AVION: "+dato.getVuelo().getCodigoAvion());
+                System.out.println("PUERTA DE EMBARQUE: "+numero);
+                    
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+
+
+
+
+
 }
