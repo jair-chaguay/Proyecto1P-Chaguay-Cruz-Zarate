@@ -18,7 +18,7 @@ import static Elementos.Avion.listaAsientos;
  */
 public class Reserva {
    private String codigo;
-    private ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
+    private static ArrayList<VueloReserva> vuelosReserva=new ArrayList<>();
     private String cliente;
     private String fecha; 
     private double valorPagar;
