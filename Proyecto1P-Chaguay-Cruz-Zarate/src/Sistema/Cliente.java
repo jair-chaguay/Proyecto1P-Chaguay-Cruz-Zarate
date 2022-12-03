@@ -190,9 +190,9 @@ public class Cliente extends Usuario {
                 System.out.println(vueloIda);
                 System.out.println(" ");
                 System.out.println(vueloRetorno);
-                String asiento1=Reserva.AsignarAsientos();
-                String asiento2=Reserva.AsignarAsientos();
-                        
+                String asiento1 = Reserva.AsignarAsientos();
+                String asiento2 = Reserva.AsignarAsientos();
+
                 System.out.println("Para tu vuelo de ida " + vueloIda.getCodigoVuelo() + " se te ha asignado el asiento: " + asiento1);
 
                 System.out.println("Para tu vuelo de retorno " + vueloRetorno.getCodigoVuelo() + " se te ha asignado el asiento: " + asiento2);
@@ -201,8 +201,7 @@ public class Cliente extends Usuario {
 
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, asiento1);
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, asiento2);
-//                vuelosReserva.add(ReservaIda);
-//                vuelosReserva.add(ReservaRetorno);
+//              
 
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
@@ -443,16 +442,13 @@ public class Cliente extends Usuario {
         listaReservas.add(r);
         listaReservas.add(r2);
 
-        if (numTarjetaCredito.equals(getNumTarjetaCredito())) {
+        //CREACION DE OBJETO RESERVA
+        ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
+        //CREACION DE OBJETO PAGO
+        Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.TC, valorTC);
 
-            //CREACION DE OBJETO RESERVA
-            ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
-            //CREACION DE OBJETO PAGO
-            Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.TC, valorTC);
+        ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
 
-            ManejoArchivos.EscribirArchivo("pagos.txt", p.toString());
-
-        }
         return r;
     }
 
@@ -466,6 +462,8 @@ public class Cliente extends Usuario {
             listaReservas.add(r2);
             //CREACION DE OBJETO RESERVA
             ManejoArchivos.EscribirArchivo("reservas.txt", r.toString());
+            ManejoArchivos.EscribirArchivo("reservas.txt", r2.toString());
+            
             //CREACION DE OBJETO PAGO
             Pago p = new Pago(crearCodigo(), r.getCodigo(), formaPago.M, valor);
 
