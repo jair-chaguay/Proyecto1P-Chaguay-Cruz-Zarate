@@ -26,6 +26,7 @@ public class Cliente extends Usuario {
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
     static ArrayList<Reserva> listaReservas=new ArrayList<>();
+    ArrayList<VueloReserva> vuelosReserva;
 
     //CONSTRUCTOR PARA CREAR CLIENTES
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
@@ -199,6 +200,8 @@ public class Cliente extends Usuario {
 
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
+                vuelosReserva.add(ReservaIda);
+                vuelosReserva.add(ReservaRetorno);
 
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
