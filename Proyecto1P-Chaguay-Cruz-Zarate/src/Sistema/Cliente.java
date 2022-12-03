@@ -200,8 +200,8 @@ public class Cliente extends Usuario {
 
                 VueloReserva ReservaIda = new VueloReserva(crearCodigo(), vueloIda, tipoVuelo.IDA, t, vueloIda.getAsientoAleatorio());
                 VueloReserva ReservaRetorno = new VueloReserva(crearCodigo(), vueloRetorno, tipoVuelo.VUELTA, t2, vueloRetorno.getAsientoAleatorio());
-                vuelosReserva.add(ReservaIda);
-                vuelosReserva.add(ReservaRetorno);
+//                vuelosReserva.add(ReservaIda);
+//                vuelosReserva.add(ReservaRetorno);
 
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaIda.toString());
                 ManejoArchivos.EscribirArchivo("vuelosReserva.txt", ReservaRetorno.toString());
@@ -498,6 +498,7 @@ public class Cliente extends Usuario {
                 System.out.println("HORA LLEGADA: "+dato.getVuelo().getFechaLlegada());
                 System.out.println("AVION: "+dato.getVuelo().getCodigoAvion());
                 System.out.println("PUERTA DE EMBARQUE: "+numero);
+                System.out.println("---------------------");
                     
                 
             }else{
