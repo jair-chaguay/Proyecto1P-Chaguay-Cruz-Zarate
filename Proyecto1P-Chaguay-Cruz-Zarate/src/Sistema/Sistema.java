@@ -106,10 +106,6 @@ public class Sistema {
         Sistema.cargarItinerarios();
         Sistema.cargarVuelos();
         Sistema.cargarAviones();
-        //CREACION DE CABEERAS TXT
-        ManejoArchivos.EscribirArchivo("reservas.txt", "codigoReserva,codigoVuelo,cliente,fecha,valorPagar");
-        ManejoArchivos.EscribirArchivo("pagos.txt", "idPago,codigoReserva,totalPagarfina,modoPago");
-        ManejoArchivos.EscribirArchivo("vuelosReserva.txt", "codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento");
             
         //VALIDANDO INFORMACION
         for(Usuario usuario:listaUsuarios){
