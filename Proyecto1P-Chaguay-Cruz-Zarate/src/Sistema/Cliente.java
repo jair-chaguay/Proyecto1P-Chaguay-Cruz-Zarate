@@ -285,15 +285,14 @@ public class Cliente extends Usuario {
                             } else if (opcion == 2) {
 
                                 int millas = Integer.parseInt(dato[3]);
-                                String pago = Pagar(millas, ReservaIda, ReservaRetorno);
+                                String pago = Pagar(millas,total, ReservaIda, ReservaRetorno);
+                                if(pago.equals("Su pago no se ha completado")){
+                                    System.out.println("Su pago no se ha completado");
+                                }else{
 
                                 System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
-                                if (pago.equalsIgnoreCase("s")) {
-                                    Reserva newpago = Pagar(dato[1], total, ReservaIda, ReservaRetorno);
-
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago.getCodigo());
-
                                 }
+                                
                             }
 
                         } else if (cedula.equals(dato[0]) && dato[2].equals("PLATINUM PASS")) {
@@ -325,14 +324,14 @@ public class Cliente extends Usuario {
                             } else if (opcion == 2) {
                                 int millas = Integer.parseInt(dato[3]);
                                 int valorMillas = vueloIda.getPrecioMillas() + vueloRetorno.getPrecioMillas();
-                                String pago = Pagar(millas, ReservaIda, ReservaRetorno);
-                                System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
-                                if (pago.equalsIgnoreCase("s")) {
-                                    Reserva newpago = Pagar(dato[1], total, ReservaIda, ReservaRetorno);
-
-                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + newpago.getCodigo());
-
+                                String pago = Pagar(millas,total, ReservaIda, ReservaRetorno);
+                                
+                                if(pago.equals("Su pago no se ha completado")){
+                                    System.out.println("Su pago no se ha completado");
+                                }else{
+                                    System.out.println("Has comprado tu vuelo. El codigo de reserva es: " + pago);
                                 }
+                                
 
                             }
 
@@ -509,11 +508,12 @@ public class Cliente extends Usuario {
     /**
      * Metodo para pagar con millas, llamado luego en el metodo comprarTickets
      * @param millas
+     * @param precio
      * @param vuelo
      * @param vuelo2
      * @return String
      */
-    public String Pagar(int millas, VueloReserva vuelo, VueloReserva vuelo2) {
+    public String Pagar(int millas, double precio,VueloReserva vuelo, VueloReserva vuelo2) {
         int valor = vuelo.getCodigoVueloReserva().getPrecioMillas() + vuelo2.getCodigoVueloReserva().getPrecioMillas();
         if (millas >= valor) {
             Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valor);
@@ -531,9 +531,21 @@ public class Cliente extends Usuario {
             return r.getCodigo();
         } else {
             System.out.println("No tiene millas suficientes para su pago");
-            System.out.print("Desea intentar con tarjeta de credito?(s/n)");
+            sc.nextLine();
+            System.out.println("Desea intentar con tarjeta de credito?(s/n)");
             String opc = sc.nextLine();
-            return opc;
+          
+            if(opc.equalsIgnoreCase("s")){
+                double valorTC = precio + (precio * 10 / 100);
+                Pagar(numTarjetaCredito,precio,vuelo,vuelo2);
+                Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
+                Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
+                return r.getCodigo();
+                
+            }else{
+                return "Su pago no se ha completado";
+            }
+            
 
         }
 
