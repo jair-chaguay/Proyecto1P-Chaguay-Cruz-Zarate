@@ -56,7 +56,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     *
+     * Metodo set parael numero de tarjeta de credito del cliente
      * @param numTarjetaCredito
      */
     public void setNumTarjetaCredito(String numTarjetaCredito) {

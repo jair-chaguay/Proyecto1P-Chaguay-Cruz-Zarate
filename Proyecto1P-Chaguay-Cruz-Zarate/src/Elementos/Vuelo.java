@@ -52,7 +52,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el codigo del avion
      * @param avion
      */
     public void setCodigoAvion(String avion) {
@@ -68,7 +68,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el precio del vuelo
      * @param precio
      */
     public void setPrecio(double precio) {
@@ -84,7 +84,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el codigo del Itinerario
      * @param codigoItinerario
      */
     public void setCodigoItinerario(String codigoItinerario) {
@@ -100,7 +100,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para la fecha de salida del vuelo
      * @param fechaSalida
      */
     public void setFechaSalida(String fechaSalida) {
@@ -116,7 +116,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para la fehca de llegada del vuelo
      * @param fechaLlegada
      */
     public void setFechaLlegada(String fechaLlegada) {
@@ -132,7 +132,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el precio en millas del vuelo
      * @param precioMillas
      */
     public void setPrecioMillas(int precioMillas) {
@@ -148,7 +148,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el codigo del vuelo
      * @param codigoVuelo
      */
     public void setCodigoVuelo(String codigoVuelo) {
@@ -164,7 +164,7 @@ public class Vuelo {
     }
 
     /**
-     *
+     * Metodo set para el asiento aleatorio
      * @param asientoAleatorio
      */
     public void setAsientoAleatorio(String asientoAleatorio) {

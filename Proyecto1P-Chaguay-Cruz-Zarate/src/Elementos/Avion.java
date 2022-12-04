@@ -37,7 +37,7 @@ public class Avion {
     }
 
     /**
-     * 
+     * Metodo set para el codigo del Avion
      * @param codigoAvion
      */
     public void setCodigoAvion(String codigoAvion) {
@@ -53,17 +53,12 @@ public class Avion {
     }
 
     /**
-     *
+     * Metodo set para la capacidad del avion
      * @param capacidad
      */
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-
-    
-    
- 
-    
-    
+   
 }
 

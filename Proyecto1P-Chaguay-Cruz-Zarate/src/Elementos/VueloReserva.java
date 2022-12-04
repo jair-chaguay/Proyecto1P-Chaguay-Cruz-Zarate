@@ -6,11 +6,8 @@ package Elementos;
  */
 
 
-import static Archivos.ManejoArchivos.LeerValidando;
-import Sistema.*;
 import Enums.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  *
@@ -53,7 +50,7 @@ public class VueloReserva {
     }
 
     /**
-     *
+     * Metodo set para el codigo del vuelo reservado
      * @param codigoVueloReserva
      */
     public void setCodigoVueloReserva(Vuelo codigoVueloReserva) {
@@ -69,7 +66,7 @@ public class VueloReserva {
     }
 
     /**
-     *
+     * Metodo set para el tipoVuelo
      * @param tipoVuelo
      */
     public void setTipoVuelo(tipoVuelo tipoVuelo) {
@@ -85,7 +82,7 @@ public class VueloReserva {
     }
 
     /**
-     *
+     * Metodo set para el tipo de tarifa
      * @param tarifa
      */
     public void setTarifa(tipoTarifa tarifa) {
@@ -101,7 +98,7 @@ public class VueloReserva {
     }
 
     /**
-     *
+     * Metodo set para el asiento del avion
      * @param asiento
      */
     public void setAsiento(String asiento) {
@@ -117,7 +114,7 @@ public class VueloReserva {
     }
 
     /**
-     *
+     * Metodo set para el codigo del vuelo reservado
      * @param codigo
      */
     public void setCodigo(int codigo) {

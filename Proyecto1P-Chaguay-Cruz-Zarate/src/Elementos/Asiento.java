@@ -35,7 +35,7 @@ public class Asiento {
     }
 
     /**
-     *
+     * Metodo set para el codigo del avion
      * @param codigoAvion
      */
     public void setCodigoAvion(String codigoAvion) {
@@ -51,7 +51,7 @@ public class Asiento {
     }
 
     /**
-     * 
+     * Metodo set para el numero de asiento
      * @param numAsiento
      */
     public void setNumAsiento(String numAsiento) {
@@ -67,7 +67,7 @@ public class Asiento {
     }
 
     /**
-     *
+     * Metodo set para el estado de disponibilidad del asiento
      * @param disponible
      */
     public void setDisponible(disponibilidad disponible) {

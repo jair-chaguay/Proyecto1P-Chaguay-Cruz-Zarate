@@ -47,7 +47,7 @@ public class Operador extends Usuario {
     }
 
     /**
-     *
+     * Metodo set para el sueldo del operador
      * @param sueldo
      */
     public void setSueldo(int sueldo) {

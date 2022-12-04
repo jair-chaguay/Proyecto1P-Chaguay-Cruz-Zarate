@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Elementos;
-import Sistema.*;
-import Enums.*;
 
 /**
  *
@@ -43,7 +41,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para el codigo del itinerario
      * @param cod
      */
     public void setCod(String cod) {
@@ -59,7 +57,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para la ciudad de origen del vuelo
      * @param origenCiudad
      */
     public void setOrigenCiudad(String origenCiudad) {
@@ -75,7 +73,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para la ciudad de destino del vuelo
      * @param destinoCiudad
      */
     public void setDestinoCiudad(String destinoCiudad) {
@@ -91,7 +89,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para la duracion del vuelo
      * @param duracion
      */
     public void setDuracion(String duracion) {
@@ -107,7 +105,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para la hora de salida del vuelo
      * @param horaSalida
      */
     public void setHoraSalida(String horaSalida) {
@@ -123,7 +121,7 @@ public class Itinerario {
     }
 
     /**
-     *
+     * Metodo set para la hora de llegada del vuelo
      * @param horaLlegada
      */
     public void setHoraLlegada(String horaLlegada) {

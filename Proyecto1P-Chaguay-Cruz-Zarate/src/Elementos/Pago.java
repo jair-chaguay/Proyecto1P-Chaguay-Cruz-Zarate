@@ -50,7 +50,7 @@ public class Pago {
     }
 
     /**
-     *
+     * Metodo set para el id del pago
      * @param idPago
      */
     public void setIdPago(int idPago) {
@@ -66,7 +66,7 @@ public class Pago {
     }
 
     /**
-     *
+     * Metodo set para el codigo del pago
      * @param codigo
      */
     public void setCodigo(String codigo) {
@@ -82,7 +82,7 @@ public class Pago {
     }
 
     /**
-     *
+     * Metodo set para la forma de pago
      * @param formaPago
      */
     public void setFormaPago(formaPago formaPago) {
@@ -98,7 +98,7 @@ public class Pago {
     }
 
     /**
-     *
+     * Metodo set para el valor a pagar por el vuelo
      * @param valorPagar
      */
     public void setValorPagar(double valorPagar) {

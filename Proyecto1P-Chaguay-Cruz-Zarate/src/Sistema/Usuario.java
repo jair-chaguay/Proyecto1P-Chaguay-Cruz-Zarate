@@ -47,7 +47,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para el user del Usuario
      * @param usuario
      */
     public void setUsuario(String usuario) {
@@ -63,7 +63,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para la cedula del usuario
      * @param cedula
      */
     public void setCedula(String cedula) {
@@ -79,7 +79,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para los nombres del usuario
      * @param nombres
      */
     public void setNombres(String nombres) {
@@ -95,7 +95,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para la edad del usuario
      * @param edad
      */
     public void setEdad(int edad) {
@@ -111,7 +111,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para el correo del usuario
      * @param correo
      */
     public void setCorreo(String correo) {
@@ -127,7 +127,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para la contrasena del usuario
      * @param contrasena
      */
     public void setContrasena(String contrasena) {
@@ -143,7 +143,7 @@ public abstract class Usuario {
     }
 
     /**
-     *
+     * Metodo set para el tipo Categoria del usuario
      * @param tipoCategoria
      */
     public void setTipoCategoria(tipoCategoria tipoCategoria) {

@@ -58,7 +58,7 @@ public class Reserva {
     }
 
     /**
-     *
+     * Metodo set para el codigo de la reserva
      * @param codigo
      */
     public void setCodigo(String codigo) {
@@ -74,7 +74,7 @@ public class Reserva {
     }
 
     /**
-     *
+     * Metodo set para la lista de vuelos reservados
      * @param vuelosReserva
      */
     public void setVuelosReserva(ArrayList<VueloReserva> vuelosReserva) {
@@ -90,7 +90,7 @@ public class Reserva {
     }
 
     /**
-     *
+     * Metodo set para el cliente de la reserva
      * @param cliente
      */
     public void setCliente(String cliente) {
@@ -106,7 +106,7 @@ public class Reserva {
     }
 
     /**
-     *
+     * Metodo set para la fecha de la reserba
      * @param fecha
      */
     public void setFecha(String fecha) {
@@ -122,7 +122,7 @@ public class Reserva {
     }
 
     /**
-     *
+     * Metodo set para el valor a pagar por los vuelos reservados
      * @param valorPagar
      */
     public void setValorPagar(double valorPagar) {

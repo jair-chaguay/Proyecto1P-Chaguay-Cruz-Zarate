@@ -49,7 +49,7 @@ public class ClienteVip extends Cliente {
     }
 
     /**
-     *
+     * Metodo set para el rango del clientevip
      * @param rango
      */
     public void setRango(String rango) {
@@ -65,7 +65,7 @@ public class ClienteVip extends Cliente {
     }
 
     /**
-     *
+     * Metodo set para las millas del cliente vip
      * @param millas
      */
     public void setMillas(int millas) {
