@@ -12,6 +12,10 @@ import java.io.*;
  */
 public class FileVueloReserva {
 
+    /**
+     *
+     * @param nombre
+     */
     public void Escribir(String nombre) {
         File archivo; //Manipulacion de Archivo
         FileWriter f; //Escribir archivo(agregar los vuelosReservas)

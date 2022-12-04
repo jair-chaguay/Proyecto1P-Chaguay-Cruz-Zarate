@@ -4,7 +4,6 @@
  */
 package Sistema;
 
-import Archivos.ManejoArchivos;
 import Elementos.*;
 import static Archivos.ManejoArchivos.LeerValidando;
 import static Elementos.VueloReserva.listaVuelos;
@@ -19,23 +18,26 @@ import java.util.Scanner;
 public class Sistema {
    static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
    static ArrayList<Reserva> listaReservas=new ArrayList<>();
-   public static ArrayList<Itinerarios> listaItinerarios=new ArrayList<>();
-   static ArrayList<Avion> listaAviones=new ArrayList<>();
-    
-   
-   
-   
-    //MOSTRAR MENU PARA EL OPERADOR
+    public static ArrayList<Itinerario> listaItinerarios=new ArrayList<>();
+    static ArrayList<Avion> listaAviones=new ArrayList<>();
+
+    /**
+     * Metodo que imprime el menu del Operador
+     */
     public static void mostrarMenuOperador(){
         System.out.println("1. Consultar usuarios\n2. Consultar reservas\n3. Salir");
     }
-    
-    //MOSTRAR MENU PARA EL CLIENTE
+
+    /**
+     * Metodo que imprime el menu del Cliente
+     */
     public static void mostrarMenuCliente(){
         System.out.println("1. Comprar tickets aereos\n2. Consultar reservas\n3. Salir");
     }
     
-    //LEER EL ARCHIVO USUARIOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA USUARIOS
+    /**
+     * Metodo que lee el archivo Usuarios y crea los objetos de los mismos para agregarlos a la lista de Usuarios
+     */
     public static void cargarUsuarios(){
         ArrayList<String[]> datosUsuarios=LeerValidando("usuarios.txt",true);
         Usuario u;
@@ -58,17 +60,21 @@ public class Sistema {
         }
     }
     
-    //LEER EL ARCHIVO ITINERARIOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA ITINERARIOS
+    /**
+     * Metodo que lee el archivo Itinerios y crea los objetos del mismo para agregarlos a la lista de Itinerarios
+     */
     public static void cargarItinerarios(){
         ArrayList<String[]> datosItinerarios=LeerValidando("itinerarios.txt",true);
-        Itinerarios i;
+        Itinerario i;
         for(String[] dato:datosItinerarios){
-            i=new Itinerarios(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5]);
+            i=new Itinerario(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5]);
             listaItinerarios.add(i);
         }
     }
     
-    //LEER EL ARCHIVO VUELOS Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA VUELOS
+    /**
+     * Metodo que lee el archivo Vuelos y crea los objetos correspondientes para agregarlos a la lista de Vuelos
+     */
     public static void cargarVuelos(){
         ArrayList<String[]> datosVuelo=LeerValidando("vuelos.txt",true);
         Vuelo v;
@@ -78,7 +84,9 @@ public class Sistema {
         }
     }
     
-    //LEER EL ARCHIVO AVIONES Y CREANDO LOS OBJETOS PARA AGREGARLOS A LA LISTA AVIONES
+    /**
+     * Metodo que lee el archivo Aviones y crea los obejtos correspondientes para agregarlos a la lista de Aviones
+     */
     public static void cargarAviones(){
         ArrayList<String[]> datosAviones=LeerValidando("aviones.txt",true);
         Avion a;
@@ -88,7 +96,10 @@ public class Sistema {
         }
     }
     
-    //MAIN
+    /**
+     * Main
+     * @param args
+     */
     public static void main(String[] args){
 
         //INICIO DE SESION

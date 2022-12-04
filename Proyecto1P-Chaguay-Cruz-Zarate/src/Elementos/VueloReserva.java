@@ -22,9 +22,20 @@ public class VueloReserva {
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
+
+    /**
+     *
+     */
     public static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
-    //CONSTRUCTOR PARA CREAR OBJETOS DE VUELORESERVA
+    /**
+     * Constructor que crea objetos de tipo VueloReserva
+     * @param codigo
+     * @param codigoVueloReserva
+     * @param tipoVuelo
+     * @param tarifa
+     * @param asiento
+     */
     public VueloReserva(int codigo,Vuelo codigoVueloReserva, tipoVuelo tipoVuelo, tipoTarifa tarifa, String asiento) {
         this.codigo=codigo;
         this.codigoVueloReserva = codigoVueloReserva;
@@ -33,49 +44,90 @@ public class VueloReserva {
         this.asiento = asiento;
     }
 
-    
+    /**
+     * Metodo que retorna el codigo del vuelo de Reserva
+     * @return Vuelo
+     */
     public Vuelo getCodigoVueloReserva() {
         return codigoVueloReserva;
     }
 
+    /**
+     *
+     * @param codigoVueloReserva
+     */
     public void setCodigoVueloReserva(Vuelo codigoVueloReserva) {
         this.codigoVueloReserva = codigoVueloReserva;
     }
 
+    /**
+     * Metodo que retorna si en formato enum si el vuelo reservado es de ida o vuelta
+     * @return tipoVuelo(Enum)
+     */
     public tipoVuelo getTipoVuelo() {
         return tipoVuelo;
     }
 
+    /**
+     *
+     * @param tipoVuelo
+     */
     public void setTipoVuelo(tipoVuelo tipoVuelo) {
         this.tipoVuelo = tipoVuelo;
     }
 
+    /**
+     * Metodo que retorna en formato enum el tipo de tarifa que tiene el vuelo reservado 
+     * @return tarifa(Enum)
+     */
     public tipoTarifa getTarifa() {
         return tarifa;
     }
 
+    /**
+     *
+     * @param tarifa
+     */
     public void setTarifa(tipoTarifa tarifa) {
         this.tarifa = tarifa;
     }
 
+    /**
+     * Metodo que devuelve el asiento qdel vuelo reservado
+     * @return String
+     */
     public String getAsiento() {
         return asiento;
     }
 
+    /**
+     *
+     * @param asiento
+     */
     public void setAsiento(String asiento) {
         this.asiento = asiento;
     }
 
+    /**
+     * Metodo que devuelve el codigo del vuelo reservado
+     * @return int
+     */
     public int getCodigo() {
         return codigo;
     }
 
+    /**
+     *
+     * @param codigo
+     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
     
-    
-    
+    /**
+     * Metodo que retorna en formato String la descripcion de los vuelos reservados
+     * @return String
+     */
     @Override
     public String toString(){
         return codigo+","+ codigoVueloReserva.getCodigoVuelo()+","+tipoVuelo+","+tarifa+","+asiento;

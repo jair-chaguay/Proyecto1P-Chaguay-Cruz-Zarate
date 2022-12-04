@@ -5,10 +5,7 @@
 package Elementos;
 
 import Enums.formaPago;
-import Sistema.*;
-import Enums.*;
-import java.util.Date;
-import java.util.Random;
+
 
 /**
  *
@@ -19,49 +16,91 @@ public class Pago {
     private String codigo;
     private formaPago formaPago;
     private double valorPagar;
-    
-    //CONSTRUCTOR PARA CREAR OBEJTOS DE TIPO PAGO
+
+    /**
+     * Constructor que crea objetos de tipo Pago
+     * @param idPago
+     * @param codigo
+     * @param formaPago
+     * @param valorPagar
+     */
     public Pago(int idPago, String codigo,formaPago formaPago,double valorPagar){
     this.idPago=idPago;
     this.codigo=codigo;
     this.formaPago=formaPago;
     this.valorPagar=valorPagar;
     }
+
+    /**
+     * Metodo toString que retorna en formato String los pagos
+     * @return String
+     */
     @Override
     public String toString(){
         return idPago+","+codigo+","+formaPago+","+valorPagar;
         
     }
     
-
+    /**
+     * Metodo que devuelve el id del pago
+     * @return int
+     */
     public int getIdPago() {
         return idPago;
     }
 
+    /**
+     *
+     * @param idPago
+     */
     public void setIdPago(int idPago) {
         this.idPago = idPago;
     }
 
+    /**
+     * Metodo que devuelve el codigo del pago
+     * @return String
+     */
     public String getCodigo() {
         return codigo;
     }
 
+    /**
+     *
+     * @param codigo
+     */
     public void setCodigo(String codigo) {
         this.codigo= codigo;
     }
 
+    /**
+     * Metodo que devuelve la forma en la que el cliente pagara
+     * @return formaPago
+     */
     public formaPago getFormaPago() {
         return formaPago;
     }
 
+    /**
+     *
+     * @param formaPago
+     */
     public void setFormaPago(formaPago formaPago) {
         this.formaPago = formaPago;
     }
 
+    /**
+     * Metodo que devuelve el valor a pagar por el vuelo
+     * @return double
+     */
     public double getValorPagar() {
         return valorPagar;
     }
 
+    /**
+     *
+     * @param valorPagar
+     */
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
     }

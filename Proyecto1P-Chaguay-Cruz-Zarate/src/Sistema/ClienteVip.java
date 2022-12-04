@@ -4,11 +4,9 @@
  */
 package Sistema;
 
-import Archivos.ManejoArchivos;
 import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import java.util.ArrayList;
-import Elementos.*;
 
 /**
  *
@@ -20,7 +18,17 @@ public class ClienteVip extends Cliente {
     private int millas = +1000;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
 
-    //CONSTRUCTOR PARA CREAR OBJETOS CLIENTEVIP
+
+    /**
+     * Constructor que crea objetos de tipo ClienteVip
+     * @param cedula
+     * @param nombres
+     * @param edad
+     * @param correo
+     * @param usuario
+     * @param contrasena
+     * @param tipoCategoria
+     */
     public ClienteVip(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
 
@@ -32,27 +40,38 @@ public class ClienteVip extends Cliente {
         }
     }
 
+    /**
+     * Metodo que retorna el rango del cliente vip
+     * @return String
+     */
     public String getRango() {
         return rango;
     }
 
+    /**
+     *
+     * @param rango
+     */
     public void setRango(String rango) {
         this.rango = rango;
     }
 
+    /**
+     * Metodo que retorna el numero de millas que posee el cliente
+     * @return int
+     */
     public int getMillas() {
         return millas;
     }
 
+    /**
+     *
+     * @param millas
+     */
     public void setMillas(int millas) {
         this.millas = millas;
     }
 
-    @Override
-    public String toString() {
-        toString();
-        return "Rango: " + rango + ",millas: " + millas;
-    }
 
     
 

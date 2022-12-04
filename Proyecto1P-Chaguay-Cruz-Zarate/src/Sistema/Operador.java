@@ -17,7 +17,17 @@ import java.util.ArrayList;
 public class Operador extends Usuario {
 
     private int sueldo;
-
+    
+    /**
+     * Constructor que crea objetos de tipo Operador
+     * @param cedula
+     * @param nombres
+     * @param edad
+     * @param correo
+     * @param usuario
+     * @param contrasena
+     * @param tipoCategoria
+     */
     public Operador(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
         ArrayList<String[]> datosClientes = LeerValidando("operadores.txt", true);
@@ -28,20 +38,25 @@ public class Operador extends Usuario {
         }
     }
 
+    /**
+     * Metodo que retorna en formato int el sueldo del operador
+     * @return int
+     */
     public int getSueldo() {
         return sueldo;
     }
 
+    /**
+     *
+     * @param sueldo
+     */
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
 
-    @Override
-    public String toString() {
-        toString();
-        return "Sueldo: " + sueldo;
-    }
-
+    /**
+     * Metodo sobreescrito que muestra las reservas hechas por los clientes
+     */
     @Override
     public void consultarReservas() {
         ArrayList<String[]> datosReservas = ManejoArchivos.LeerValidando("reservas.txt", true);
@@ -91,6 +106,11 @@ public class Operador extends Usuario {
 //        } else {
 //            System.out.println("NO HAY RESERVAS QUE CONSULTAR");
 //        }
+
+    /**
+     * Metodo que imprime los usuarios registrados
+     * @param listaUsuarios
+     */
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario u : listaUsuarios) {
             if (u instanceof Cliente c) {

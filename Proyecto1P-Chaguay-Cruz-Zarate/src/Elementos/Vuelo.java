@@ -4,14 +4,8 @@
  */
 package Elementos;
 
-import static Archivos.ManejoArchivos.LeerValidando;
-import static Elementos.Avion.listaAsientos;
-import Sistema.*;
-import Enums.*;
 import static Sistema.Sistema.listaItinerarios;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
+
 
 /**
  *
@@ -28,6 +22,17 @@ public class Vuelo {
     private  String asientoAleatorio;
 
     //CONSTRUCTOR PARA CREAR OBJETOS VUELO
+
+    /**
+     * Constructor que crea objetos de tipo Vuelo
+     * @param codigoVuelo
+     * @param codigoAvion
+     * @param fechaSalida
+     * @param fechaLlegada
+     * @param codigoItinerario
+     * @param precio
+     * @param precioMillas
+     */
     public Vuelo(String codigoVuelo, String codigoAvion, String fechaSalida, String fechaLlegada, String codigoItinerario, double precio, int precioMillas) {
         this.codigoVuelo = codigoVuelo;
         this.codigoAvion = codigoAvion;
@@ -38,76 +43,145 @@ public class Vuelo {
         this.precioMillas = precioMillas;
     }
     
+    /**
+     * Metodo que retorna el codigo del avion
+     * @return String
+     */
     public String getCodigoAvion() {
         return codigoAvion;
     }
 
+    /**
+     *
+     * @param avion
+     */
     public void setCodigoAvion(String avion) {
         this.codigoAvion = avion;
     }
 
+    /**
+     * Metodo que retorna el precio del vuelo
+     * @return double
+     */
     public double getPrecio() {
         return precio;
     }
 
+    /**
+     *
+     * @param precio
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    /**
+     * Metodo que retorna el codigo del itinerario
+     * @return Stirng
+     */
     public String getCodigoItinerario() {
         return codigoItinerario;
     }
 
+    /**
+     *
+     * @param codigoItinerario
+     */
     public void setCodigoItinerario(String codigoItinerario) {
         this.codigoItinerario = codigoItinerario;
     }
 
+    /**
+     * Metodo que retorna la fecha de salida del vuelo
+     * @return String
+     */
     public String getFechaSalida() {
         return fechaSalida;
     }
 
+    /**
+     *
+     * @param fechaSalida
+     */
     public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
+    /**
+     * Metodo que retorna la fecha de llegada del vuelo
+     * @return String
+     */
     public String getFechaLlegada() {
         return fechaLlegada;
     }
 
+    /**
+     *
+     * @param fechaLlegada
+     */
     public void setFechaLlegada(String fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
     }
 
+    /**
+     * Metodo que retorna el precio del vuelo en millas
+     * @return int
+     */
     public int getPrecioMillas() {
         return precioMillas;
     }
 
+    /**
+     *
+     * @param precioMillas
+     */
     public void setPrecioMillas(int precioMillas) {
         this.precioMillas = precioMillas;
     }
 
+    /**
+     * Metodo que retorna el codigo del vuelo
+     * @return String
+     */
     public String getCodigoVuelo() {
         return codigoVuelo;
     }
 
+    /**
+     *
+     * @param codigoVuelo
+     */
     public void setCodigoVuelo(String codigoVuelo) {
         this.codigoVuelo = codigoVuelo;
     }
 
+    /**
+     * Metodo que retorna el asiento designado para el pasajero 
+     * @return String
+     */
     public  String getAsientoAleatorio() {
         return asientoAleatorio;
     }
 
+    /**
+     *
+     * @param asientoAleatorio
+     */
     public void setAsientoAleatorio(String asientoAleatorio) {
         this.asientoAleatorio = asientoAleatorio;
     }
     
     //METODO TOSTRING PARA MOSTRAR LOS VUELOS
+
+    /**
+     * Metodo que retorna la descripcion del vuelo en formato String, se lo llama a la hora de mostrar los vuelos a los clientes
+     * @return String
+     */
     @Override
     public String toString(){
         
         String x = "CODIGO: " + getCodigoVuelo() + "\nHORA SALIDA: ";
-        for(Itinerarios i: listaItinerarios){
+        for(Itinerario i: listaItinerarios){
             if(i.getCod().equals(getCodigoItinerario())){
                 x = x + i.getHoraSalida() + "\nHORA LLEGADA: " + i.getHoraLlegada() + "\nDURACION: " + i.getDuracion();
             }

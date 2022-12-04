@@ -8,7 +8,6 @@ import static Archivos.ManejoArchivos.LeerValidando;
 import Enums.*;
 import Elementos.*;
 import Archivos.*;
-import static Elementos.Avion.listaAsientos;
 import static Elementos.VueloReserva.listaVuelos;
 import static Sistema.Sistema.listaItinerarios;
 
@@ -28,9 +27,16 @@ public class Cliente extends Usuario {
     static ArrayList<Reserva> listaReservas = new ArrayList<>();
     
     
-    
-
-    //CONSTRUCTOR PARA CREAR CLIENTES
+    /**
+     * Constructor para crear objetos de tipoCliente
+     * @param cedula
+     * @param nombres
+     * @param edad
+     * @param correo
+     * @param usuario
+     * @param contrasena
+     * @param tipoCategoria
+     */
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
 
@@ -41,22 +47,27 @@ public class Cliente extends Usuario {
         }
     }
 
+    /**
+     * mMtodo que retorna el numero de tarjeta de credito del cliente en formato String
+     * @return String
+     */
     public String getNumTarjetaCredito() {
         return numTarjetaCredito;
     }
 
+    /**
+     *
+     * @param numTarjetaCredito
+     */
     public void setNumTarjetaCredito(String numTarjetaCredito) {
         this.numTarjetaCredito = numTarjetaCredito;
     }
 
-    //TOSTRING PARA MOSTRAR LOS CLIENTES
-    @Override
-    public String toString() {
-        toString();
-        return "Num T/C: " + numTarjetaCredito;
-    }
 
-    //MEOTOD PARA COMPRAR TICKETS
+
+    /**
+     * Metodo que dara lugar a la opcion de comprar tickets de los clientes
+     */
     public void comprarTickets() {
 
         String ciudadOrigen = "";
@@ -339,7 +350,11 @@ public class Cliente extends Usuario {
         }
     }
 
-    //METODO PARA GENERAR CODIGO DE PAGO Y VUELORESERVA
+
+    /**
+     * Metodo para generar el codigo de pago
+     * @return
+     */
     public int crearCodigo() {
         String opciones = "1234567890";
         String cadena = "";
@@ -354,7 +369,10 @@ public class Cliente extends Usuario {
 
     }
 
-    //METODO PARA GENERAR CODIGO RESERVA
+    /**
+     * Metodo para generar el codigo del vuelo reservado
+     * @return
+     */
     public String crearCodigoReserva() {
 
         String opciones = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -369,10 +387,14 @@ public class Cliente extends Usuario {
         return valor;
     }
 
+    /**
+     * Metodo que retorna una lista de las ciudades de Origen de los vuelos
+     * @return ArrayList
+     */
     public ArrayList<String> ciudadesOrigen() {
         ArrayList<String> origen = new ArrayList<>();
 
-        for (Itinerarios i : listaItinerarios) {
+        for (Itinerario i : listaItinerarios) {
             if (!origen.contains(i.getOrigenCiudad())) {
                 origen.add(i.getOrigenCiudad());
             }
@@ -380,10 +402,15 @@ public class Cliente extends Usuario {
         return origen;
     }
 
+    /**
+     * Metodo que retorna una lista de las ciudades de destino de los vuelos
+     * @param origen
+     * @return
+     */
     public ArrayList<String> ciudadesDestino(String origen) {
         ArrayList<String> destino = new ArrayList<>();
 
-        for (Itinerarios i : listaItinerarios) {
+        for (Itinerario i : listaItinerarios) {
             if ((!(destino.contains(i.getDestinoCiudad()))) && i.getOrigenCiudad().equals(origen)) {
                 destino.add(i.getDestinoCiudad());
             }
@@ -391,6 +418,13 @@ public class Cliente extends Usuario {
         return destino;
     }
 
+    /**
+     * Metodo que retorna una lista de los vuelos filtrados de acuerdo a las ciudades de donde quiere partir y llegar el cliente, ademas de la fecha
+     * @param origen
+     * @param destino
+     * @param fecha
+     * @return ArrayList
+     */
     public ArrayList<Vuelo> vuelosFiltrados(String origen, String destino, String fecha) {
         ArrayList<Vuelo> lista = new ArrayList<>();
 
@@ -403,16 +437,25 @@ public class Cliente extends Usuario {
         return lista;
     }
 
+    /**
+     * Metodo que imprimi las tarifas disponibles
+     */
     public static void mostrarTarifas() {
         System.out.println("\nTARIFAS");
         System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
     }
 
+    /**
+     * Metodo que muestra al usuario las formas de pago disponibles
+     */
     public static void mostrarformasPago() {
         System.out.println("\nFormas de Pago:");
         System.out.println("1. Tarjeta de Credito\n2. Millas\n");
     }
 
+    /**
+     * Metodo que imprimi los datos del pasajero, luego es llamado en el metodo comprarTickets
+     */
     public void Paso3() {
         System.out.println("\nCompleta los datos de pasajero:\nNombres: " + nombres + "\nCorreo: " + correo);
         System.out.print("Fecha de nacimiento: ");
@@ -435,6 +478,15 @@ public class Cliente extends Usuario {
     }
 
     // METDO PARA PAGAR CON TARJETA DE CREDITO
+
+    /**
+     * Metodo para realizar los pagos que crea las reservas y los pagos y los escribe en el archivo correspondiente, luego es llamado en el metodo comprarTickets
+     * @param numTarjetaCredito
+     * @param valor
+     * @param vuelo
+     * @param vuelo2
+     * @return Reserva
+     */
     public Reserva Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
         double valorTC = valor + (valor * 10 / 100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
@@ -453,6 +505,14 @@ public class Cliente extends Usuario {
     }
 
     //METODO PARA PAGAR CON MILLAS
+
+    /**
+     * Metodo para pagar con millas, llamado luego en el metodo comprarTickets
+     * @param millas
+     * @param vuelo
+     * @param vuelo2
+     * @return String
+     */
     public String Pagar(int millas, VueloReserva vuelo, VueloReserva vuelo2) {
         int valor = vuelo.getCodigoVueloReserva().getPrecioMillas() + vuelo2.getCodigoVueloReserva().getPrecioMillas();
         if (millas >= valor) {
@@ -479,6 +539,9 @@ public class Cliente extends Usuario {
 
     }
 
+    /**
+     * Metodo que muestra las reservas correspondientes para cada cliente
+     */
     @Override
     public void consultarReservas() {
         int numero = (int) (Math.random() * 10 + 1);
@@ -488,7 +551,7 @@ public class Cliente extends Usuario {
                 System.out.println("NOMBRES: " + dato.getCliente());
                 System.out.println("CEDULA: " + cedula);
                 System.out.println("VUELO:" + dato.getVuelo().getCodigoVuelo());
-                for (Itinerarios i : listaItinerarios) {
+                for (Itinerario i : listaItinerarios) {
                     if (i.getCod().equals(dato.getVuelo().getCodigoItinerario())) {
                         System.out.println("HORA SALIDA: " + i.getHoraSalida());
                         System.out.println("HORA LLEGADA: " + i.getHoraLlegada());

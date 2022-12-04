@@ -15,6 +15,11 @@ import java.util.ArrayList;
  */
 public class ManejoArchivos {
 
+    /**
+     * Este metodo lee el archivo y devuelve las lineas del mismo en formato ArrayList
+     * @param nombrearchivo 
+     * @return ArrayList 
+     */
     public static ArrayList<String> LeerArchivo(String nombrearchivo) {
         ArrayList<String> lineas = new ArrayList<>();
         File archivo = null;
@@ -54,6 +59,11 @@ public class ManejoArchivos {
 
     }
 
+    /**
+     * Este metodo escribe un archivo linea por linea
+     * @param nombreArchivo
+     * @param linea
+     */
     public static void EscribirArchivo(String nombreArchivo, String linea) {
 
         FileWriter fichero = null;
@@ -79,6 +89,13 @@ public class ManejoArchivos {
             }
         }
     }
+
+    /**
+     * Este metodo verifica si para leer el archivo se debe saltar la primera linea o no
+     * @param nombreArchivo
+     * @param saltarPrimeraLinea
+     * @return
+     */
     public static ArrayList<String[]> LeerValidando(String nombreArchivo,boolean saltarPrimeraLinea){
         ArrayList<String> lineas=ManejoArchivos.LeerArchivo(nombreArchivo);
         ArrayList<String[]> datos=new ArrayList<>();

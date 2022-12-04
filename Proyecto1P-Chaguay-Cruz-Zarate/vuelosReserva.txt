@@ -1,1 +1,7 @@
 codigoVueloReserva,codigoVuelo,tipo,tarifa,asiento
+188987,LA1437,IDA,A,A1
+297259,LA1382,VUELTA,C,No hay un asiento disponible
+446837,LA2430,IDA,A,A1
+935569,LA1436,VUELTA,C,B61
+69381,LA1437,IDA,A,No hay un asiento disponible
+308673,LA1382,VUELTA,C,No hay un asiento disponible

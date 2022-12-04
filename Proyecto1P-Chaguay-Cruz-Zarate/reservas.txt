@@ -1,1 +1,3 @@
 codigoReserva,codigoVuelo,cliente,fecha,valorPagar
+JHFZHJ,LA1437,Carolina Sabando,1/11/2022,1112.3111999999999
+VASPFP,LA1437,Ramiro Vasquez,1/11/2022,778.6178399999999
