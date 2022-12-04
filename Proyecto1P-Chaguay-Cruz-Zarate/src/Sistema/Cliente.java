@@ -189,9 +189,6 @@ public class Cliente extends Usuario {
 
                 System.out.println("\n******PASO 2*****\n*****************");
                 System.out.println("-----------ASIENTOS----------");
-                System.out.println(vueloIda);
-                System.out.println(" ");
-                System.out.println(vueloRetorno);
                 String asiento1 = Reserva.AsignarAsientos();
                 String asiento2 = Reserva.AsignarAsientos();
 
