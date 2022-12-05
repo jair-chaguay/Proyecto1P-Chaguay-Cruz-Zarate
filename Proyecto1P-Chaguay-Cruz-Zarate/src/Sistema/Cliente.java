@@ -48,7 +48,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * mMtodo que retorna el numero de tarjeta de credito del cliente en formato String
+     * Metodo que retorna el numero de tarjeta de credito del cliente en formato String
      * @return String
      */
     public String getNumTarjetaCredito() {
@@ -56,7 +56,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Metodo set parael numero de tarjeta de credito del cliente
+     * Metodo set para el numero de tarjeta de credito del cliente
      * @param numTarjetaCredito
      */
     public void setNumTarjetaCredito(String numTarjetaCredito) {
@@ -343,7 +343,7 @@ public class Cliente extends Usuario {
 
                 comprar = false;
             } else {
-                System.out.println("No hay vuelos disponibles :C");
+                System.out.println("No hay vuelos disponibles");
             }
 
         }

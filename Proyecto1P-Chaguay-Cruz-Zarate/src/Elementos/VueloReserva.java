@@ -19,10 +19,6 @@ public class VueloReserva {
     private tipoVuelo tipoVuelo;
     private tipoTarifa tarifa;
     private String asiento;
-
-    /**
-     *
-     */
     public static ArrayList<Vuelo> listaVuelos=new ArrayList<>();
 
     /**

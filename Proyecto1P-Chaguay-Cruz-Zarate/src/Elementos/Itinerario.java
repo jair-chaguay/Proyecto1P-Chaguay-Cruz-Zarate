@@ -12,7 +12,6 @@ public class Itinerario {
     private String cod;
     private String origenCiudad, destinoCiudad,duracion,horaSalida,horaLlegada;
     
-    //CONSTRUCTOR PARA CREAR OBEJTOS DE TIPO ITINERARIO
 
     /**
      * Constructor que crea obejtos de tipo Itinerario

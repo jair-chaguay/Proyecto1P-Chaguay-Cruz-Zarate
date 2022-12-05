@@ -104,8 +104,6 @@ public class Pago {
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
     }
-    
-    
-        
+       
         
 }

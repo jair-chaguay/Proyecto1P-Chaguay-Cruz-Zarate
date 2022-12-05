@@ -21,7 +21,7 @@ public class Reserva {
     private double valorPagar;
     private final Vuelo vuelo;
     
-    //CONSTRUCTOR PARA CREAR OBJETOS RESERVA
+    
 
     /**
      * Constructor que crea objetos de tipo Reserva
@@ -145,12 +145,13 @@ public class Reserva {
         ArrayList<String[]> datosAsientos=LeerValidando("asientos.txt",true);
         Asiento a;
         int aleatorio=0;
-
+        
         for(String[] dato:datosAsientos){
+            //CARGANDO LOS DATOS DE ARCHIVO DE LSO ASIENTOS
             a=new Asiento(dato[0],dato[1],disponibilidad.valueOf(dato[2]));
             listaAsientos.add(a);
         }
-        
+        //GENERANDO NUMERO ALEATORIO
         Random f= new Random();  
         double ale=(int)(Math.random()*listaAsientos.size());
         int asAle=(int)ale;
