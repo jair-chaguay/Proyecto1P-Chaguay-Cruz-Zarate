@@ -135,9 +135,11 @@ public class Sistema {
                             switch(opc){
                                 case 1:
                                     clientevip.comprarTickets();
+                                    Sistema.mostrarMenuCliente();
                                     break;
                                 case 2:
                                     clientevip.consultarReservas();
+                                    Sistema.mostrarMenuCliente();
                                     break;
                                 case 3:
                                     break;
@@ -156,9 +158,11 @@ public class Sistema {
                             switch(opc){
                                 case 1:
                                     cliente.comprarTickets();
+                                    Sistema.mostrarMenuCliente();
                                     break;
                                 case 2:
                                     cliente.consultarReservas();
+                                    Sistema.mostrarMenuCliente();
                                     break;
                                 case 3:
                                     break;
@@ -180,9 +184,11 @@ public class Sistema {
                         switch(opc2){
                             case 1:
                                 operador.consultarUsuarios(listaUsuarios);
-                               break;
+                                Sistema.mostrarMenuOperador();
+                                break;
                             case 2:
                                 operador.consultarReservas();
+                                Sistema.mostrarMenuOperador();
                                 break;
                             case 3:
                                 break;    
