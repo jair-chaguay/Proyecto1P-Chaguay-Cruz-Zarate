@@ -220,7 +220,7 @@ public class Cliente extends Usuario {
                 System.out.println("\n******PASO 3*****\n*****************");
                 System.out.println("-----------DATOS PASAJERO----------");
                 Paso3();
-                System.out.print("\nDesea guardar los datos del pasajero y continuar al pago(s/n)? ");
+                System.out.print("\nDesea guardar los datos del pasajero y continuar al pago?(s/n) ");
                 String sn = sc.nextLine();
                 if (sn.equalsIgnoreCase("s")) {
                     System.out.println("Has completado el paso 3");
@@ -272,7 +272,7 @@ public class Cliente extends Usuario {
                                 String tarjeta = sc.nextLine();
                                 sc.nextLine();
 
-                                System.out.println("Estas seguro de pagar el vuelo?(s/n)");
+                                System.out.print("Estas seguro de pagar el vuelo?(s/n) ");
                                 String opc = sc.nextLine();
                                 if (opc.equalsIgnoreCase("s")) {
 
@@ -310,7 +310,7 @@ public class Cliente extends Usuario {
                                 System.out.print("Ingrese el numero de T/C: ");
                                 String tarjeta = sc.nextLine();
                                 sc.nextLine();
-                                System.out.print("Estas seguro de pagar el vuelo?(s/n)");
+                                System.out.print("Estas seguro de pagar el vuelo?(s/n) ");
                                 String opc = sc.nextLine();
                                 if (opc.equalsIgnoreCase("s")) {
 
