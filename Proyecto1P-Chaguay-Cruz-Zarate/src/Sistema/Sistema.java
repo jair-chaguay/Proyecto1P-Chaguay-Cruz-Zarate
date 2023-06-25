@@ -5,11 +5,11 @@
 package Sistema;
 
 import Elementos.*;
-import static Archivos.ManejoArchivos.LeerValidando;
 import static Elementos.VueloReserva.listaVuelos;
 import Enums.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static Archivos.Lectura.LeerValidando;
 
 /**
  *
