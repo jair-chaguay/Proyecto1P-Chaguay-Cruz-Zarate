@@ -66,10 +66,10 @@ public class ClienteVip extends Cliente {
 
     /**
      * Metodo set para las millas del cliente vip
-     * @param millas
+     * @param milla
      */
-    public void setMillas(int millas) {
-        this.millas = millas;
+    public void setMillas(int milla) {
+        this.millas = milla;
     }
 
 
