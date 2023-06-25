@@ -349,7 +349,64 @@ public class Cliente extends Usuario {
         }
     }
 
+ /**
+  * Dividir el método comprarTickets() en varios métodos más pequeños: El método comprarTickets() 
+  * es muy grande y hace demasiadas cosas. Podemos dividirlo en varios métodos más pequeños, 
+  * cada uno con una única responsabilidad. Aquí hay un ejemplo de cómo podríamos hacer esto:
+  * 
+    public void comprarTickets() {
+    String ciudadOrigen = seleccionarCiudadOrigen();
+    String ciudadDestino = seleccionarCiudadDestino(ciudadOrigen);
+    String[] fechas = seleccionarFechas();
+    VueloReserva vueloIda = seleccionarVuelo(ciudadOrigen, ciudadDestino, fechas[0]);
+    VueloReserva vueloRetorno = seleccionarVuelo(ciudadDestino, ciudadOrigen, fechas[1]);
+    recogerDatosPasajero();
+    manejarPago(vueloIda, vueloRetorno);
+}
 
+public String seleccionarCiudadOrigen() {
+    // Implementación...
+}
+
+public String seleccionarCiudadDestino(String ciudadOrigen) {
+    // Implementación...
+}
+
+public String[] seleccionarFechas() {
+    // Implementación...
+}
+
+public VueloReserva seleccionarVuelo(String origen, String destino, String fecha) {
+    // Implementación...
+}
+
+public void recogerDatosPasajero() {
+    // Implementación...
+}
+
+public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
+    // Implementación...
+}
+ */
+    /**
+     * Usar la estrategia de pago apropiada en el método manejarPago(): Ahora, en lugar de implementar 
+     * la lógica de pago directamente en el método manejarPago(), podemos usar la estrategia de pago
+     * apropiada. Esto permitirá extender el sistema con nuevas formas de pago sin
+     * tener que modificar la clase Cliente. Aquí hay un ejemplo de cómo podríamos hacer esto:
+    
+    public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
+    PagoStrategy pagoStrategy;
+    if (/* condición para usar pago con tarjeta ) {
+        pagoStrategy = new PagoConTarjetaStrategy();
+    } else if (/* condición para usar pago con millas ) {
+        pagoStrategy = new PagoConMillasStrategy();
+    } else {
+        throw new UnsupportedOperationException("Forma de pago no soportada");
+    }
+    pagoStrategy.pagar(vueloIda, vueloRetorno);
+}
+
+     */
     /**
      * Metodo para generar el codigo de pago
      * @return
