@@ -613,27 +613,71 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
      */
     @Override
     public void consultarReservas() {
-        int numero = (int) (Math.random() * 10 + 1);
+       int numero = (int) (Math.random() * 10 + 1);
 
-        for (Reserva dato : listaReservas) {
-            if (dato.getCliente().equals(nombres)) {
-                System.out.println("NOMBRES: " + dato.getCliente());
-                System.out.println("CEDULA: " + cedula);
-                System.out.println("VUELO:" + dato.getVuelo().getCodigoVuelo());
-                for (Itinerario i : listaItinerarios) {
-                    if (i.getCod().equals(dato.getVuelo().getCodigoItinerario())) {
-                        System.out.println("HORA SALIDA: " + i.getHoraSalida());
-                        System.out.println("HORA LLEGADA: " + i.getHoraLlegada());
-                        System.out.println("AVION: " + dato.getVuelo().getCodigoAvion());
-                        System.out.println("PUERTA DE EMBARQUE: " + numero);
-                        System.out.println("---------------------");
-                    }
-                }
-            } else {
-                System.out.println("Usted no tiene una reserva.");
-            }
-
-        }
-
+        for (Reserva datos : listaReservas) {
+            if (datos.getCliente().equals(nombres)) {
+                System.out.println("NOMBRES Cliente: " + datos.getCliente());
+                System.out.println("CEDULA Cliente: " + cedula);
+                System.out.println("Numero VUELO:" + datos.getVuelo().getCodigoVuelo());
+                for (Itinerario pos: listaItinerarios) {
+                    if (pos.getCod().equals(datos.getVuelo().getCodigoItinerario())) {
+                        System.out.println("HORA SALIDA: " + pos.getHoraSalida());
+                        System.out.println("HORA LLEGADA: " + pos.getHoraLlegada());
+                        System.out.println("Numero Avion: " + datos.getVuelo().getCodigoAvion());
+                        System.out.println("Gate: " + numero);
+                        System.out.println("-------........--------------");          
+                }}
+            }else {
+                System.out.println("No tiene una reserva.");
+            }}
+ System.out.println("Cambiando la contraseña del usuario...");
+        this.setContrasena("nuevaContrasena"); 
+    
     }
+    
+ /**
+  * public class Cliente extends Usuario {
+    private String numTarjetaCredito;
+
+    public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria, String numTarjetaCredito) {
+        super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+        this.numTarjetaCredito = numTarjetaCredito;
+    }
+
+    public String getNumTarjetaCredito() {
+        return numTarjetaCredito;
+    }
+
+    public void setNumTarjetaCredito(String numTarjetaCredito) {
+        this.numTarjetaCredito = numTarjetaCredito;
+    }
+}
+* ReservaService: Esta clase manejará la lógica de reserva de vuelos.
+
+public class ReservaService {
+    public void comprarTickets(Cliente cliente) {
+        // Lógica para comprar tickets
+    }
+}
+* PagoService: Esta clase manejará la lógica de pago.
+public class PagoService {
+    public Reserva pagarConTarjeta(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
+        // Lógica para pagar con tarjeta de crédito
+    }
+
+    public String pagarConMillas(int millas, double precio, VueloReserva vuelo, VueloReserva vuelo2) {
+        // Lógica para pagar con millas
+    }
+}
+* ClienteFileReader: Esta clase manejará la lectura de archivos relacionados con los clientes.
+
+public class ClienteFileReader {
+    public ArrayList<String[]> leerDatosClientes(String filename) {
+        // Lógica para leer datos de los clientes
+    }
+}
+
+  */   
+    
 }

@@ -67,6 +67,11 @@ public class ClienteVip extends Cliente {
     /**
      * Metodo set para las millas del cliente vip
      * @param milla
+     * En este código, el método setMillas en la clase ClienteVip simplemente 
+     * cambia las millas de un ClienteVip como se esperaría. Esto significa que ahora
+     * puedes usar un objeto de tipo ClienteVip en cualquier lugar donde esperes un 
+     * objeto de tipo Usuario, y todos los métodos se comportarán de la misma manera, 
+     * cumpliendo así con el principio de sustitución de Liskov.
      */
     public void setMillas(int milla) {
         this.millas = milla;
