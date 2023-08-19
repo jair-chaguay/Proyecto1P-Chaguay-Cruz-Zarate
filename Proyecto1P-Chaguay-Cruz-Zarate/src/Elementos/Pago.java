@@ -5,7 +5,6 @@
 package Elementos;
 
 import Enums.formaPago;
-import java.util.Random;
 
 
 /**
@@ -38,7 +37,7 @@ public class Pago {
      */
     @Override
     public String toString(){
-        return idPago+","+codigo+","+formaPago+","+valorPagar;
+        return getIdPago()+","+getCodigo()+","+getFormaPago()+","+getValorPagar();
         
     }
     
@@ -105,24 +104,6 @@ public class Pago {
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
     }
-   
-    /**
-     * Metodo para generar el codigo de pago
-     * @return
-     */
-    public int crearCodigo() {
-        String opciones = "1234567890";
-        String cadena = "";
-        Random r = new Random();
-        for (int i = 0; i < 6; i++) {
-            int posicion = r.nextInt(opciones.length());
-            char caracter = opciones.charAt(posicion);
-            cadena += caracter;
-        }
-        int valor = Integer.parseInt(cadena);
-        return valor;
-
-    }
-    
+       
         
 }

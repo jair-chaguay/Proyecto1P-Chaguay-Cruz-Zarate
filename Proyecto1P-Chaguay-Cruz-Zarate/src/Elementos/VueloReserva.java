@@ -8,7 +8,6 @@ package Elementos;
 
 import Enums.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  *
@@ -128,22 +127,6 @@ public class VueloReserva {
     }
     
     
-  /**
-     * Metodo para generar el codigo del vuelo reservado
-     * @return
-     */
-    public String crearCodigoReserva() {
 
-        String opciones = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String cadena = "";
-        Random r = new Random();
-        for (int i = 0; i < 6; i++) {
-            int posicion = r.nextInt(opciones.length());
-            char caracter = opciones.charAt(posicion);
-            cadena += caracter;
-        }
-        String valor = cadena;
-        return valor;
-    }
     
 }

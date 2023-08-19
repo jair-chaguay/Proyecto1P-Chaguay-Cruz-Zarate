@@ -25,7 +25,8 @@ public class Cliente extends Usuario {
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
     static ArrayList<Reserva> listaReservas = new ArrayList<>();
-    
+    private String rango;
+    private int millas = +1000;
     
     /**
      * Constructor para crear objetos de tipoCliente
@@ -39,6 +40,16 @@ public class Cliente extends Usuario {
      */
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+
+        for (String[] dato : datosClientes) {
+            if (dato[0].equals(cedula)) {
+                this.numTarjetaCredito = dato[1];
+            }
+        }
+    }
+    public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria, String rango) {
+        super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+        this.rango=rango;
 
         for (String[] dato : datosClientes) {
             if (dato[0].equals(cedula)) {
@@ -349,64 +360,7 @@ public class Cliente extends Usuario {
         }
     }
 
- /**
-  * Dividir el método comprarTickets() en varios métodos más pequeños: El método comprarTickets() 
-  * es muy grande y hace demasiadas cosas. Podemos dividirlo en varios métodos más pequeños, 
-  * cada uno con una única responsabilidad. Aquí hay un ejemplo de cómo podríamos hacer esto:
-  * 
-    public void comprarTickets() {
-    String ciudadOrigen = seleccionarCiudadOrigen();
-    String ciudadDestino = seleccionarCiudadDestino(ciudadOrigen);
-    String[] fechas = seleccionarFechas();
-    VueloReserva vueloIda = seleccionarVuelo(ciudadOrigen, ciudadDestino, fechas[0]);
-    VueloReserva vueloRetorno = seleccionarVuelo(ciudadDestino, ciudadOrigen, fechas[1]);
-    recogerDatosPasajero();
-    manejarPago(vueloIda, vueloRetorno);
-}
 
-public String seleccionarCiudadOrigen() {
-    // Implementación...
-}
-
-public String seleccionarCiudadDestino(String ciudadOrigen) {
-    // Implementación...
-}
-
-public String[] seleccionarFechas() {
-    // Implementación...
-}
-
-public VueloReserva seleccionarVuelo(String origen, String destino, String fecha) {
-    // Implementación...
-}
-
-public void recogerDatosPasajero() {
-    // Implementación...
-}
-
-public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
-    // Implementación...
-}
- */
-    /**
-     * Usar la estrategia de pago apropiada en el método manejarPago(): Ahora, en lugar de implementar 
-     * la lógica de pago directamente en el método manejarPago(), podemos usar la estrategia de pago
-     * apropiada. Esto permitirá extender el sistema con nuevas formas de pago sin
-     * tener que modificar la clase Cliente. Aquí hay un ejemplo de cómo podríamos hacer esto:
-    
-    public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
-    PagoStrategy pagoStrategy;
-    if (/* condición para usar pago con tarjeta ) {
-        pagoStrategy = new PagoConTarjetaStrategy();
-    } else if (/* condición para usar pago con millas ) {
-        pagoStrategy = new PagoConMillasStrategy();
-    } else {
-        throw new UnsupportedOperationException("Forma de pago no soportada");
-    }
-    pagoStrategy.pagar(vueloIda, vueloRetorno);
-}
-
-     */
     /**
      * Metodo para generar el codigo de pago
      * @return
@@ -439,8 +393,7 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
             char caracter = opciones.charAt(posicion);
             cadena += caracter;
         }
-        String valor = cadena;
-        return valor;
+        return cadena;
     }
 
     /**
@@ -495,7 +448,20 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
 
     /**
      * Metodo que imprimi las tarifas disponibles
+     * 
+     * 
      */
+
+    public static void mostrar(String opcion){
+        if (opcion=="tarifas"){
+            System.out.println("\nTARIFAS");
+            System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
+        }
+        else if (opcion=="formasDePago"){
+            System.out.println("\nFormas de Pago:");
+            System.out.println("1. Tarjeta de Credito\n2. Millas\n");
+        }
+    }
     public static void mostrarTarifas() {
         System.out.println("\nTARIFAS");
         System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
@@ -543,7 +509,7 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
      * @param vuelo2
      * @return Reserva
      */
-    public Reserva Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
+    public Reserva Pagar( double valor, VueloReserva vuelo, VueloReserva vuelo2) {
         double valorTC = valor + (valor * 10 / 100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
         Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
@@ -594,7 +560,7 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
           
             if(opc.equalsIgnoreCase("s")){
                 double valorTC = precio + (precio * 10 / 100);
-                Pagar(numTarjetaCredito,precio,vuelo,vuelo2);
+                Pagar(precio,vuelo,vuelo2);
                 Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
                 Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
                 return r.getCodigo();
@@ -613,71 +579,27 @@ public void manejarPago(VueloReserva vueloIda, VueloReserva vueloRetorno) {
      */
     @Override
     public void consultarReservas() {
-       int numero = (int) (Math.random() * 10 + 1);
+        int numero = (int) (Math.random() * 10 + 1);
 
-        for (Reserva datos : listaReservas) {
-            if (datos.getCliente().equals(nombres)) {
-                System.out.println("NOMBRES Cliente: " + datos.getCliente());
-                System.out.println("CEDULA Cliente: " + cedula);
-                System.out.println("Numero VUELO:" + datos.getVuelo().getCodigoVuelo());
-                for (Itinerario pos: listaItinerarios) {
-                    if (pos.getCod().equals(datos.getVuelo().getCodigoItinerario())) {
-                        System.out.println("HORA SALIDA: " + pos.getHoraSalida());
-                        System.out.println("HORA LLEGADA: " + pos.getHoraLlegada());
-                        System.out.println("Numero Avion: " + datos.getVuelo().getCodigoAvion());
-                        System.out.println("Gate: " + numero);
-                        System.out.println("-------........--------------");          
-                }}
-            }else {
-                System.out.println("No tiene una reserva.");
-            }}
- System.out.println("Cambiando la contraseña del usuario...");
-        this.setContrasena("nuevaContrasena"); 
-    
-    }
-    
- /**
-  * public class Cliente extends Usuario {
-    private String numTarjetaCredito;
+        for (Reserva dato : listaReservas) {
+            if (dato.getCliente().equals(nombres)) {
+                System.out.println("NOMBRES: " + dato.getCliente());
+                System.out.println("CEDULA: " + cedula);
+                System.out.println("VUELO:" + dato.getVuelo().getCodigoVuelo());
+                for (Itinerario i : listaItinerarios) {
+                    if (i.getCod().equals(dato.getVuelo().getCodigoItinerario())) {
+                        System.out.println("HORA SALIDA: " + i.getHoraSalida());
+                        System.out.println("HORA LLEGADA: " + i.getHoraLlegada());
+                        System.out.println("AVION: " + dato.getVuelo().getCodigoAvion());
+                        System.out.println("PUERTA DE EMBARQUE: " + numero);
+                        System.out.println("---------------------");
+                    }
+                }
+            } else {
+                System.out.println("Usted no tiene una reserva.");
+            }
 
-    public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria, String numTarjetaCredito) {
-        super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
-        this.numTarjetaCredito = numTarjetaCredito;
-    }
+        }
 
-    public String getNumTarjetaCredito() {
-        return numTarjetaCredito;
     }
-
-    public void setNumTarjetaCredito(String numTarjetaCredito) {
-        this.numTarjetaCredito = numTarjetaCredito;
-    }
-}
-* ReservaService: Esta clase manejará la lógica de reserva de vuelos.
-
-public class ReservaService {
-    public void comprarTickets(Cliente cliente) {
-        // Lógica para comprar tickets
-    }
-}
-* PagoService: Esta clase manejará la lógica de pago.
-public class PagoService {
-    public Reserva pagarConTarjeta(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
-        // Lógica para pagar con tarjeta de crédito
-    }
-
-    public String pagarConMillas(int millas, double precio, VueloReserva vuelo, VueloReserva vuelo2) {
-        // Lógica para pagar con millas
-    }
-}
-* ClienteFileReader: Esta clase manejará la lectura de archivos relacionados con los clientes.
-
-public class ClienteFileReader {
-    public ArrayList<String[]> leerDatosClientes(String filename) {
-        // Lógica para leer datos de los clientes
-    }
-}
-
-  */   
-    
 }

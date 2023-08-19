@@ -5,26 +5,43 @@
 package Sistema;
 
 import Elementos.*;
+import static Archivos.ManejoArchivos.LeerValidando;
 import static Elementos.VueloReserva.listaVuelos;
 import Enums.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static Archivos.Lectura.LeerValidando;
 
 /**
  *
  * @author HP
  */
 public class Sistema {
-   static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
-   static ArrayList<Reserva> listaReservas=new ArrayList<>();
-    public static ArrayList<Itinerario> listaItinerarios=new ArrayList<>();
-    static ArrayList<Avion> listaAviones=new ArrayList<>();
+    private ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+    private ArrayList<Reserva> listaReservas=new ArrayList<>();
+    private ArrayList<Itinerario> listaItinerarios=new ArrayList<>();
+    private ArrayList<Avion> listaAviones=new ArrayList<>();
 
     /**
      * Metodo que imprime el menu del Operador
      */
+      public ArrayList<Itinerario> getListaItinerarios(){
+          return this.listaItinerarios;   
+        }
+          public ArrayList<Itinerario> getListaReservas(){
+          return this.listaItinerarios;   
+        }
+        
+          public ArrayList<Itinerario> getListaUsuarios(){
+          return this.listaItinerarios;   
+        }
+        
+              public ArrayList<Itinerario> getListaAviones(){
+          return this.listaItinerarios;   
+        }
+        
+
     public static void mostrarMenuOperador(){
+      
         System.out.println("1. Consultar usuarios\n2. Consultar reservas\n3. Salir");
     }
 

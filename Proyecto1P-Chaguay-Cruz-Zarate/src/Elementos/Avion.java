@@ -59,6 +59,6 @@ public class Avion {
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-
+   
 }
 
