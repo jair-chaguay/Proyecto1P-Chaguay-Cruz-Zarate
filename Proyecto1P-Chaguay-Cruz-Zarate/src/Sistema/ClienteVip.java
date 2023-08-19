@@ -12,28 +12,24 @@ import java.util.ArrayList;
  *
  * @author HP
  */
-public class ClienteVip extends Cliente {
+public class ClienteVip {
 
     private String rango;
     private int millas = +1000;
+    private Cliente cliente;
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
 
 
     /**
      * Constructor que crea objetos de tipo ClienteVip
-     * @param cedula
-     * @param nombres
-     * @param edad
-     * @param correo
-     * @param usuario
-     * @param contrasena
+     
      * @param tipoCategoria
      */
-    public ClienteVip(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
-        super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+    public ClienteVip(Cliente c, tipoCategoria tipoCategoria) {
+       
 
         for (String[] dato : datosClientes) {
-            if (dato[0].equals(cedula)) {
+            if (dato[0].equals(c.getCedula())) {
                 this.rango = dato[2];
                 this.millas = Integer.valueOf(dato[3]);
             }

@@ -37,7 +37,7 @@ public class Pago {
      */
     @Override
     public String toString(){
-        return idPago+","+codigo+","+formaPago+","+valorPagar;
+        return getIdPago()+","+getCodigo()+","+getFormaPago()+","+getValorPagar();
         
     }
     

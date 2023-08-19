@@ -25,7 +25,8 @@ public class Cliente extends Usuario {
     ArrayList<String[]> datosClientes = LeerValidando("clientes.txt", true);
     Scanner sc = new Scanner(System.in);
     static ArrayList<Reserva> listaReservas = new ArrayList<>();
-    
+    private String rango;
+    private int millas = +1000;
     
     /**
      * Constructor para crear objetos de tipoCliente
@@ -39,6 +40,16 @@ public class Cliente extends Usuario {
      */
     public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria) {
         super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+
+        for (String[] dato : datosClientes) {
+            if (dato[0].equals(cedula)) {
+                this.numTarjetaCredito = dato[1];
+            }
+        }
+    }
+    public Cliente(String cedula, String nombres, int edad, String correo, String usuario, String contrasena, tipoCategoria tipoCategoria, String rango) {
+        super(cedula, nombres, edad, correo, usuario, contrasena, tipoCategoria);
+        this.rango=rango;
 
         for (String[] dato : datosClientes) {
             if (dato[0].equals(cedula)) {
@@ -382,8 +393,7 @@ public class Cliente extends Usuario {
             char caracter = opciones.charAt(posicion);
             cadena += caracter;
         }
-        String valor = cadena;
-        return valor;
+        return cadena;
     }
 
     /**
@@ -438,7 +448,20 @@ public class Cliente extends Usuario {
 
     /**
      * Metodo que imprimi las tarifas disponibles
+     * 
+     * 
      */
+
+    public static void mostrar(String opcion){
+        if (opcion=="tarifas"){
+            System.out.println("\nTARIFAS");
+            System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
+        }
+        else if (opcion=="formasDePago"){
+            System.out.println("\nFormas de Pago:");
+            System.out.println("1. Tarjeta de Credito\n2. Millas\n");
+        }
+    }
     public static void mostrarTarifas() {
         System.out.println("\nTARIFAS");
         System.out.println("A. Economy(+0)\nB. Premium economy(+60)\nC. Premium business(+90)");
@@ -486,7 +509,7 @@ public class Cliente extends Usuario {
      * @param vuelo2
      * @return Reserva
      */
-    public Reserva Pagar(String numTarjetaCredito, double valor, VueloReserva vuelo, VueloReserva vuelo2) {
+    public Reserva Pagar( double valor, VueloReserva vuelo, VueloReserva vuelo2) {
         double valorTC = valor + (valor * 10 / 100);
         Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
         Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
@@ -537,7 +560,7 @@ public class Cliente extends Usuario {
           
             if(opc.equalsIgnoreCase("s")){
                 double valorTC = precio + (precio * 10 / 100);
-                Pagar(numTarjetaCredito,precio,vuelo,vuelo2);
+                Pagar(precio,vuelo,vuelo2);
                 Reserva r = new Reserva(crearCodigoReserva(), vuelo.getCodigoVueloReserva(), nombres, vuelo.getCodigoVueloReserva().getFechaSalida(), valorTC);
                 Reserva r2 = new Reserva(crearCodigoReserva(), vuelo2.getCodigoVueloReserva(), nombres, vuelo2.getCodigoVueloReserva().getFechaSalida(), valorTC);
                 return r.getCodigo();

@@ -16,13 +16,13 @@ public class FileVueloReserva {
      *
      * @param nombre
      */
-    public void Escribir(String nombre) {
-        File archivo; //Manipulacion de Archivo
-        FileWriter f; //Escribir archivo(agregar los vuelosReservas)
+    public void crearArchivoReservas(String nombreArchivo) {
+        File archivo; 
+        FileWriter f; 
         BufferedWriter bf;
-        PrintWriter linea; //Escribir Archivo
+        PrintWriter linea; 
 
-        archivo = new File(nombre);
+        archivo = new File(nombreArchivo);
 
         if(!archivo.exists()) {
 
