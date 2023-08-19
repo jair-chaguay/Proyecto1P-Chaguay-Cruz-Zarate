@@ -4,7 +4,7 @@
  */
 package Sistema;
 
-
+import java.util.Scanner;
 import Enums.*;
 
 /**
@@ -37,6 +37,9 @@ public abstract class Usuario {
         this.edad = edad;
         this.tipoCategoria = tipoCategoria;
     }
+
+
+    public abstract void mostrarMenu(Scanner sc);
 
     /**
      * Metodo que devuelve el user del Usuario

@@ -179,10 +179,10 @@ public class Vuelo {
     @Override
     public String toString(){
         
-        String x = "CODIGO: " + getCodigoVuelo() + "\nHORA SALIDA: ";
+        String x = "CODIGO: " + getCodigoVuelo();
         for(Itinerario i: listaItinerarios){
             if(i.getCod().equals(getCodigoItinerario())){
-                x = x + i.getHoraSalida() + "\nHORA LLEGADA: " + i.getHoraLlegada() + "\nDURACION: " + i.getDuracion();
+                x = x + "\n" + i.toString();
             }
         }
         
