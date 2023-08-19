@@ -16,11 +16,42 @@ import java.util.Scanner;
  * @author HP
  */
 public class Sistema {
-   static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
-   static ArrayList<Reserva> listaReservas=new ArrayList<>();
-    public static ArrayList<Itinerario> listaItinerarios=new ArrayList<>();
-    static ArrayList<Avion> listaAviones=new ArrayList<>();
+   private static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+   private static ArrayList<Reserva> listaReservas=new ArrayList<>();
+   private static ArrayList<Itinerario> listaItinerarios=new ArrayList<>();
+   private static ArrayList<Avion> listaAviones=new ArrayList<>();
+    
+    public static ArrayList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
 
+    public static void setListaUsuarios(ArrayList<Usuario> lista) {
+        listaUsuarios = lista;
+    }
+
+    public static ArrayList<Reserva> getListaReservas() {
+        return listaReservas;
+    }
+
+    public static void setListaReservas(ArrayList<Reserva> lista) {
+        listaReservas = lista;
+    }
+
+    public static ArrayList<Itinerario> getListaItinerarios() {
+        return listaItinerarios;
+    }
+
+    public static void setListaItinerarios(ArrayList<Itinerario> lista) {
+        listaItinerarios = lista;
+    }
+
+    public static ArrayList<Avion> getListaAviones() {
+        return listaAviones;
+    }
+
+    public static void setListaAviones(ArrayList<Avion> lista) {
+        listaAviones = lista;
+    }
     /**
      * Metodo que imprime el menu del Operador
      */
@@ -46,15 +77,15 @@ public class Sistema {
             switch(dato[6]){
                 case "S":
                     u=new Cliente(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
-                    listaUsuarios.add(u);
+                    getListaUsuarios().add(u);
                     break;
                 case "V":
                     u=new ClienteVip(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
-                    listaUsuarios.add(u);
+                    getListaUsuarios().add(u);
                     break; 
                 case "O":
                     u=new Operador(dato[0],dato[1],Integer.valueOf(dato[2]),dato[3],dato[4],dato[5],tipoCategoria.valueOf(dato[6]));
-                    listaUsuarios.add(u);
+                    getListaUsuarios().add(u);
                     break;    
             }
         }
@@ -68,7 +99,7 @@ public class Sistema {
         Itinerario i;
         for(String[] dato:datosItinerarios){
             i=new Itinerario(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5]);
-            listaItinerarios.add(i);
+            getListaItinerarios().add(i);
         }
     }
     
@@ -92,7 +123,7 @@ public class Sistema {
         Avion a;
         for(String[] dato:datosAviones){
             a=new Avion(dato[0],Integer.valueOf(dato[1]));
-            listaAviones.add(a);
+            getListaAviones().add(a);
         }
     }
     
