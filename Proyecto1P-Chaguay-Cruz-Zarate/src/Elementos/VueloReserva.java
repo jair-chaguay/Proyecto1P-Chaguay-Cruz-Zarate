@@ -41,7 +41,7 @@ public class VueloReserva {
      * Metodo que retorna el codigo del vuelo de Reserva
      * @return Vuelo
      */
-    public Vuelo getCodigoVueloReserva() {
+    public Vuelo getVuelo() {
         return codigoVueloReserva;
     }
 

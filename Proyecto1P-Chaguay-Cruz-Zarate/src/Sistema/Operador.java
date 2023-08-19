@@ -37,6 +37,31 @@ public class Operador extends Usuario {
         }
     }
 
+    public void mostrarMenu(Scanner sc){
+        Sistema.mostrarMenuOperador();
+        int opc2=0;
+        while(opc2!=3){
+            System.out.println("Ingrese opcion: ");
+            opc2=sc.nextInt();
+            sc.nextLine();
+            switch(opc2){
+                case 1:
+                    this.consultarUsuarios(listaUsuarios);
+                    Sistema.mostrarMenuOperador();
+                    break;
+                case 2:
+                    this.consultarReservas();
+                    Sistema.mostrarMenuOperador();
+                    break;
+                case 3:
+                    break;    
+                default:
+                    System.out.println("Opcion invalida");
+                    break;
+            }
+        }
+    }
+
     /**
      * Metodo que retorna en formato int el sueldo del operador
      * @return int

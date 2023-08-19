@@ -127,5 +127,11 @@ public class Itinerario {
         this.horaLlegada = horaLlegada;
     }
     
+    @Override
+    public String toString(){
+        return "HORA SALIDA: " + this.getHoraSalida() 
+        + "\nHORA LLEGADA: " + this.getHoraLlegada() 
+        + "\nDURACION: " + this.getDuracion();
+    }
     
 }
